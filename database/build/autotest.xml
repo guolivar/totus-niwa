@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- setup autotest database connection properties -->
+<project name="TOTUS-DATABASE-AUTOTEST">
+  <property name="db"     value="autotest_totus" />
+  <property name="dbhost" value="arctic.niwa.co.nz" />
+</project>

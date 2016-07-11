@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<project name="TOTUS-SERVER-AWS">
+  <!--<property name="apphost" value="totus-niwa.dyndns.org" />-->
+  <property name="apphost" value="totus-niwa.dyndns.org" />
+  <property name="deployuser" value="totus" />
+</project>

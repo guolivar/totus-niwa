@@ -1,0 +1,1120 @@
+<!-- $Header: /cvsroot/autodoc/autodoc/html.tmpl,v 1.4 2006/05/16 19:01:27 rbt Exp $ -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+  <head>
+    <title>Index for totus</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+	BODY {
+		color:	#000000;
+		background-color: #FFFFFF;
+		font-family: Helvetica, sans-serif;
+	}
+
+	P {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	P.w3ref {
+		font-size: 8pt;
+		font-style: italic;
+		text-align: right;
+	}
+
+	P.detail {
+		font-size: 10pt;
+	}
+
+	.error {
+		color: #FFFFFF;
+		background-color: #FF0000;
+	}
+
+	H1, H2, H3, H4, H5, H6 {
+	}
+
+	OL {
+		list-style-type: upper-alpha;
+	}
+
+	UL.topic {
+		list-style-type: upper-alpha;
+	}
+
+	LI.topic {
+		font-weight : bold;
+	}
+
+	HR {
+		color: #00FF00;
+		background-color: #808080;
+	}
+
+	TABLE {
+		border-width: medium;
+		padding: 3px;
+		background-color: #000000;
+		width: 90%;
+	}
+
+	CAPTION {
+		text-transform: capitalize;
+		font-weight : bold;
+		font-size: 14pt;
+	}
+
+	TH {
+		color: #FFFFFF;
+		background-color: #000000;
+		text-align: left;
+	}
+
+	TR {
+		color: #000000;
+		background-color: #000000;
+		vertical-align: top;
+	}
+
+	TR.tr0 {
+		background-color: #F0F0F0;
+	}
+
+	TR.tr1 {
+		background-color: #D8D8D8;
+	}
+
+	TD {
+		font-size: 12pt;
+	}
+
+	TD.col0 {
+		font-weight : bold;
+		width: 20%;
+	}
+
+	TD.col1 {
+		font-style: italic;
+		width: 15%;
+	}
+
+	TD.col2 {
+		font-size: 12px;
+	}
+    </style>
+    <link rel="stylesheet" type="text/css" media="all" href="all.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="screen.css">
+    <link rel="stylesheet" type="text/css" media="print" href="print.css">
+    <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+  </head>
+  <body>
+
+    <!-- Primary Index -->
+	<p><br><br>Dumped on 2011-03-01</p>
+<h1><a name="index">Index of database - totus</a></h1>
+<ul>
+    
+    <li><a name="network.schema">network</a></li><ul>
+    	<li><a href="#network.table.classes">classes</a></li><li><a href="#network.table.edge-points">edge_points</a></li><li><a href="#network.table.edges">edges</a></li><li><a href="#network.table.nodes">nodes</a></li><li><a href="#network.table.types">types</a></li>
+  	<li><a href="#network.function.closest-edge-y-numeric-x-numeric">closest_edge(y numeric, x numeric)</a></li><li><a href="#network.function.closest-edge-node-range-numeric-y-numeric-x-numeric">closest_edge_node(range numeric, y numeric, x numeric)</a></li><li><a href="#network.function.closest-edge-node-id-range-numeric-y-numeric-x-numeric">closest_edge_node_id(range numeric, y numeric, x numeric)</a></li><li><a href="#network.function.closest-edge-point-range-numeric-y-numeric-x-numeric">closest_edge_point(range numeric, y numeric, x numeric)</a></li><li><a href="#network.function.closest-nodes-number-numeric-range-numeric-y-numeric-x-smallint">closest_nodes(number numeric, range numeric, y numeric, x smallint)</a></li>
+    </ul>
+    
+</ul>
+
+    <!-- Schema Creation -->
+    <!-- networknetwork -->
+
+		
+		
+        <hr>
+		<h2>Table:
+			<a name="network.table.classes">classes</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>classes Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#network.table.types">types.id</a>
+                  
+                
+                </td>
+            	<td>type_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>name</td>
+            	<td>character(200)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>cost</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#network.table.edges">edges</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#network.schema">Schema network</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="network.table.edge-points">edge_points</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>edge_points Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>edge_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>point</td>
+            	<td>smallint</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>geom</td>
+            	<td>geometry</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+       edge_points_geom_idx geom
+    
+       edge_points_id_idx edge_id
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#network.schema">Schema network</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="network.table.edges">edges</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>edges Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>gid</td>
+            	<td>integer</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				DEFAULT nextval((&#39;&quot;edges_gid_seq&quot;&#39;::text)::regclass)
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>osm_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#network.table.classes">classes.id</a>
+                  
+                
+                </td>
+            	<td>class_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>length</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>name</td>
+            	<td>character(200)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>x1</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>y1</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>x2</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>y2</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>reverse_cost</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>rule</td>
+            	<td>text</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>to_cost</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>the_geom</td>
+            	<td>geometry</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#network.table.nodes">nodes.id</a>
+                  
+                
+                </td>
+            	<td>source</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#network.table.nodes">nodes.id</a>
+                  
+                
+                </td>
+            	<td>target</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+        <p>&nbsp;</p>
+		<table width="100%" cellspacing="0" cellpadding="3">
+            <caption>edges Constraints</caption>
+            <tr>
+            	<th>Name</th>
+            	<th>Constraint</th>
+            </tr>
+			
+            <tr class="tr0">
+				<td>enforce_dims_the_geom</td>
+                <td>CHECK ((ndims(the_geom) = 2))</td>
+            </tr>
+			
+            <tr class="tr1">
+				<td>enforce_geotype_the_geom</td>
+                <td>CHECK (((geometrytype(the_geom) = &#39;MULTILINESTRING&#39;::text) OR (the_geom IS NULL)))</td>
+            </tr>
+			
+            <tr class="tr0">
+				<td>enforce_srid_the_geom</td>
+                <td>CHECK ((srid(the_geom) = 4326))</td>
+            </tr>
+			
+		</table>
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+       edges_osm_id_idx osm_id
+    
+       geom_idx the_geom
+    
+       source_idx source
+    
+       target_idx target
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#network.schema">Schema network</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="network.table.nodes">nodes</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>nodes Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>the_geom</td>
+            	<td>geometry</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+        <p>&nbsp;</p>
+		<table width="100%" cellspacing="0" cellpadding="3">
+            <caption>nodes Constraints</caption>
+            <tr>
+            	<th>Name</th>
+            	<th>Constraint</th>
+            </tr>
+			
+            <tr class="tr0">
+				<td>enforce_dims_the_geom</td>
+                <td>CHECK ((ndims(the_geom) = 2))</td>
+            </tr>
+			
+            <tr class="tr1">
+				<td>enforce_geotype_the_geom</td>
+                <td>CHECK (((geometrytype(the_geom) = &#39;POINT&#39;::text) OR (the_geom IS NULL)))</td>
+            </tr>
+			
+            <tr class="tr0">
+				<td>enforce_srid_the_geom</td>
+                <td>CHECK ((srid(the_geom) = 4326))</td>
+            </tr>
+			
+		</table>
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#network.table.edges">edges</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+       nodes_idx the_geom
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#network.schema">Schema network</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="network.table.types">types</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>types Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>name</td>
+            	<td>character(200)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#network.table.classes">classes</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#network.schema">Schema network</a>
+    </p>
+	
+
+	<!-- We've gone through the table structure, now lets take a look at user functions -->
+	
+		<hr>
+		<h2>Function:
+			<a href="#network.schema"><a name="network.function.closest-edge-y-numeric-x-numeric">closest_edge(y numeric, x numeric)</a>
+		</h2>
+<h3>Returns: SET OF edge</h3>
+<h3>Language: PLPGSQL</h3>
+        
+        <pre>
+DECLARE
+  --range NUMERIC (12, 8) DEFAULT 0.002  ; -- ~222 m at equator
+  range NUMERIC (12, 8) DEFAULT 0.2; -- ~22.2 km at equator
+  srid  INTEGER         DEFAULT 4326;  -- WGS84
+  bbox  VARCHAR(256);
+  query TEXT;
+  result record;
+  edge edge;
+BEGIN
+  bbox := &#39;BOX3D(&#39; || x - range || &#39; &#39; || y - range || &#39;,&#39; || x + range || &#39; &#39; || y + range || &#39;)&#39;;
+
+  query := &#39;SELECT gid AS id,
+                   source AS startnode,
+                   target AS endnode
+              FROM network.edges
+             WHERE the_geom &amp;&amp; ST_SetSRID (&#39;&#39;&#39; || bbox || &#39;&#39;&#39;::box3d, &#39; || srid || &#39;)
+          ORDER BY distance(the_geom, GeometryFromText(&#39;&#39;POINT(&#39; || x || &#39; &#39; || y || &#39;)&#39;&#39;, &#39; || srid || &#39;))
+             LIMIT 1&#39;;
+	FOR result IN EXECUTE query
+    LOOP
+      edge.id        := result.id;
+      edge.startnode := result.startnode;
+      edge.endnode   := result.endnode;
+      RETURN NEXT edge;
+    END LOOP;
+END;
+</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#network.schema"><a name="network.function.closest-edge-node-range-numeric-y-numeric-x-numeric">closest_edge_node(range numeric, y numeric, x numeric)</a>
+		</h2>
+<h3>Returns: SET OF edge_node</h3>
+<h3>Language: PLPGSQL</h3>
+        
+        <pre>
+DECLARE
+  srid       INTEGER         DEFAULT 4326;  -- WGS84
+  bbox       VARCHAR(256);
+  query      TEXT;
+  result     record;
+  edge_node  edge_node;
+BEGIN
+  bbox := &#39;BOX3D(&#39; || x - range || &#39; &#39; || y - range || &#39;,&#39; || x + range || &#39; &#39; || y + range || &#39;)&#39;;
+
+  query := &#39;SELECT e.gid AS edge_id,
+                   CASE WHEN 
+                          distance (ep.geom, ST_StartPoint (e.the_geom) ) &gt;= distance (ep.geom, ST_EndPoint (e.the_geom)) 
+                        THEN
+                          e.source
+                        ELSE
+                          e.target
+                   END AS nodeid
+              FROM network.edges AS e
+              JOIN network.edge_points AS ep
+                   ON e.gid = ep.edge_id 
+             WHERE ep.geom &amp;&amp; ST_SetSRID (&#39;&#39;&#39; || bbox || &#39;&#39;&#39;::box3d, &#39; || srid || &#39;)
+          ORDER BY distance(ep.geom, GeometryFromText(&#39;&#39;POINT(&#39; || x || &#39; &#39; || y || &#39;)&#39;&#39;, &#39; || srid || &#39;))
+             LIMIT 1&#39;;
+
+  FOR result IN EXECUTE query
+  LOOP
+    edge_node.edge_id := result.edge_id;
+    edge_node.node_id := result.node_id;
+
+    RETURN NEXT edge_node;
+  END LOOP;
+  RETURN;
+END
+</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#network.schema"><a name="network.function.closest-edge-node-id-range-numeric-y-numeric-x-numeric">closest_edge_node_id(range numeric, y numeric, x numeric)</a>
+		</h2>
+<h3>Returns: integer</h3>
+<h3>Language: PLPGSQL</h3>
+        
+        <pre>
+DECLARE
+  srid       INTEGER         DEFAULT 4326;  -- WGS84
+  bbox       VARCHAR(256);
+  query      TEXT;
+  result     record;
+  nodeid     INTEGER;
+BEGIN
+  bbox := &#39;BOX3D(&#39; || x - range || &#39; &#39; || y - range || &#39;,&#39; || x + range || &#39; &#39; || y + range || &#39;)&#39;;
+
+  query := &#39;SELECT e.gid AS edge_id,
+                   CASE WHEN 
+                          distance (ep.geom, ST_StartPoint (e.the_geom) ) &gt;= distance (ep.geom, ST_EndPoint (e.the_geom)) 
+                        THEN
+                          e.source
+                        ELSE
+                          e.target
+                   END AS nodeid
+              FROM network.edges AS e
+              JOIN network.edge_points AS ep
+                   ON e.gid = ep.edge_id 
+             WHERE ep.geom &amp;&amp; ST_SetSRID (&#39;&#39;&#39; || bbox || &#39;&#39;&#39;::box3d, &#39; || srid || &#39;)
+          ORDER BY distance(ep.geom, GeometryFromText(&#39;&#39;POINT(&#39; || x || &#39; &#39; || y || &#39;)&#39;&#39;, &#39; || srid || &#39;))
+             LIMIT 1&#39;;
+
+  FOR result IN EXECUTE query
+  LOOP
+    nodeid := result.nodeid;
+  END LOOP;
+  RETURN nodeid;
+END
+</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#network.schema"><a name="network.function.closest-edge-point-range-numeric-y-numeric-x-numeric">closest_edge_point(range numeric, y numeric, x numeric)</a>
+		</h2>
+<h3>Returns: SET OF edge_point</h3>
+<h3>Language: PLPGSQL</h3>
+        
+        <pre>
+DECLARE
+  srid   INTEGER         DEFAULT 4326;  -- WGS84
+  bbox   VARCHAR(256);
+  query  TEXT;
+  result record;
+  edge_point   network.edge_point;
+BEGIN
+  bbox := &#39;BOX3D(&#39; || x - range || &#39; &#39; || y - range || &#39;,&#39; || x + range || &#39; &#39; || y + range || &#39;)&#39;;
+
+  query := &#39;SELECT edge_id,
+                   point,
+                   ST_X(geom) AS x,
+                   ST_Y(geom) AS y,
+                   distance(geom, GeometryFromText(&#39;&#39;POINT(&#39; || x || &#39; &#39; || y || &#39;)&#39;&#39;, &#39; || srid || &#39;)) AS error
+              FROM network.edge_points
+             WHERE geom &amp;&amp; ST_SetSRID (&#39;&#39;&#39; || bbox || &#39;&#39;&#39;::box3d, &#39; || srid || &#39;)
+          ORDER BY distance(geom, GeometryFromText(&#39;&#39;POINT(&#39; || x || &#39; &#39; || y || &#39;)&#39;&#39;, &#39; || srid || &#39;))
+             LIMIT 1&#39;;
+
+	FOR result IN EXECUTE query
+  LOOP
+      edge_point.edge_id := result.edge_id;
+      edge_point.point   := result.point;
+      edge_point.x       := result.x;
+      edge_point.y       := result.y;
+      edge_point.error   := result.error;
+      RETURN NEXT edge_point;
+  END LOOP;
+  RETURN;
+END
+</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#network.schema"><a name="network.function.closest-nodes-number-numeric-range-numeric-y-numeric-x-smallint">closest_nodes(number numeric, range numeric, y numeric, x smallint)</a>
+		</h2>
+<h3>Returns: SET OF node</h3>
+<h3>Language: PLPGSQL</h3>
+        
+        <pre>
+DECLARE
+  srid   INTEGER       DEFAULT 4326;  -- WGS84
+  bbox   VARCHAR(256);
+  query  TEXT;
+  result record;
+  node   network.node;
+BEGIN
+  bbox := &#39;BOX3D(&#39; || x - range || &#39; &#39; || y - range || &#39;,&#39; || x + range || &#39; &#39; || y + range || &#39;)&#39;;
+
+  query := &#39;SELECT id,
+                   ST_X(the_geom) AS x,
+                   ST_Y(the_geom) AS y,
+                   distance(the_geom, GeometryFromText(&#39;&#39;POINT(&#39; || x || &#39; &#39; || y || &#39;)&#39;&#39;, &#39; || srid || &#39;)) AS error
+              FROM network.nodes
+             WHERE the_geom &amp;&amp; ST_SetSRID (&#39;&#39;&#39; || bbox || &#39;&#39;&#39;::box3d, &#39; || srid || &#39;)
+          ORDER BY distance(the_geom, GeometryFromText(&#39;&#39;POINT(&#39; || x || &#39; &#39; || y || &#39;)&#39;&#39;, &#39; || srid || &#39;))
+             LIMIT &#39; || number;
+
+	FOR result IN EXECUTE query
+    LOOP
+      node.id    := result.id;
+      node.x     := result.x;
+      node.y     := result.y;
+      node.error := result.error;
+      RETURN NEXT node;
+    END LOOP;
+END;
+</pre>
+	
+
+
+<p class="w3ref">Generated by <a href="http://www.rbt.ca/autodoc/">PostgreSQL Autodoc</a></p>
+<p class="w3ref"><a href="http://validator.w3.org/check/referer">W3C HTML 4.01 Strict</a></p>
+</body></html>

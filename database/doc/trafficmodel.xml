@@ -1,0 +1,2668 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: /cvsroot/autodoc/autodoc/xml.tmpl,v 1.2 2006/05/16 19:01:27 rbt Exp $ -->
+
+<book id="database.test-totus" xreflabel="test_totus database schema"><title>test_totus Model</title>
+
+
+
+
+  <chapter id="trafficmodel.schema"
+           xreflabel="trafficmodel">
+    <title>Schema trafficmodel</title>
+    <para></para>
+
+
+      <section id="trafficmodel.table.atm2-zones"
+               xreflabel="trafficmodel.atm2_zones">
+        <title id="trafficmodel.table.atm2-zones-title">
+         Table:
+         
+         <structname>atm2_zones</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>atm2_zones</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>gid</structfield></term>
+              <listitem><para>
+                <type>serial</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>zone</structfield></term>
+              <listitem><para>
+                <type>numeric</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>area</structfield></term>
+              <listitem><para>
+                <type>numeric</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>atm2_secto</structfield></term>
+              <listitem><para>
+                <type>numeric</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>sector_nam</structfield></term>
+              <listitem><para>
+                <type>character varying(32)</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>date</structfield></term>
+              <listitem><para>
+                <type>double precision</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>geom</structfield></term>
+              <listitem><para>
+                <type>geometry</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+        <variablelist>
+          <title>Constraints on atm2_zones</title>
+
+          <varlistentry>
+            <term>enforce_dims_geom</term>
+            <listitem><para>CHECK ((ndims(geom) = 2))</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>enforce_geotype_geom</term>
+            <listitem><para>CHECK (((geometrytype(geom) = &apos;MULTIPOLYGON&apos;::text) OR (geom IS NULL)))</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>enforce_srid_geom</term>
+            <listitem><para>CHECK ((srid(geom) = 4326))</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <variablelist>
+          <title>Indexes on atm2_zones</title>
+
+          <varlistentry>
+            <term>atm2_zones_geom_gist</term>
+            <listitem><para>geom</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="trafficmodel.table.link-network"
+               xreflabel="trafficmodel.link_network">
+        <title id="trafficmodel.table.link-network-title">
+         Table:
+         
+         <structname>link_network</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>link_network</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>id</structfield></term>
+              <listitem><para>
+                <type>serial</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>traffic_link_id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+
+
+
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="trafficmodel.table.links"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>network_edge_id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>fraction</structfield></term>
+              <listitem><para>
+                <type>numeric(9,8)</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>geom</structfield></term>
+              <listitem><para>
+                <type>geometry</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+        <variablelist>
+          <title>Constraints on link_network</title>
+
+          <varlistentry>
+            <term>enforce_dims_geom</term>
+            <listitem><para>CHECK ((ndims(geom) = 2))</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>enforce_geotype_geom</term>
+            <listitem><para>CHECK (((geometrytype(geom) = &apos;MULTILINESTRING&apos;::text) OR (geom IS NULL)))</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>enforce_srid_geom</term>
+            <listitem><para>CHECK ((srid(geom) = 4326))</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>link_network_fraction_check</term>
+            <listitem><para>CHECK (((fraction &gt;= 0.0) AND (fraction &lt;= 1.0)))</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <variablelist>
+          <title>Indexes on link_network</title>
+
+          <varlistentry>
+            <term>link_network_idx1</term>
+            <listitem><para>traffic_link_id</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>link_network_idx2</term>
+            <listitem><para>network_edge_id</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="trafficmodel.table.link-traffic-data"
+               xreflabel="trafficmodel.link_traffic_data">
+        <title id="trafficmodel.table.link-traffic-data-title">
+         Table:
+         
+         <structname>link_traffic_data</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>link_traffic_data</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>link_id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="trafficmodel.table.links"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>data_id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="trafficmodel.table.traffic-data"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>peak</structfield></term>
+              <listitem><para>
+                <type>character(2)</type>
+
+
+
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="trafficmodel.table.traffic-peak"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>year</structfield></term>
+              <listitem><para>
+                <type>smallint</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <variablelist>
+          <title>Indexes on link_traffic_data</title>
+
+          <varlistentry>
+            <term>link_traffic_data_idx1</term>
+            <listitem><para>link_id</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>link_traffic_data_idx2</term>
+            <listitem><para>data_id</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>link_traffic_data_idx3</term>
+            <listitem><para>peak</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>link_traffic_data_idx4</term>
+            <listitem><para>year</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="trafficmodel.table.links"
+               xreflabel="trafficmodel.links">
+        <title id="trafficmodel.table.links-title">
+         Table:
+         
+         <structname>links</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>links</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>gid</structfield></term>
+              <listitem><para>
+                <type>serial</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>id</structfield></term>
+              <listitem><para>
+                <type>character varying(16)</type>
+
+
+
+
+                      <literal>UNIQUE</literal>
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>inode</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="trafficmodel.table.nodes"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>jnode</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="trafficmodel.table.nodes"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>length</structfield></term>
+              <listitem><para>
+                <type>numeric</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>type</structfield></term>
+              <listitem><para>
+                <type>character varying(10)</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>modes</structfield></term>
+              <listitem><para>
+                <type>character varying(20)</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>vdf</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>data1</structfield></term>
+              <listitem><para>
+                <type>numeric</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>data2</structfield></term>
+              <listitem><para>
+                <type>numeric</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>data3</structfield></term>
+              <listitem><para>
+                <type>numeric</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>geom</structfield></term>
+              <listitem><para>
+                <type>geometry</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+        <variablelist>
+          <title>Constraints on links</title>
+
+          <varlistentry>
+            <term>enforce_dims_geom</term>
+            <listitem><para>CHECK ((ndims(geom) = 2))</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>enforce_geotype_geom</term>
+            <listitem><para>CHECK (((geometrytype(geom) = &apos;MULTILINESTRING&apos;::text) OR (geom IS NULL)))</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>enforce_srid_geom</term>
+            <listitem><para>CHECK ((srid(geom) = 4326))</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <variablelist>
+          <title>Indexes on links</title>
+
+          <varlistentry>
+            <term>link_geom_idx</term>
+            <listitem><para>geom</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>link_inode_idx</term>
+            <listitem><para>inode</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>link_jnode_idx</term>
+            <listitem><para>jnode</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <itemizedlist>
+          <title>
+            Tables referencing link_network via Foreign Key Constraints
+          </title>
+
+          <listitem>
+            <para>
+              <xref linkend="trafficmodel.table.link-network"/>
+            </para>
+          </listitem>
+
+
+
+          <listitem>
+            <para>
+              <xref linkend="trafficmodel.table.link-traffic-data"/>
+            </para>
+          </listitem>
+
+        </itemizedlist>
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="trafficmodel.table.node-traffic-data"
+               xreflabel="trafficmodel.node_traffic_data">
+        <title id="trafficmodel.table.node-traffic-data-title">
+         Table:
+         
+         <structname>node_traffic_data</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>node_traffic_data</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>node_id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="trafficmodel.table.nodes"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>data_id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="trafficmodel.table.traffic-data"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>peak</structfield></term>
+              <listitem><para>
+                <type>character(2)</type>
+
+
+
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="trafficmodel.table.traffic-peak"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>year</structfield></term>
+              <listitem><para>
+                <type>smallint</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <variablelist>
+          <title>Indexes on node_traffic_data</title>
+
+          <varlistentry>
+            <term>node_traffic_data_idx1</term>
+            <listitem><para>node_id</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>node_traffic_data_idx2</term>
+            <listitem><para>data_id</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>node_traffic_data_idx3</term>
+            <listitem><para>peak</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>node_traffic_data_idx4</term>
+            <listitem><para>year</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="trafficmodel.table.nodes"
+               xreflabel="trafficmodel.nodes">
+        <title id="trafficmodel.table.nodes-title">
+         Table:
+         
+         <structname>nodes</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>nodes</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>gid</structfield></term>
+              <listitem><para>
+                <type>serial</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+
+                      <literal>UNIQUE</literal>
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>x</structfield></term>
+              <listitem><para>
+                <type>numeric</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>y</structfield></term>
+              <listitem><para>
+                <type>numeric</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>data1</structfield></term>
+              <listitem><para>
+                <type>numeric</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>data2</structfield></term>
+              <listitem><para>
+                <type>numeric</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>data3</structfield></term>
+              <listitem><para>
+                <type>numeric</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>iszone</structfield></term>
+              <listitem><para>
+                <type>boolean</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>geom</structfield></term>
+              <listitem><para>
+                <type>geometry</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+        <variablelist>
+          <title>Constraints on nodes</title>
+
+          <varlistentry>
+            <term>enforce_dims_geom</term>
+            <listitem><para>CHECK ((ndims(geom) = 2))</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>enforce_geotype_geom</term>
+            <listitem><para>CHECK (((geometrytype(geom) = &apos;POINT&apos;::text) OR (geom IS NULL)))</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>enforce_srid_geom</term>
+            <listitem><para>CHECK ((srid(geom) = 4326))</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <variablelist>
+          <title>Indexes on nodes</title>
+
+          <varlistentry>
+            <term>node_geom_idx</term>
+            <listitem><para>geom</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <itemizedlist>
+          <title>
+            Tables referencing links via Foreign Key Constraints
+          </title>
+
+          <listitem>
+            <para>
+              <xref linkend="trafficmodel.table.links"/>
+            </para>
+          </listitem>
+
+
+
+          <listitem>
+            <para>
+              <xref linkend="trafficmodel.table.node-traffic-data"/>
+            </para>
+          </listitem>
+
+        </itemizedlist>
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="trafficmodel.table.traffic-attr"
+               xreflabel="trafficmodel.traffic_attr">
+        <title id="trafficmodel.table.traffic-attr-title">
+         Table:
+         
+         <structname>traffic_attr</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>traffic_attr</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>id</structfield></term>
+              <listitem><para>
+                <type>serial</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>attr_type</structfield></term>
+              <listitem><para>
+                <type>character varying(64)</type>
+
+
+
+
+                      <literal>UNIQUE</literal>
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>attr_name</structfield></term>
+              <listitem><para>
+                <type>character varying(256)</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>data_type</structfield></term>
+              <listitem><para>
+                <type>character varying(64)</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>version_id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="trafficmodel.table.version"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+        <itemizedlist>
+          <title>
+            Tables referencing traffic_data via Foreign Key Constraints
+          </title>
+
+          <listitem>
+            <para>
+              <xref linkend="trafficmodel.table.traffic-data"/>
+            </para>
+          </listitem>
+
+        </itemizedlist>
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="trafficmodel.table.traffic-data"
+               xreflabel="trafficmodel.traffic_data">
+        <title id="trafficmodel.table.traffic-data-title">
+         Table:
+         
+         <structname>traffic_data</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>traffic_data</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>id</structfield></term>
+              <listitem><para>
+                <type>serial</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>type_id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="trafficmodel.table.traffic-attr"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>value</structfield></term>
+              <listitem><para>
+                <type>character varying(256)</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <variablelist>
+          <title>Indexes on traffic_data</title>
+
+          <varlistentry>
+            <term>traffic_data_type_idx</term>
+            <listitem><para>type_id</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <itemizedlist>
+          <title>
+            Tables referencing link_traffic_data via Foreign Key Constraints
+          </title>
+
+          <listitem>
+            <para>
+              <xref linkend="trafficmodel.table.link-traffic-data"/>
+            </para>
+          </listitem>
+
+
+
+          <listitem>
+            <para>
+              <xref linkend="trafficmodel.table.node-traffic-data"/>
+            </para>
+          </listitem>
+
+        </itemizedlist>
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="trafficmodel.table.traffic-peak"
+               xreflabel="trafficmodel.traffic_peak">
+        <title id="trafficmodel.table.traffic-peak-title">
+         Table:
+         
+         <structname>traffic_peak</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>traffic_peak</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>id</structfield></term>
+              <listitem><para>
+                <type>serial</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>type</structfield></term>
+              <listitem><para>
+                <type>character(2)</type>
+
+
+
+
+                      <literal>UNIQUE</literal>
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>description</structfield></term>
+              <listitem><para>
+                <type>character varying(64)</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+        <itemizedlist>
+          <title>
+            Tables referencing link_traffic_data via Foreign Key Constraints
+          </title>
+
+          <listitem>
+            <para>
+              <xref linkend="trafficmodel.table.link-traffic-data"/>
+            </para>
+          </listitem>
+
+
+
+          <listitem>
+            <para>
+              <xref linkend="trafficmodel.table.node-traffic-data"/>
+            </para>
+          </listitem>
+
+        </itemizedlist>
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="trafficmodel.table.version"
+               xreflabel="trafficmodel.version">
+        <title id="trafficmodel.table.version-title">
+         Table:
+         
+         <structname>version</structname>
+        </title>
+ 
+
+        <para>
+          Holds Traffic Model model, input transport model and data year information
+        </para>
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>version</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>id</structfield></term>
+              <listitem><para>
+                <type>serial</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+              <para>
+                Unique key for Traffic Model version information
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>traffic_model</structfield></term>
+              <listitem><para>
+                <type>character varying(64)</type>
+
+
+
+
+
+
+
+              </para>
+
+              <para>
+                Traffic Model model version number
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>transport_model</structfield></term>
+              <listitem><para>
+                <type>character varying(64)</type>
+
+
+
+
+
+
+
+              </para>
+
+              <para>
+                Traffic Model input transport model version number, eg. ATM2, ATM3, etc.
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>data_year</structfield></term>
+              <listitem><para>
+                <type>character(4)</type>
+
+
+
+
+
+
+
+              </para>
+
+              <para>
+                Year of the data for which the traffic model was run
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+        <itemizedlist>
+          <title>
+            Tables referencing traffic_attr via Foreign Key Constraints
+          </title>
+
+          <listitem>
+            <para>
+              <xref linkend="trafficmodel.table.traffic-attr"/>
+            </para>
+          </listitem>
+
+        </itemizedlist>
+
+
+
+
+
+
+      </para>
+    </section>
+
+
+
+<!-- Function area_aggregate(text) -->
+    <section id="trafficmodel.function.area-aggregate-text"
+             xreflabel="trafficmodelarea_aggregate(text)">
+      <title id="trafficmodel.function.area-aggregate-text-title">
+       area_aggregate(text)
+      </title>
+      <titleabbrev id="trafficmodel.function.area-aggregate-text-titleabbrev">
+       area_aggregate(text)
+      </titleabbrev>
+
+      <para>
+       <segmentedlist>
+        <title>Function Properties</title>
+        <?dbhtml list-presentation="list"?>
+        <segtitle>Language</segtitle>
+        <segtitle>Return Type</segtitle>
+        <seglistitem>
+         <seg>PLPGSQL</seg>
+         <seg>area_aggregate</seg>
+        </seglistitem>
+       </segmentedlist>
+ 
+       
+        <programlisting>
+DECLARE
+  spatial_filter ALIAS FOR $1;
+  query          TEXT;
+  result         RECORD;
+  attrs          VARCHAR(64)[];
+  aggrs          VARCHAR(256)[];
+  summary        AREA_AGGREGATE;
+  geomText       VARCHAR(256)[];
+  prevId         INTEGER;
+  l              INTEGER;
+  i              INTEGER;
+BEGIN
+  -- sanity check on spatial filter supplied
+  IF spatial_filter !~ &#39;^(MULTIP|P)OLYGON&#39; OR spatial_filter ~ &#39;(SELECT|;|DROP|UPDATE)&#39;
+  THEN
+    RAISE EXCEPTION &#39;Invalid spatial filter supplied: %&#39;, spatial_filter;
+  END IF;
+
+  -- query all trafficmodel network (edge) links inside spatial area
+  -- and extract it&#39;s trafficmodel link traffic attributes and scaling
+  -- factor
+  query := &#39;SELECT td.type_id AS id, ta.attr_name, ta.data_type, td.value, ST_AsText (ne.the_geom) AS geom, ln.fraction 
+              FROM link_network AS ln
+              JOIN link_traffic_data AS ltd
+                   ON ln.traffic_link_id = ltd.link_id
+              JOIN traffic_data AS td
+                   ON ltd.data_id = td.id
+              JOIN traffic_attr AS ta
+                   ON td.type_id = ta.id
+              JOIN network.edges AS ne
+                   ON ln.network_edge_id = ne.gid,
+                   ST_GeomFromText (&#39; || quote_literal (spatial_filter) || &#39;, 4326) AS filter (geom)
+             WHERE ne.the_geom &amp;&amp; filter.geom AND
+                   ST_Within (ne.the_geom, filter.geom) AND
+                   ST_IsValid (filter.geom) AND
+                   ta.attr_type &lt;&gt; &#39; || quote_literal (&#39;lanes&#39;) || &#39;
+          ORDER BY td.type_id&#39;;
+
+  prevId := -9999;
+  l      := 0;
+  i      := 0;
+
+  attrs[l] := &#39;&#39;;
+  aggrs[l] := &#39;0&#39;;
+
+  FOR result IN EXECUTE query
+  LOOP
+    IF prevId &lt;&gt; -9999 AND prevId &lt;&gt; result.id
+    THEN
+      -- result set is ordered by attribute type, when attribute type id changes advance to next attribute
+      l := l + 1;
+
+      -- init to zero
+      aggrs[l] := &#39;0&#39;;
+    END IF;
+
+    -- attribute name
+    attrs[l]    := result.attr_name;
+    -- accumulate scaled value
+    aggrs[l]    := (aggrs[l]::NUMERIC + (result.value::NUMERIC * result.fraction)::NUMERIC)::VARCHAR(256);
+    -- capture coordinate list in mutli-line string
+    geomText[i] := REGEXP_REPLACE (result.geom, E&#39;MULTILINESTRING\((\.*)\)&#39;, E&#39;\\1&#39;, &#39;&#39;);
+    geomText[i] := SUBSTRING (geomText[i], 2, LENGTH (geomText[i]) - 2);
+
+    prevId := result.id;
+    i := i + 1;
+  END LOOP;
+
+  summary.geom       := ST_MLineFromText (E&#39;MULTILINESTRING (&#39; || ARRAY_TO_STRING (geomText, &#39;, &#39;) || E&#39;)&#39;, 4326);
+  summary.attributes := attrs;
+  summary.aggregates := aggrs;
+
+  RETURN summary;
+END;
+</programlisting>
+      </para>
+    </section>
+
+<!-- Function area_flux(text) -->
+    <section id="trafficmodel.function.area-flux-text"
+             xreflabel="trafficmodelarea_flux(text)">
+      <title id="trafficmodel.function.area-flux-text-title">
+       area_flux(text)
+      </title>
+      <titleabbrev id="trafficmodel.function.area-flux-text-titleabbrev">
+       area_flux(text)
+      </titleabbrev>
+
+      <para>
+       <segmentedlist>
+        <title>Function Properties</title>
+        <?dbhtml list-presentation="list"?>
+        <segtitle>Language</segtitle>
+        <segtitle>Return Type</segtitle>
+        <seglistitem>
+         <seg>PLPGSQL</seg>
+         <seg>area_flux</seg>
+        </seglistitem>
+       </segmentedlist>
+ 
+       
+        <programlisting>
+DECLARE
+  spatial_filter ALIAS FOR $1;
+  query          TEXT;
+  result         RECORD;
+  attrs          VARCHAR(64)[];
+  influx         VARCHAR(256)[];
+  outflux        VARCHAR(256)[];
+  flux           AREA_FLUX;
+  geomText       VARCHAR(256)[];
+  prevId         INTEGER;
+  l              INTEGER;
+  i              INTEGER;
+BEGIN
+  -- sanity check on spatial filter supplied
+  IF spatial_filter !~ &#39;^(MULTIP|P)OLYGON&#39; OR spatial_filter ~ &#39;(SELECT|;|DROP|UPDATE)&#39;
+  THEN
+    RAISE EXCEPTION &#39;Invalid spatial filter supplied: %&#39;, spatial_filter;
+  END IF;
+
+  -- query all trafficmodel network (edge) links inside spatial area
+  -- and extract it&#39;s trafficmodel link traffic attributes and scaling
+  -- factor
+  query := &#39;SELECT td.type_id AS id, ta.attr_name, ta.data_type, td.value, ST_AsText (ne.the_geom) AS geom, ln.fraction,
+                   CASE WHEN ST_Within (ST_SetSrid (ST_MakePoint (x1, y1), 4326), filter.geom)
+                        THEN &#39; || quote_literal (&#39;outflux&#39;) || &#39;
+                        ELSE &#39; || quote_literal (&#39;influx&#39;)  || &#39;
+                   END AS flux_type
+              FROM link_network AS ln
+              JOIN link_traffic_data AS ltd
+                   ON ln.traffic_link_id = ltd.link_id
+              JOIN traffic_data AS td
+                   ON ltd.data_id = td.id
+              JOIN traffic_attr AS ta
+                   ON td.type_id = ta.id
+              JOIN network.edges AS ne
+                   ON ln.network_edge_id = ne.gid,
+                   ST_GeomFromText (&#39; || quote_literal (spatial_filter) || &#39;, 4326) AS filter (geom)
+             WHERE ne.the_geom &amp;&amp; filter.geom AND
+                   ST_Crosses (ne.the_geom, filter.geom) AND
+                   ST_IsValid (filter.geom) AND
+                   ta.attr_type &lt;&gt; &#39; || quote_literal (&#39;lanes&#39;) || &#39;
+          ORDER BY td.type_id&#39;;
+
+  prevId := -9999;
+  l      := 0;
+  i      := 0;
+
+  attrs[l]   := &#39;&#39;;
+  influx[l]  := &#39;0&#39;;
+  outflux[l] := &#39;0&#39;;
+
+  FOR result IN EXECUTE query
+  LOOP
+    IF prevId &lt;&gt; -9999 AND prevId &lt;&gt; result.id
+    THEN
+      -- result set is ordered by attribute type, when attribute type id changes advance to next attribute
+      l := l + 1;
+
+      -- init to zero
+      influx[l]  := &#39;0&#39;;
+      outflux[l] := &#39;0&#39;;
+    END IF;
+
+    -- attribute name
+    attrs[l] := result.attr_name;
+
+    -- accumulate scaled value for either in-flux or out-flux
+    IF result.flux_type = &#39;influx&#39;
+    THEN
+      influx[l] := (influx[l]::NUMERIC + (result.value::NUMERIC * result.fraction)::NUMERIC)::VARCHAR(256);
+    ELSE
+      outflux[l] := (outflux[l]::NUMERIC + (result.value::NUMERIC * result.fraction)::NUMERIC)::VARCHAR(256);
+    END IF;
+
+    -- capture coordinate list in mutli-line string
+    geomText[i] := REGEXP_REPLACE (result.geom, E&#39;MULTILINESTRING\((\.*)\)&#39;, E&#39;\\1&#39;, &#39;&#39;);
+    geomText[i] := SUBSTRING (geomText[i], 2, LENGTH (geomText[i]) - 2);
+
+    prevId := result.id;
+    i := i + 1;
+  END LOOP;
+
+  flux.geom       := ST_MLineFromText (E&#39;MULTILINESTRING (&#39; || ARRAY_TO_STRING (geomText, &#39;, &#39;) || E&#39;)&#39;, 4326);
+  flux.attributes := attrs;
+  flux.influx     := influx;
+  flux.outflux    := outflux;
+
+  RETURN flux;
+END;
+</programlisting>
+      </para>
+    </section>
+
+<!-- Function array_accum(anyelement) -->
+    <section id="trafficmodel.function.array-accum-anyelement"
+             xreflabel="trafficmodelarray_accum(anyelement)">
+      <title id="trafficmodel.function.array-accum-anyelement-title">
+       array_accum(anyelement)
+      </title>
+      <titleabbrev id="trafficmodel.function.array-accum-anyelement-titleabbrev">
+       array_accum(anyelement)
+      </titleabbrev>
+
+      <para>
+       <segmentedlist>
+        <title>Function Properties</title>
+        <?dbhtml list-presentation="list"?>
+        <segtitle>Language</segtitle>
+        <segtitle>Return Type</segtitle>
+        <seglistitem>
+         <seg>INTERNAL</seg>
+         <seg>anyarray</seg>
+        </seglistitem>
+       </segmentedlist>
+ 
+       
+        <programlisting>aggregate_dummy</programlisting>
+      </para>
+    </section>
+
+<!-- Function route_aggregator(routemethod public.geometry[], endgeoms public.geometry[], startgeoms character varying) -->
+    <section id="trafficmodel.function.route-aggregator-routemethod-public.geometryARRAY-endgeoms-public.geometryARRAY-startgeoms-character-varying"
+             xreflabel="trafficmodelroute_aggregator(routemethod public.geometry[], endgeoms public.geometry[], startgeoms character varying)">
+      <title id="trafficmodel.function.route-aggregator-routemethod-public.geometryARRAY-endgeoms-public.geometryARRAY-startgeoms-character-varying-title">
+       route_aggregator(routemethod public.geometry[], endgeoms public.geometry[], startgeoms character varying)
+      </title>
+      <titleabbrev id="trafficmodel.function.route-aggregator-routemethod-public.geometryARRAY-endgeoms-public.geometryARRAY-startgeoms-character-varying-titleabbrev">
+       route_aggregator(routemethod public.geometry[], endgeoms public.geometry[], startgeoms character varying)
+      </titleabbrev>
+
+      <para>
+       <segmentedlist>
+        <title>Function Properties</title>
+        <?dbhtml list-presentation="list"?>
+        <segtitle>Language</segtitle>
+        <segtitle>Return Type</segtitle>
+        <seglistitem>
+         <seg>PLPGSQL</seg>
+         <seg>route_aggr</seg>
+        </seglistitem>
+       </segmentedlist>
+ 
+       
+        <programlisting>
+DECLARE
+  pathQuery    TEXT;
+  trafficmodelQuery    TEXT;
+  query        TEXT;
+  pathResult   RECORD;
+  trafficmodelResult   RECORD;
+  edgePath     INTEGER[];
+  nodePath     INTEGER[];
+  i            INTEGER;
+  j            INTEGER;
+  l            INTEGER;
+  k            INTEGER;
+  m            INTEGER;
+  prevPeak     CHAR(2);
+  prevType     VARCHAR(64);
+  aggr         trafficmodel.ROUTE_AGGR;
+  trafficmodelAggr     trafficmodel.TRAFFIC_AGGR;
+  totalEmme    trafficmodel.TRAFFIC_AGGR;
+  prevEmme     trafficmodel.TRAFFIC_AGGR;
+  adjustStart  BOOLEAN DEFAULT false;
+  adjustEnd    BOOLEAN DEFAULT false; 
+BEGIN
+  -- validate that geometries are POINTs
+
+  -- closest_node for each start geomtry
+  -- closest_node for each end geometry
+  -- route from each start node to each end node
+
+  -- aggregate results
+  -- return geometry collection of all edges routed
+  -- and one for trafficmodel edges
+
+  -- TODO: scale start/end edge&#39;s Traffic Model scaling fraction to account for house half way
+  --       down road, trafficmodel cost will differ
+  --       add these if they have been missed on route
+
+  IF routeMethod NOT IN (&#39;dijkstra&#39;, &#39;astar&#39;, &#39;shootingstar&#39;)
+  THEN
+    RAISE EXCEPTION &#39;Invalid routing method supplied: %, not &#39;&#39;dijkstra&#39;&#39;, &#39;&#39;astar&#39;&#39; or &#39;&#39;shootingstar&#39;&#39;&#39;, routeMethod;
+  END IF;
+
+  IF ARRAY_UPPER (startGeoms, 1) IS NULL
+  THEN
+    RAISE EXCEPTION &#39;No start geometries provided to route from&#39;;
+  END IF;
+
+  IF ARRAY_UPPER (endGeoms, 1) IS NULL
+  THEN
+    RAISE EXCEPTION &#39;No end geometries provided to route to&#39;;
+  END IF;
+
+  -- FIXME:
+  -- get paths first
+  -- loop through them
+  -- query their traffic attributes
+  -- aggregate these
+  -- compensate for start/end partials
+
+  -- TODO:
+  -- add geometry
+
+  pathQuery := &#39;SELECT r.sourceNodeId,
+                       r.targetNodeId,
+                       (r.path_result).vertex_id AS nodeId,
+                       (r.path_result).edge_id   AS edgeId,
+                       r.sourceGeom,
+                       r.targetGeom,
+                       e.the_geom 
+                  FROM (
+                    SELECT (c.source).nodeId AS sourceNodeId,
+                           (c.target).nodeId AS targetNodeId,
+                           c.sourceGeom,
+                           c.targetGeom,
+                           network.route_filtered (c.source, c.target, &#39; ||
+                             quote_literal (routeMethod) || &#39;, 0.09) AS path_result
+
+                    FROM (
+                       SELECT network.closest_edge_node (ST_X(s.geom)::NUMERIC(12,8),
+                                                         ST_Y(s.geom)::NUMERIC(12,8),
+                                                         0.09::NUMERIC(12,8)) AS source,
+                              network.closest_edge_node (ST_X(t.geom)::NUMERIC(12,8),
+                                                         ST_Y(t.geom)::NUMERIC(12,8),
+                                                         0.09::NUMERIC(12,8)) AS target,
+                              s.geom AS sourceGeom,
+                              t.geom AS targetGeom
+                         FROM (VALUES (&#39;&#39;&#39; || ARRAY_TO_STRING (startGeoms, &#39;&#39;&#39;::GEOMETRY),(&#39;&#39;&#39;) || &#39;&#39;&#39;::GEOMETRY)) AS s (geom),
+                              (VALUES (&#39;&#39;&#39; || ARRAY_TO_STRING (endGeoms, &#39;&#39;&#39;::GEOMETRY),(&#39;&#39;&#39;) || &#39;&#39;&#39;::GEOMETRY)) AS t (geom)
+                     ) AS c
+                  ) AS r
+             LEFT JOIN network.edges AS e
+                       ON (r.path_result).edge_id = e.gid&#39;;
+     
+  trafficmodelQuery := &#39;SELECT ltd.peak, ta.attr_type AS type, (ln.fraction * td.value::NUMERIC) AS value,
+                       ln.network_edge_id AS trafficmodelEdgeId
+                  FROM trafficmodel.link_network AS ln
+                  JOIN trafficmodel.link_traffic_data AS ltd
+                       ON ln.traffic_link_id = ltd.link_id
+                  JOIN trafficmodel.traffic_data AS td
+                       ON ltd.data_id = td.id
+                  JOIN trafficmodel.traffic_attr AS ta
+                       ON td.type_id = ta.id AND
+                       ta.attr_type  &lt;&gt; &#39;&#39;lanes&#39;&#39;&#39;;
+  
+  -- init first AM value
+  trafficmodelAggr.aggregates[0] := &#39;0&#39;;
+
+  FOR pathResult IN EXECUTE pathQuery
+  LOOP
+    i := 0;
+    j := 0;
+    l := 0;
+
+    -- end of path is signaled by edge id of -1
+    IF pathResult.edgeId = -1
+    THEN
+      -- end of current path
+           
+      -- check that we did have a path
+      IF ARRAY_LENGTH (edgePath, 1) &lt;&gt; -1
+      THEN
+        -- fetch all of the paths traffic attributes sorted by peak and type aggregated as array of arrays
+        query := trafficmodelQuery || &#39;
+                 JOIN (
+                  VALUES (&#39; || ARRAY_TO_STRING (edgePath, &#39;),(&#39;) || &#39;)) AS ep (edgeId) 
+                        ON ln.network_edge_id = ep.edgeId
+                ORDER BY ltd.peak, ta.attr_type&#39;;
+
+        prevPeak := &#39;&#39;;
+        prevType := &#39;&#39;;
+
+        -- execute
+        FOR trafficmodelResult IN EXECUTE query
+        LOOP
+          -- aggregate result
+          IF prevPeak &lt;&gt; &#39;&#39; AND prevPeak &lt;&gt; trafficmodelResult.peak
+          THEN
+            -- init total Traffic Model the first time
+            IF totalEmme IS NULL
+            THEN
+              FOR k IN SELECT GENERATE_SERIES (0, ARRAY_UPPER(trafficmodelAggr.attributes, 1))
+              LOOP  
+                totalEmme.peak          := &#39;AD&#39;;
+                totalEmme.attributes[k] := trafficmodelAggr.attributes[k];
+                totalEmme.aggregates[k] := &#39;0.0&#39;;
+              END LOOP;
+            END IF;
+
+            -- init previous Emme
+            IF prevEmme IS NULL
+            THEN
+              FOR k IN SELECT GENERATE_SERIES (0, ARRAY_UPPER(trafficmodelAggr.attributes, 1))
+              LOOP
+                prevEmme.attributes[k] := trafficmodelAggr.attributes[k];
+                prevEmme.aggregates[k] := &#39;0.0&#39;;
+              END LOOP;
+
+              FOR m IN SELECT GENERATE_SERIES (0, 3)
+              LOOP
+                aggr.trafficmodelResults[m] = prevEmme;
+              END LOOP;
+            END IF;
+ 
+            prevEmme = aggr.trafficmodelResults[j];
+
+            -- sanity check to assert sort order of traffic peaks
+            IF prevEmme.peak &lt;&gt; trafficmodelAggr.peak
+            THEN
+              RAISE EXCEPTION &#39;Cannot aggregate with different peaks: % &lt;&gt; %&#39;, prevEmme.peak, trafficmodelAggr.peak;
+            END IF;
+
+            FOR k IN SELECT GENERATE_SERIES (0, ARRAY_UPPER(trafficmodelAggr.attributes, 1))
+            LOOP
+              -- sanity check to assert sort order of traffic attributes
+              IF prevEmme.attributes[k] &lt;&gt; trafficmodelAggr.attributes[k]
+              THEN
+                RAISE EXCEPTION &#39;Cannot aggregate with different attributesL % &lt;&gt; %&#39;, 
+                                prevEmme.attributes[k], trafficmodelAggr.attributes[k];
+              END IF;
+
+              -- trafficmodel total
+              totalEmme.aggregates[k] := (totalEmme.aggregates[k]::NUMERIC + trafficmodelAggr.aggregates[k]::NUMERIC)::VARCHAR(255);
+
+              -- add previous trafficmodel results
+              trafficmodelAggr.aggregates[k] := (prevEmme.aggregates[k]::NUMERIC + trafficmodelAggr.aggregates[k]::NUMERIC)::VARCHAR(255);
+            END LOOP;
+
+            aggr.trafficmodelResults[j] := trafficmodelAggr;
+            trafficmodelAggr            := NULL;
+
+            -- init first value
+            trafficmodelAggr.aggregates[0] := &#39;0&#39;;
+
+            -- advance to next peak
+            j := j + 1;
+
+            IF j &gt; 3
+            THEN
+              RAISE EXCEPTION &#39;Cannot have more than 3 traffic peaks&#39;;
+            END IF;
+
+            -- reset attributes
+            l := 0;
+
+            -- init value aggregate
+            trafficmodelAggr.aggregates[l] := &#39;0&#39;;
+          END IF;
+
+          IF prevPeak = trafficmodelResult.peak AND prevType &lt;&gt; &#39;&#39; AND prevType &lt;&gt; trafficmodelResult.type
+          THEN
+            -- advance no next attribute for peak
+            l := l + 1;
+
+            -- init value aggregate 
+            trafficmodelAggr.aggregates[l] = 0;
+          END IF;
+
+          -- accumulate trafficmodel cost for edges in path
+          trafficmodelAggr.peak          := trafficmodelResult.peak;
+          trafficmodelAggr.attributes[l] := trafficmodelResult.type;
+          trafficmodelAggr.aggregates[l] := (trafficmodelAggr.aggregates[l]::NUMERIC + trafficmodelResult.value)::VARCHAR(256);
+
+          prevPeak := trafficmodelResult.peak;
+          prevType := trafficmodelResult.type;
+
+          -- check first and last trafficmodelEdgeId
+          IF trafficmodelResult.trafficmodelEdgeId = edgePath[0]
+          THEN
+            adjustStart = true; 
+          END IF;
+
+          IF trafficmodelResult.trafficmodelEdgeId = edgePath[ARRAY_UPPER(edgePath, 1)]
+          THEN
+            adjustEnd = true;
+          END IF;
+        END LOOP;
+
+        -- TODO: adjust start/end costs
+
+        -- assign last trafficmodel 
+        prevEmme = aggr.trafficmodelResults[j];
+
+        -- sanity check to assert sort order of traffic peaks
+        IF prevEmme.peak &lt;&gt; trafficmodelAggr.peak
+        THEN
+          RAISE EXCEPTION &#39;Cannot aggregate with different peaks: % &lt;&gt; %&#39;, prevEmme.peak, trafficmodelAggr.peak;
+        END IF;
+
+        FOR k IN SELECT GENERATE_SERIES (0, ARRAY_UPPER(trafficmodelAggr.attributes, 1))
+        LOOP
+          -- sanity check to assert sort order of traffic attributes
+          IF prevEmme.attributes[k] &lt;&gt; trafficmodelAggr.attributes[k]
+          THEN
+            RAISE EXCEPTION &#39;Cannot aggregate with different attributesL % &lt;&gt; %&#39;, 
+                            prevEmme.attributes[k], trafficmodelAggr.attributes[k];
+          END IF;
+
+          -- trafficmodel total
+          totalEmme.aggregates[k] := (totalEmme.aggregates[k]::NUMERIC + trafficmodelAggr.aggregates[k]::NUMERIC)::VARCHAR(255);
+
+          -- add previous trafficmodel results
+          trafficmodelAggr.aggregates[k] := (prevEmme.aggregates[k]::NUMERIC + trafficmodelAggr.aggregates[k]::NUMERIC)::VARCHAR(255);
+        END LOOP;
+
+        aggr.trafficmodelResults[j] := trafficmodelAggr;
+        trafficmodelAggr            := NULL;
+
+        -- init first value
+        trafficmodelAggr.aggregates[0] := &#39;0&#39;;
+
+        -- assign total trafficmodel result
+        j := j + 1;       
+
+        aggr.trafficmodelResults[j] := totalEmme;
+
+        -- check if source and target edges were inserted, if not could be that start or end node was used
+        -- but route start was along side edge, fetch this edges traffic information, but scale it by
+        -- proportion of point along side edge and create partial geometry
+
+        -- if these edges were wholly inserted and needed not be, remove it&#39;s trafficmodel cost and apply
+        -- it as a fraction
+
+        -- clear out path
+        edgePath := NULL;
+
+        i := 0;
+      END IF;
+    ELSE
+      edgePath[i] := pathResult.edgeId;
+      nodePath[i] := pathResult.nodeId;
+
+      i := i + 1;
+    END IF;
+  END LOOP;
+
+  RETURN aggr;
+END;
+</programlisting>
+      </para>
+    </section>
+
+<!-- Function route_aggregator_basic(routemethod public.geometry[], endgeoms public.geometry[], startgeoms character varying) -->
+    <section id="trafficmodel.function.route-aggregator-basic-routemethod-public.geometryARRAY-endgeoms-public.geometryARRAY-startgeoms-character-varying"
+             xreflabel="trafficmodelroute_aggregator_basic(routemethod public.geometry[], endgeoms public.geometry[], startgeoms character varying)">
+      <title id="trafficmodel.function.route-aggregator-basic-routemethod-public.geometryARRAY-endgeoms-public.geometryARRAY-startgeoms-character-varying-title">
+       route_aggregator_basic(routemethod public.geometry[], endgeoms public.geometry[], startgeoms character varying)
+      </title>
+      <titleabbrev id="trafficmodel.function.route-aggregator-basic-routemethod-public.geometryARRAY-endgeoms-public.geometryARRAY-startgeoms-character-varying-titleabbrev">
+       route_aggregator_basic(routemethod public.geometry[], endgeoms public.geometry[], startgeoms character varying)
+      </titleabbrev>
+
+      <para>
+       <segmentedlist>
+        <title>Function Properties</title>
+        <?dbhtml list-presentation="list"?>
+        <segtitle>Language</segtitle>
+        <segtitle>Return Type</segtitle>
+        <seglistitem>
+         <seg>PLPGSQL</seg>
+         <seg>route_aggr</seg>
+        </seglistitem>
+       </segmentedlist>
+ 
+       
+        <programlisting>
+DECLARE
+  query    TEXT;
+  result   RECORD;
+  aggr     trafficmodel.ROUTE_AGGR;
+  trafficmodelAggr trafficmodel.TRAFFIC_AGGR;
+  i        INTEGER;
+  l        INTEGER;
+  k        INTEGER;
+  m        INTEGER;
+  prevPeak CHAR(2);
+  geomText VARCHAR(256)[];
+BEGIN
+  -- validate that geometries are POINTs
+
+  -- closest_node for each start geomtry
+  -- closest_node for each end geometry
+  -- route from each start node to each end node
+  -- aggregate results
+  -- return geometry collection of all edges routed
+
+  IF routeMethod NOT IN (&#39;dijkstra&#39;, &#39;astar&#39;, &#39;shootingstar&#39;)
+  THEN
+    RAISE EXCEPTION &#39;Invalid routing method supplied: %, not &#39;&#39;dijkstra&#39;&#39;, &#39;&#39;astar&#39;&#39; or &#39;&#39;shootingstar&#39;&#39;&#39;, routeMethod;
+  END IF;
+
+  query := &#39;SELECT ltd.peak, ta.attr_type AS type,
+                   SUM(ln.fraction * td.value::NUMERIC) AS value,
+                   trafficmodel.ARRAY_ACCUM (ST_AsText (ne.the_geom)) AS geoms
+              FROM (
+                SELECT network.route_filtered (c.source, c.target, &#39; ||
+                       quote_literal (routeMethod) || &#39;, 0.09) AS path_result
+                  FROM (
+                   SELECT network.closest_edge_node (ST_X(s.geom)::NUMERIC(12,8),
+                                                     ST_Y(s.geom)::NUMERIC(12,8),
+                                                     0.09::NUMERIC(12,8)) AS source,
+                          network.closest_edge_node (ST_X(e.geom)::NUMERIC(12,8),
+                                                     ST_Y(e.geom)::NUMERIC(12,8),
+                                                     0.09::NUMERIC(12,8)) AS target
+                     FROM (VALUES (&#39;&#39;&#39; || ARRAY_TO_STRING (startGeoms, &#39;&#39;&#39;::GEOMETRY),(&#39;&#39;&#39;) || &#39;&#39;&#39;::GEOMETRY)) AS s (geom),
+                          (VALUES (&#39;&#39;&#39; || ARRAY_TO_STRING (endGeoms, &#39;&#39;&#39;::GEOMETRY),(&#39;&#39;&#39;) || &#39;&#39;&#39;::GEOMETRY)) AS e (geom)
+                 ) AS c
+              ) AS r
+              JOIN network.edges AS ne
+                   ON (r.path_result).edge_id = ne.gid
+              JOIN trafficmodel.link_network AS ln
+                   ON (r.path_result).edge_id = ln.network_edge_id
+              JOIN trafficmodel.link_traffic_data AS ltd
+                   ON ln.traffic_link_id = ltd.link_id
+              JOIN trafficmodel.traffic_data AS td
+                   ON ltd.data_id = td.id
+              JOIN trafficmodel.traffic_attr AS ta
+                   ON td.type_id = ta.id
+             WHERE (r.path_result).edge_id &lt;&gt; -1 AND
+                   ta.attr_type            &lt;&gt; &#39;&#39;lanes&#39;&#39;
+          GROUP BY ltd.peak, ta.attr_type
+          ORDER BY ltd.peak, ta.attr_type&#39;;
+ 
+  i := 0;
+  l := 0;
+  k := 0;
+  prevPeak := &#39;&#39;;
+
+  FOR result IN EXECUTE query
+  LOOP
+    IF prevPeak &lt;&gt; &#39;&#39; AND prevPeak &lt;&gt; result.peak
+    THEN
+      l := 0;
+      -- assign peak data
+      aggr.trafficmodelResults[i] = trafficmodelAggr;
+      -- next peak
+      i := i + 1;
+    END IF;
+    
+    trafficmodelAggr.peak          := result.peak;
+    trafficmodelAggr.attributes[l] := result.type;
+    trafficmodelAggr.aggregates[l] := result.value;
+
+    IF i = 0 AND l = 0
+    THEN
+      -- assign geometry only once
+      geomText := result.geoms;
+    END IF;
+
+    l := l + 1;
+    prevPeak := result.peak;
+  END LOOP;
+
+  -- assign trafficmodel geom
+  FOR k IN SELECT GENERATE_SERIES (0, ARRAY_UPPER (geomText, 1))
+  LOOP
+    geomText[k] := REGEXP_REPLACE (geomText[k], E&#39;MULTILINESTRING\((\.*)\)&#39;, E&#39;\\1&#39;, &#39;&#39;);
+    geomText[k] := SUBSTRING (geomText[k], 2, LENGTH (geomText[k]) - 2);
+  END LOOP;
+
+  aggr.trafficmodelgeom := ST_MLineFromText (E&#39;MULTILINESTRING (&#39; || ARRAY_TO_STRING (geomText, &#39;, &#39;) || E&#39;)&#39;, 4326);
+  RETURN aggr;
+END;
+</programlisting>
+      </para>
+    </section>
+
+<!-- Function route_aggregator_basic(routemethod public.geometry[], trafficpeak public.geometry[], endgeoms bpchar, startgeoms character varying) -->
+    <section id="trafficmodel.function.route-aggregator-basic-routemethod-public.geometryARRAY-trafficpeak-public.geometryARRAY-endgeoms-bpchar-startgeoms-character-varying"
+             xreflabel="trafficmodelroute_aggregator_basic(routemethod public.geometry[], trafficpeak public.geometry[], endgeoms bpchar, startgeoms character varying)">
+      <title id="trafficmodel.function.route-aggregator-basic-routemethod-public.geometryARRAY-trafficpeak-public.geometryARRAY-endgeoms-bpchar-startgeoms-character-varying-title">
+       route_aggregator_basic(routemethod public.geometry[], trafficpeak public.geometry[], endgeoms bpchar, startgeoms character varying)
+      </title>
+      <titleabbrev id="trafficmodel.function.route-aggregator-basic-routemethod-public.geometryARRAY-trafficpeak-public.geometryARRAY-endgeoms-bpchar-startgeoms-character-varying-titleabbrev">
+       route_aggregator_basic(routemethod public.geometry[], trafficpeak public.geometry[], endgeoms bpchar, startgeoms character varying)
+      </titleabbrev>
+
+      <para>
+       <segmentedlist>
+        <title>Function Properties</title>
+        <?dbhtml list-presentation="list"?>
+        <segtitle>Language</segtitle>
+        <segtitle>Return Type</segtitle>
+        <seglistitem>
+         <seg>PLPGSQL</seg>
+         <seg>peak_traffic_aggr</seg>
+        </seglistitem>
+       </segmentedlist>
+ 
+       
+        <programlisting>
+DECLARE
+  query    TEXT;
+  result   RECORD;
+  aggr trafficmodel.PEAK_TRAFFIC_AGGR;
+  i        INTEGER;
+  l        INTEGER;
+  k        INTEGER;
+  m        INTEGER;
+  geomText TEXT[];
+BEGIN
+  -- validate that geometries are POINTs
+
+  -- closest_node for each start geomtry
+  -- closest_node for each end geometry
+  -- route from each start node to each end node
+  -- aggregate results
+  -- return geometry collection of all edges routed
+
+  IF routeMethod NOT IN (&#39;dijkstra&#39;, &#39;astar&#39;, &#39;shootingstar&#39;)
+  THEN
+    RAISE EXCEPTION &#39;Invalid routing method supplied: %, not &#39;&#39;dijkstra&#39;&#39;, &#39;&#39;astar&#39;&#39; or &#39;&#39;shootingstar&#39;&#39;&#39;, routeMethod;
+  END IF;
+
+  query := &#39;SELECT ltd.peak, ta.attr_type AS type,
+                   SUM(ln.fraction * td.value::NUMERIC) AS value,
+                   trafficmodel.ARRAY_ACCUM (ST_AsText (ne.the_geom)) AS geoms
+              FROM (
+                SELECT network.route_filtered (c.source, c.target, &#39; ||
+                       quote_literal (routeMethod) || &#39;, 0.09) AS path_result
+                  FROM (
+                   SELECT network.closest_edge_node (ST_X(s.geom)::NUMERIC(12,8),
+                                                     ST_Y(s.geom)::NUMERIC(12,8),
+                                                     0.09::NUMERIC(12,8)) AS source,
+                          network.closest_edge_node (ST_X(e.geom)::NUMERIC(12,8),
+                                                     ST_Y(e.geom)::NUMERIC(12,8),
+                                                     0.09::NUMERIC(12,8)) AS target
+                     FROM (VALUES (&#39;&#39;&#39; || ARRAY_TO_STRING (startGeoms, &#39;&#39;&#39;::GEOMETRY),(&#39;&#39;&#39;) || &#39;&#39;&#39;::GEOMETRY)) AS s (geom),
+                          (VALUES (&#39;&#39;&#39; || ARRAY_TO_STRING (endGeoms, &#39;&#39;&#39;::GEOMETRY),(&#39;&#39;&#39;) || &#39;&#39;&#39;::GEOMETRY)) AS e (geom)
+                 ) AS c
+              ) AS r
+              JOIN network.edges AS ne
+                   ON (r.path_result).edge_id = ne.gid
+              JOIN trafficmodel.link_network AS ln
+                   ON (r.path_result).edge_id = ln.network_edge_id
+              JOIN trafficmodel.link_traffic_data AS ltd
+                   ON ln.traffic_link_id = ltd.link_id
+              JOIN trafficmodel.traffic_data AS td
+                   ON ltd.data_id = td.id
+              JOIN trafficmodel.traffic_attr AS ta
+                   ON td.type_id = ta.id
+             WHERE (r.path_result).edge_id &lt;&gt; -1
+               AND ta.attr_type            &lt;&gt; &#39;&#39;lanes&#39;&#39; 
+               AND ltd.peak                = &#39; || quote_literal (trafficPeak) || &#39;
+          GROUP BY ltd.peak, ta.attr_type
+          ORDER BY ltd.peak, ta.attr_type&#39;;
+ 
+  l := 0;
+
+  FOR result IN EXECUTE query
+  LOOP
+    aggr.peak          := result.peak;
+    aggr.attributes[l] := result.type;
+    aggr.aggregates[l] := result.value;
+
+    IF l = 0
+    THEN
+      -- assign geometry only once
+      geomText := result.geoms;
+    END IF;
+
+    l := l + 1;
+  END LOOP;
+
+  -- assign trafficmodel geom
+  FOR k IN SELECT GENERATE_SERIES (0, ARRAY_UPPER (geomText, 1))
+  LOOP
+    geomText[k] := REGEXP_REPLACE (geomText[k], E&#39;MULTILINESTRING\((\.*)\)&#39;, E&#39;\\1&#39;, &#39;&#39;);
+    geomText[k] := SUBSTRING (geomText[k], 2, LENGTH (geomText[k]) - 2);
+  END LOOP;
+
+  aggr.trafficmodelgeom := ST_MLineFromText (E&#39;MULTILINESTRING (&#39; || ARRAY_TO_STRING (geomText, &#39;, &#39;) || E&#39;)&#39;, 4326);
+  RETURN aggr;
+END;
+</programlisting>
+      </para>
+    </section>
+
+  </chapter>
+
+</book>
+

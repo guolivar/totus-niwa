@@ -1,0 +1,208 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>NIWA Systems : TOTUS - TrafficModel-Based Air Quality Mapping</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body>
+        <div id="page">
+            <div id="main">
+                <div id="main-header" class="pageSectionHeader">
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            NIWA Systems : TOTUS - TrafficModel-Based Air Quality Mapping
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div id="main-content" class="wiki-content group">
+                    <div>
+<ul>
+    <li><a href='#TOTUS-TrafficModel-BasedAirQualityMapping-TOTUSdatabasefunctions'>TOTUS database functions</a></li>
+<ul>
+    <li><a href='#TOTUS-TrafficModel-BasedAirQualityMapping-ModelNO2'>Model NO2</a></li>
+    <li><a href='#TOTUS-TrafficModel-BasedAirQualityMapping-Grid'>Grid</a></li>
+    <li><a href='#TOTUS-TrafficModel-BasedAirQualityMapping-TIFandTrafficModel'>TIF and TrafficModel</a></li>
+</ul>
+    <li><a href='#TOTUS-TrafficModel-BasedAirQualityMapping-TOTUSdemopage'>TOTUS demo page</a></li>
+<ul>
+    <li><a href='#TOTUS-TrafficModel-BasedAirQualityMapping-TIFSummary'>TIF Summary</a></li>
+    <li><a href='#TOTUS-TrafficModel-BasedAirQualityMapping-CumulativeTIF'>Cumulative TIF</a></li>
+</ul>
+    <li><a href='#TOTUS-TrafficModel-BasedAirQualityMapping-UsingOpenJUMPtoviewTrafficModel-basedAQmapping'>Using OpenJUMP to view TrafficModel-based AQ mapping</a></li>
+</ul></div>
+
+<h2 id="TOTUS-TrafficModel-BasedAirQualityMapping-TOTUSdatabasefunctions">TOTUS database functions</h2>
+
+<p>The <em>exposure</em> schema in TOTUS holds all AQ mapping functions and tables.</p>
+
+<h3 id="TOTUS-TrafficModel-BasedAirQualityMapping-ModelNO2">Model NO2</h3>
+
+<p>The database function <em>exposure.model_no2</em> has the following parameters:</p>
+
+<ul>
+	<li><em>coeff</em>: NO2 coefficient (numeric DEFAULT 0.00077)</li>
+	<li><em>const</em>: NO2 constant (numeric DEFAULT 10.4)</li>
+	<li><em>cellSize</em>: Grid cell size in meters (integer DEFAULT 100)</li>
+	<li><em>roadCount</em>: Number of roads to calculate TIF for (integer DEFAULT 20)</li>
+	<li><em>dispersionFactor</em>: The TIF dispersion factor (numeric DEFAULT (-0.65))</li>
+	<li><em>forceTIF</em>: Forcefully recreate TIF (boolean DEFAULT false)</li>
+</ul>
+
+
+<p>When called without any parameters just apply the defaults and returns the results to OpenJUMP. The default results are cached in a database table <em>exposure.no2_grid</em> for efficiency and queries.</p>
+
+<p><em>model_no2</em> first checks whether the <em>grid</em> for 100m exists in the database, if not it creates it for Auckland region (default) using <em>create_grid</em> (see below). It then checks whether the <em>grid tif edges</em> exist for 100m, if not it creates it using the 100m grid (create by <em>create_grid</em>) using <em>grid_tif_edge</em> (see below).</p>
+
+<p>When trying out different number of roads to sample or the TIF dispersion factor, pass in <em>forceTIF</em>, last parameter as <code>TRUE</code>. This will remove the existing <em>grid tif edges</em> and recreate TIF with new parameters.</p>
+
+<p>For finer control see functions below:</p>
+
+<h3 id="TOTUS-TrafficModel-BasedAirQualityMapping-Grid">Grid</h3>
+
+<p>The TOTUS function <em>exposure.create_grid</em> has the following parameters:</p>
+
+<ul>
+	<li><em>minx</em>: start longitude (numeric)</li>
+	<li><em>miny</em>: start latitude (numeric)</li>
+	<li><em>maxx</em>: end longitude (numeric)</li>
+	<li><em>maxy</em>: end latitude (numeric)</li>
+	<li><em>cellsize</em>: Grid cell size in meters (integer)</li>
+	<li><em>forcegrid</em>: Forcefully recreate the grid (boolean DEFAULT false)</li>
+</ul>
+
+
+<p>The default 100m grid is calculated by <em>model_no2</em>. For a custom NO2 run, eg. on 10m grid, first create the grid, else <em>model_no2</em> will create it for all of Auckland, which will be slow for 10m.</p>
+
+<p>Eg. for 100m this function creates the table <em>grid_100m</em> in the database that can be directly viewed using OpenJUMP.</p>
+
+<h3 id="TOTUS-TrafficModel-BasedAirQualityMapping-TIFandTrafficModel">TIF and TrafficModel</h3>
+
+<p>The TOTUS function <em>exposure.grid_tif_edge</em></p>
+
+<ul>
+	<li><em>cellsize</em>: the grid to use, eg. <em>grid_100m</em> for 100 (integer)</li>
+	<li><em>roadcount</em>: the number of Traffic Model road edges (<em>trafficmodel.network_edge</em>)to calculate TIF for (integer)</li>
+	<li><em>inclusiondistance</em>: all roads further than this distance from center of grid cell will be included in TIF (integer)</li>
+	<li><em>dispersionfactor</em>: the distance based dispersion factor to apply (numeric)</li>
+</ul>
+
+
+<p>Eg. for 100m this functions creates the table <em>grid_100m_tif_edge</em> which contains:</p>
+<ul>
+	<li><em>grid_id</em>: grid ID</li>
+	<li><em>edge_id</em>: the Traffic Model network id (same as <em>network.edge</em> from OSM)</li>
+	<li><em>tif</em>: TIF for edge</li>
+	<li><em>rank</em>: it's rank in grid, eg. 1 to 20</li>
+	<li><em>geom</em>: the Traffic Model edge geometry</li>
+</ul>
+
+
+<p>This table can be directly viewed in OpenJUMP</p>
+
+<h2 id="TOTUS-TrafficModel-BasedAirQualityMapping-TOTUSdemopage">TOTUS demo page</h2>
+
+<p>The TOTUS demo page can be viewed at <em>totus.test.niwa.co.nz</em></p>
+
+<h3 id="TOTUS-TrafficModel-BasedAirQualityMapping-TIFSummary">TIF Summary</h3>
+
+<p>Can choose an area on map and retrieve TIF summary using 100m TIF grid edges, that is for all Traffic Model edges with TIF in overlapping grid cells.</p>
+
+<p>It submits a query to feature server (middle ware), which in turn submits the spatial filter to the database function <em>tif_summary</em> which returns min, max, ave, count (grid/edge combination count) and sum to front end.</p>
+
+<h3 id="TOTUS-TrafficModel-BasedAirQualityMapping-CumulativeTIF">Cumulative TIF</h3>
+
+<p>Can choose a point on map and retrieve cumulative TIF using the following user parameters:</p>
+<ul>
+	<li>dispersion factor, eg. -0.65</li>
+	<li>number of roads to use, eg. 20</li>
+	<li>distance from user defined point to include roads from. eg. 10m</li>
+</ul>
+
+
+<p>This does not use any of the existing grids, instead it submits a call using the middleware (feature server) to the database function <em>cumulative_tif</em>, which has the following parameters:</p>
+
+<ul>
+	<li><em>x</em>: longitude (numeric)</li>
+	<li><em>y</em>: latitude (numeric)</li>
+	<li><em>roadcount</em>: number of roads to use for TIF (integer)</li>
+	<li><em>dispfactor</em>: dispersion factor (numeric)</li>
+	<li><em>incldistance</em>: distance at which to start using roads (integer)</li>
+</ul>
+
+
+<p>This does the TIF calculation and accumulation on the fly.</p>
+
+<p>The TIF function now supports generating TIF for multiple points, eg. <code>SELECT id, x, y, value FROM exposure.cumulative_tif (ARRAY[174.70383862307, 174.71383862307], ARRAY[-36.874574479369, -36.884574479369], 20, -0.65, 10)</code>. This database function generates and executes the following SQL:</p>
+
+<div class="code panel" style="border-width: 1px;"><div class="codeContent panelContent">
+<pre class="theme: Confluence; brush: java; gutter: false" style="font-size:12px;">
+            SELECT id,
+                   x,
+                   y,
+                   SUM (volume * POW ((distance / COS (y) * 111319.9), -0.65)) AS tif, 
+                   ST_Multi (ST_Collect (DISTINCT geom)) AS geom
+              FROM (
+                SELECT p.id,
+                       ST_X (p.geom) AS x,
+                       ST_Y (p.geom) AS y,
+                       en.network_id AS edge_id,
+                       en.am_vol + en.ip_vol + en.pm_vol AS volume,
+                       ST_Distance (p.geom, en.geom) AS distance,
+                       RANK () OVER (PARTITION BY p.id ORDER BY ST_Distance (p.geom, en.geom)) AS rank,
+                       en.geom
+                  FROM trafficmodel.network_edge AS en
+                  JOIN (
+                    VALUES (1, ST_GeomFromText (&#39;POINT (174.70383862307 -36.874574479369)&#39;, 4326)), 
+                           (2, ST_GeomFromText (&#39;POINT (174.71383862307 -36.884574479369)&#39;, 4326))
+                     ) AS p (id, geom)
+                       ON ST_IsValid (p.geom) = TRUE AND
+                          ST_Expand (p.geom, 0.0201397760129886) &amp;&amp; en.geom AND
+                          ST_DWithin (p.geom, en.geom, 10/ (111319.9 * COS (ST_Y(p.geom)))) = FALSE
+              ) AS c 
+             WHERE rank &lt; 20
+          GROUP BY id, x, y
+</pre>
+</div></div>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre> id |        x        |        y         |      value       
+----+-----------------+------------------+------------------
+  1 | 174.70383862307 | -36.874574479369 | 2319.47771509307
+  2 | 174.71383862307 | -36.884574479369 | 846.340977797918
+</pre>
+</div></div>
+
+<h2 id="TOTUS-TrafficModel-BasedAirQualityMapping-UsingOpenJUMPtoviewTrafficModel-basedAQmapping">Using OpenJUMP to view TrafficModel-based AQ mapping</h2>
+
+<p>To do a NO2 model run:</p>
+
+<p>Go to <em>Layer</em> -&gt; <em>Run Datastore Query</em>:</p>
+
+<p><code>SELECT id, tif, no2, ST_AsBinary (geom) AS geom FROM exposure.model_no2()</code></p>
+
+<p>This will run the NO2 model with default values and create a 100m grid and calculated TIF for each cell's closest Traffic Model road edges.</p>
+
+
+<p><img class="confluence-embedded-image confluence-content-image-border image-center" src="attachments/46661840/46792735.png" data-image-src="attachments/46661840/46792735.png"></p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/46661840/46792735.png">no2_100m.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+        </div>     </body>
+</html>

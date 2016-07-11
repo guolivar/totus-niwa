@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<project name="TOTUS-WEB" basedir=".">
+  <!-- defs -->
+  <taskdef resource="net/sf/antcontrib/antcontrib.properties" />
+
+  <fail unless="BUILD_ENVIRONMENT" message="The BUILD_ENVIRONMENT property needs to be set, eg. prod or test" />
+
+  <!-- global properties -->
+  <property name="deploydir" value="/srv/www/vhosts/" />
+  <property name="configdir" value="/etc/apache2/vhosts.d/" />
+
+  <!-- import build environment specific application properties -->
+  <import file="build/${BUILD_ENVIRONMENT}.xml" />
+
+  <!-- set default deployment user -->
+  <property name="deployuser" value="robot" />
+  <!-- set default web deploy URL -->
+  <property name="deployURL" value="totus.${BUILD_ENVIRONMENT}.niwa.co.nz" />
+
+  <!-- set default for BUILD_INOF, if it wasn't set by build script -->
+  <property name="BUILD_INFO" value="${BUILD_ENVIRONMENT}" />
+
+  <echo file="buildinfo.txt" message="${BUILD_INFO}" />
+
+  <target name="package" >
+    <tar destfile="${BUILD_ENVIRONMENT}_totus_web.tgz" compression="gzip">
+      <tarfileset dir="./">
+        <include name="favicon.ico" />
+        <include name="buildinfo.txt" />
+        <include name="index.html" />
+        <include name="images/*" />
+        <include name="css/*" />
+        <include name="js/**" />
+        <include name="docs/*" />
+        <include name="config/*${BUILD_ENVIRONMENT}*" />
+      </tarfileset>
+    </tar>
+  </target>
+
+  <target name="deploy" depends="package" >
+    <if>
+      <equals arg1="localhost" arg2="${apphost}" />
+      <then>
+        <copy file="${BUILD_ENVIRONMENT}_totus_web.tgz" todir="/tmp" />
+      </then>
+      <else>
+        <if>
+          <equals arg1="aws" arg2="${BUILD_ENVIRONMENT}" />
+          <then>
+            <!-- manual scp exec to use standard socat config for proxy -->
+            <exec executable="scp" failonerror="true" >
+              <arg line="${BUILD_ENVIRONMENT}_totus_web.tgz ${deployuser}@${apphost}:/tmp" />
+            </exec>
+          </then>
+          <else>    
+            <input message="Enter ${deployuser} password for ${apphost}:" addproperty="deploypasswd" />
+            <scp file="${BUILD_ENVIRONMENT}_totus_web.tgz" todir="${deployuser}@${apphost}:/tmp" password="${deploypasswd}" />
+          </else>
+        </if>
+      </else>
+    </if>
+
+    <echo file="deploy-totus.sh" append="false" message="echo ${deploypasswd} | sudo -S bash -c '
+cd ${deploydir};
+outdir=${BUILD_ENVIRONMENT}_totus;
+if [ -d $outdir ]; then 
+  tar cvzf /tmp/${outdir}-$(date +%Y%m%d_%H%M%S).tgz $outdir;
+  rm -rf $outdir/*;
+else
+  mkdir $outdir;
+  if [ $? -ne 0 ]; then exit 1; fi;
+fi;
+cd $outdir;
+tar xvzf /tmp/${BUILD_ENVIRONMENT}_totus_web.tgz;
+cp config/totus_web-${BUILD_ENVIRONMENT}.conf ${configdir};
+target=$(echo ${BUILD_ENVIRONMENT});
+if [ $target = 'dev' ]; then
+  cp js/totus.js js/totus.js.tmp;
+else
+  sed -e 's/localhost:80/${deployURL}/g' js/totus.js > js/totus.js.tmp;
+fi;
+mv js/totus.js.tmp js/totus.js;
+rm -f /tmp/${BUILD_ENVIRONMENT}_totus_web.tgz
+'" />
+
+    <if>
+      <equals arg1="localhost" arg2="${apphost}" />
+      <then>
+        <exec executable="sudo" failonerror="true" >
+          <arg line="sh deploy-totus.sh" />
+        </exec>
+      </then>
+      <else>
+        <if>
+          <equals arg1="aws" arg2="${BUILD_ENVIRONMENT}" />
+          <then>
+            <!-- manual scp exec to use standard socat config for proxy -->
+            <exec executable="scp" failonerror="true" >
+              <arg line="deploy-totus.sh ${deployuser}@${apphost}:/tmp" />
+            </exec>
+            <exec executable="ssh" failonerror="true" >
+              <arg line="${deployuser}@${apphost} sh /tmp/deploy-totus.sh" />
+            </exec>
+          </then>
+          <else>    
+            <sshexec host="${apphost}" username="${deployuser}" password="${deploypasswd}" 
+                     commandResource="deploy-totus.sh" verbose="true" />
+          </else>
+        </if>
+      </else>
+    </if>
+
+    <delete file="deploy-totus.sh" verbose="true" />
+    <delete file="${BUILD_ENVIRONMENT}_totus_web.tgz" verbose="true" />
+  </target>
+</project>

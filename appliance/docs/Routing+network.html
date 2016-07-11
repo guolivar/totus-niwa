@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>NIWA Systems : Routing network</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body>
+        <div id="page">
+            <div id="main">
+                <div id="main-header" class="pageSectionHeader">
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            NIWA Systems : Routing network
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div id="main-content" class="wiki-content group">
+                    <div>
+<ul>
+    <li><a href='#Routingnetwork-NetworkLayer'>Network Layer</a></li>
+<ul>
+    <li><a href='#Routingnetwork-TypesandClasses'>Types and Classes</a></li>
+    <li><a href='#Routingnetwork-Roadclasscosting'>Road class costing</a></li>
+    <li><a href='#Routingnetwork-Topology'>Topology</a></li>
+</ul>
+</ul></div>
+
+<h2 id="Routingnetwork-NetworkLayer">Network Layer</h2>
+
+<p>TOTUS uses an altered version of pgRouting's topological network schema, as imported by the thirdparty tool <a href="http://www.pgrouting.org/docs/tools/osm2pgrouting.html" class="external-link" rel="nofollow">osm2pgrouting</a>. We maintain our own copy.</p>
+
+<p><img class="confluence-embedded-image" src="attachments/52068788/53411881.png" data-image-src="attachments/52068788/53411881.png"></p>
+
+<p>The OSM simple schema data is not suitable for network routing. By nature it is topological, but not necessary planar and cannot be traversed as a directed graph. We use the thirdparty tool <em>osm2pgrouting</em> to create the correct planar network topology from an OSM planet file. This utility has been slightly modified to work with our <em>ant</em> driven database build and deployment. <em>osm2pgrouting</em> depends on a configuration file to load only the network classes TOTUS is interested in for routing purposes. This configuration file may need updating as new network classes are added to the New Zealand OSM planet file. The network schema is created from the same OSM planet XML file as imported into the OSM schema.</p>
+
+<p><em>osm2pgrouting</em> imports the network data to the above database schema. This schema is created by TOTUS, but is a given and does not follow our naming conventions. The table <em>nodes</em> use to be called <em>edge_points</em>, but to keep it consistent with edges/nodes in a graph it has been renamed.</p>
+
+<h3 id="Routingnetwork-TypesandClasses">Types and Classes</h3>
+
+<p>These classify the network edges into network types, eg. <em>highway</em>, each with their own classes, eg. <em>motorway</em>. This information is used by the routing functions to consider only sub-networks, eg. only <em>highway</em> classes when calculating routes and to apply rudimentary costing to the traversal of an edge.</p>
+
+<p><strong>types</strong>:</p>
+
+<p>These are the top level map feature types in the OSM data. We only import <em>cycleway</em>, <em>highway</em>, <em>junction</em> and <em>tracktype</em>.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>INTEGER</em>): type id allocated by mapconfig.xml</li>
+	<li><strong><em>name</em></strong> (<em>VARCHAR(200)</em>): map feature type name, in OSM these are the key names for way attributes, eg. <em>highway</em></li>
+</ul>
+
+
+<p><strong>classes</strong>:</p>
+
+<p>These are the individual classes for the network types and used to scale the cost of traversing the network edges belong to this class.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>INTEGER</em>): class id allocated by mapconfig.xml</li>
+	<li><strong><em>type_id</em></strong> (<em>INTEGER</em>): it's parent map feature type</li>
+	<li><strong><em>name</em></strong> (<em>VARCHAR(200)</em>): the name of the class, in OSM these are the values for the map feature keys, eg. <code>&lt;tag k=&quot;highway&quot; v=&quot;traffic_signals&quot;/&gt;</code></li>
+	<li><strong><em>cost</em></strong> (<em>NUMERIC</em>): the default scaling factor to apply to the edge cost, which is the length of the edge in the graph</li>
+</ul>
+
+
+<h3 id="Routingnetwork-Roadclasscosting">Road class costing</h3>
+
+<p>TOTUS applies rudimentary costing per road class. The calling route function needs to specify the route costing options to apply per road class to prvent certain road types not allowed by the mode of transport to be considered as a candidate edge, eg. cycling not allowed on motorway and the motorway road class is costed as <em>100000.0</em></p>
+
+<p><strong>costing_options</strong>:</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>SERIAL</em>): cost option id allocated by database</li>
+	<li><strong><em>option</em></strong> (<em>VARCHAR(200)</em>): cost option, eg. distance, pedestrian, etc.</li>
+	<li><strong><em>description</em></strong> (<em>TEXT</em>): description of the cost</li>
+</ul>
+
+
+<p><strong>class_costs</strong>:</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>SERIAL</em>): class cost id allocated by database</li>
+	<li><strong><em>option_id</em></strong> (<em>INTEGER</em>): the costing option for this road class cost</li>
+	<li><strong><em>class_id</em></strong> (<em>INTEGER</em>): the road class the cost will be applied for</li>
+	<li><strong><em>cost</em></strong> (<em>NUMERIC</em>): the cost for the road class, which is a scaling factor for the edges in the graph</li>
+</ul>
+
+
+<h3 id="Routingnetwork-Topology">Topology</h3>
+
+<p><strong>nodes</strong>:</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>INTEGER</em>): node identifier</li>
+	<li><strong><em>the_geom</em></strong> (<em>POINT</em>): 2D point geometry for vertex</li>
+</ul>
+
+
+<p><strong>edges</strong>:</p>
+
+<ul>
+	<li><strong><em>gid</em></strong> (<em>SERIAL</em>): surrogate key allocated by loader</li>
+	<li><strong><em>osm_id</em></strong> (<em>BIGINT</em>): link to the OSM way this network edge was created from, multiple edges may link to one single OSM way</li>
+	<li><strong><em>class_id</em></strong> (<em>INTEGER</em>): it's network class</li>
+	<li><strong><em>length</em></strong> (<em>NUMERIC</em>): great-circle distance in degrees</li>
+	<li><strong><em>name</em></strong> (<em>CHARACTER(200)</em>): name of the way</li>
+	<li><strong><em>x1</em></strong> (<em>NUMERIC</em>): start longitude of edge, used for optimizing A-star by filtering unwanted edges from graph</li>
+	<li><strong><em>y1</em></strong> (<em>NUMERIC</em>): start latitude, used by A-star routing function</li>
+	<li><strong><em>x2</em></strong> (<em>NUMERIC</em>): end longitude</li>
+	<li><strong><em>y2</em></strong> (<em>NUMERIC</em>): end latitude</li>
+	<li><strong><em>reverse_cost</em></strong> (<em>NUMERIC</em>): the cost of traversing the edge in reverse, for one way this value is huge and prohibits traversal</li>
+	<li><strong><em>rule</em></strong> (<em>TEXT</em>): comma separated list of edges to follow after this one, implements a obligated turn restriction rule</li>
+	<li><strong><em>to_cost</em></strong> (<em>NUMERIC</em>): the cost of traversing the edge from start to end node</li>
+	<li><strong><em>source</em></strong> (<em>INTEGER</em>): the source (start) node of edge</li>
+	<li><strong><em>target</em></strong> (<em>INTEGER</em>): the target (end) node of edge</li>
+	<li><strong><em>the_geom</em></strong> (<em>MULTILINESTRING</em>): postGIS gemetry</li>
+</ul>
+
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/52068788/53411881.png">totus_network.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+        </div>     </body>
+</html>

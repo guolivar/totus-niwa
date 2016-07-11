@@ -1,0 +1,310 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>NIWA Systems : Census</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body>
+        <div id="page">
+            <div id="main">
+                <div id="main-header" class="pageSectionHeader">
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            NIWA Systems : Census
+                        </span>
+                    </h1>
+
+                </div>
+
+                <div id="content" class="view">
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="Census-Census">Census</h1>
+
+<div>
+<ul>
+    <li><a href='#Census-Census'>Census</a></li>
+<ul>
+    <li><a href='#Census-Administrativehierarchy'>Administrative hierarchy</a></li>
+<ul>
+    <li><a href='#Census-admin_type'>admin_type</a></li>
+    <li><a href='#Census-admin_area'>admin_area</a></li>
+</ul>
+    <li><a href='#Census-Censusinformationhierarchy'>Census information hierarchy</a></li>
+<ul>
+    <li><a href='#Census-topic'>topic</a></li>
+    <li><a href='#Census-category'>category</a></li>
+    <li><a href='#Census-class'>class</a></li>
+    <li><a href='#Census-demographic'>demographic</a></li>
+</ul>
+</ul>
+</ul></div>
+
+<p><img class="confluence-embedded-image" src="attachments/52068838/53411880.png" data-image-src="attachments/52068838/53411880.png"></p>
+
+<h2 id="Census-Administrativehierarchy">Administrative hierarchy</h2>
+
+<p>Census data is provided as a collection of spread sheets, each defines the instances of the administration areas (geographies)</p>
+
+<ul>
+	<li>Meshblock</li>
+	<li>Area unit</li>
+	<li>Ward (where applicable)</li>
+	<li>Territorial authority</li>
+	<li>Regional council</li>
+</ul>
+
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>  
+            RC      Regional Council
+           /  \
+         TA    TA   Territorial Authority
+        /  \
+       WA   WA      Ward
+      /  \
+    AU   AU         Area Unit
+   / \
+ MB   MB            Meshblock
+
+</pre>
+</div></div>
+
+<p>The adminstrative hierarchy is presented as a tree with each level of a specific adminstrative tyoe. Demographic data is assigned to the meshblocks only.</p>
+
+<h3 id="Census-admin_type">admin_type</h3>
+
+<p>Administrative types or levels in area hierarchy, eg. <em>RC</em>, <em>TA</em></p>
+
+<ul>
+	<li><em><strong>id</strong></em> (<em>SERIAL</em>)</li>
+	<li><em><strong>code</strong></em> (<em>CHARACTER(2)</em>)</li>
+	<li><em><strong>description</strong></em> (<em>TEXT</em>)</li>
+</ul>
+
+
+<h3 id="Census-admin_area">admin_area</h3>
+
+<p>An administrative area in the area hierarchy</p>
+
+<ul>
+	<li><em><strong>id</strong></em> (<em>SERIAL</em>)</li>
+	<li><em><strong>parent_id</strong></em> (<em>INTEGER</em>)</li>
+	<li><em><strong>admin_type_id</strong></em> (<em>INTEGER</em>)</li>
+	<li><em><strong>census_identifier</strong></em> (<em>VARCHAR(32)</em>)</li>
+	<li><em><strong>description</strong></em> (<em>TEXT</em>)</li>
+</ul>
+
+
+<h2 id="Census-Censusinformationhierarchy">Census information hierarchy</h2>
+
+<p>Census data is provided as a collection of spread sheets per topic. Each topic has a set of categories, each with it's own set of classifications.</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>  
+               TOPIC              About People
+              /     \
+       CATEGORY     CATEGORY      Age in 5 year groups
+      /       \
+ CLASS        CLASS               0 - 4 years, 5 - 9 years
+
+</pre>
+</div></div>
+
+<p><strong>About people:</strong></p>
+
+<ul>
+	<li>Census usually resident population count</li>
+	<li>Census night population count</li>
+</ul>
+
+
+<p>Based on census usually resident population count:</p>
+
+<ul>
+	<li>Sex</li>
+	<li>Age in five-year age groups</li>
+	<li>Median age</li>
+	<li>Years at usual residence</li>
+	<li>Usual residence five years ago indicator</li>
+	<li>Birthplace</li>
+	<li>Years since arrival in New Zealand</li>
+	<li>Ethnic groups – grouped total responses</li>
+	<li>Languages spoken</li>
+	<li>Māori descent</li>
+	<li>Religious affiliation</li>
+</ul>
+
+
+<p>Based on census usually resident population count aged 15 years and over:</p>
+
+<ul>
+	<li>Cigarette smoking behaviour</li>
+	<li>Legal marital status</li>
+	<li>Social marital status</li>
+	<li>Tenure holder</li>
+	<li>Number of children born</li>
+	<li>Highest qualification</li>
+	<li>Study participation</li>
+	<li>Sources of personal income – total responses</li>
+	<li>Total personal income</li>
+	<li>Median personal income</li>
+	<li>Work and labour force status</li>
+	<li>Unpaid activities – total responses</li>
+</ul>
+
+
+<p>Based on census usually resident population count aged 15 years and over and employed:</p>
+
+<ul>
+	<li>Status in employment</li>
+	<li>Occupation – ANZSCO major group</li>
+	<li>Occupation – ANZSCO major group, workplace address</li>
+	<li>Occupation – NZSCO99 major group</li>
+	<li>Occupation – NZSCO99 major group, workplace address</li>
+	<li>Industry – ANZSIC06 division</li>
+	<li>Industry – ANZSIC06 division</li>
+	<li>Industry – ANZSIC96 v4.1 division industry – ANZSIC06 division</li>
+	<li>Industry – ANZSIC96 v4.1 division</li>
+	<li>Hours worked in employment per week</li>
+	<li>Main means of travel to work</li>
+</ul>
+
+
+<p><strong>About families:</strong></p>
+
+<ul>
+	<li>Total families (in private occupied dwellings)</li>
+</ul>
+
+
+<p>Families in private occupied dwellings:</p>
+
+<ul>
+	<li>Family type</li>
+	<li>Total family income</li>
+	<li>Median family income</li>
+	<li>Sources of family income – total responses</li>
+</ul>
+
+
+<p><strong>About households:</strong></p>
+
+<ul>
+	<li>Number of usual residents in household</li>
+	<li>Mean number of usual household members</li>
+</ul>
+
+
+<p>Households in private occupied dwellings:</p>
+
+<ul>
+	<li>Total households</li>
+	<li>Household composition</li>
+	<li>Total household income</li>
+	<li>Median household income</li>
+	<li>Sources of household income – total responses</li>
+	<li>Tenure of household</li>
+	<li>Number of motor vehicles to which the household has access</li>
+	<li>Access to telecommunications – total responses</li>
+</ul>
+
+
+<p>Households in rented private occupied dwellings:</p>
+
+<ul>
+	<li>Sector of landlord</li>
+	<li>Weekly rent paid</li>
+	<li>Mean weekly rent paid</li>
+	<li>Median weekly rent paid</li>
+</ul>
+
+
+<p><strong>About dwellings:</strong></p>
+
+<ul>
+	<li>Total private occupied dwellings</li>
+	<li>Dwelling record type (for occupied dwellings)</li>
+</ul>
+
+
+<p>Private occupied dwellings:</p>
+
+<ul>
+	<li>Number of rooms</li>
+	<li>Number of bedrooms</li>
+	<li>Mean number of bedrooms</li>
+	<li>Median number of bedrooms</li>
+	<li>Fuel types used to heat dwelling – total responses</li>
+</ul>
+
+
+<h3 id="Census-topic">topic</h3>
+
+<p>Census topics, eg. about people, households, etc.</p>
+
+<ul>
+	<li><em><strong>id</strong></em> (<em>SERIAL</em>)</li>
+	<li><em><strong>code</strong></em> (<em>VARCHAR(32)</em>)</li>
+	<li><em><strong>description</strong></em> (<em>TEXT</em>)</li>
+</ul>
+
+
+
+<h3 id="Census-category">category</h3>
+
+<p>Category for a Census topic, eg. Age in 5 year groups</p>
+
+<ul>
+	<li><em><strong>id</strong></em> (<em>SERIAL</em>)</li>
+	<li><em><strong>topic_id</strong></em> (<em>INTEGER</em>)</li>
+	<li><em><strong>code</strong></em> (<em>VARCHAR(32)</em>)</li>
+	<li><em><strong>description</strong></em> (<em>TEXT</em>)</li>
+</ul>
+
+
+
+<h3 id="Census-class">class</h3>
+
+<p>The classes of a topic category, eg. 0 - 4 years</p>
+
+<ul>
+	<li><em><strong>id</strong></em> (<em>SERIAL</em>)</li>
+	<li><em><strong>category_id</strong></em> (<em>INTEGER</em>)</li>
+	<li><em><strong>code</strong></em> (<em>VARCHAR(32)</em>)</li>
+	<li><em><strong>description</strong></em> (<em>TEXT</em>)</li>
+</ul>
+
+
+
+
+<h3 id="Census-demographic">demographic</h3>
+
+<p>The instance of a statistic of the human population. This table holds the count data per class (a cell in the census spreadsheets)</p>
+
+<ul>
+	<li><em><strong>id</strong></em> (<em>SERIAL</em>)</li>
+	<li><em><strong>admin_area_id</strong></em> (<em>INTEGER</em>)</li>
+	<li><em><strong>class_id</strong></em> (<em>INTEGER</em>)</li>
+	<li><em><strong>count</strong></em> (<em>INTEGER</em>)</li>
+	<li><em><strong>year</strong></em> (<em>SMALLINT</em>)</li>
+</ul>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/52068838/53411880.png">totus_census.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+        </div>     </body>
+</html>

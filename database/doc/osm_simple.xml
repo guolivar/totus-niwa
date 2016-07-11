@@ -1,0 +1,1493 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: /cvsroot/autodoc/autodoc/xml.tmpl,v 1.2 2006/05/16 19:01:27 rbt Exp $ -->
+
+<book id="database.totus" xreflabel="totus database schema"><title>totus Model</title>
+
+
+
+
+  <chapter id="osm.schema"
+           xreflabel="osm">
+    <title>Schema osm</title>
+    <para></para>
+
+
+      <section id="osm.table.actions"
+               xreflabel="osm.actions">
+        <title id="osm.table.actions-title">
+         Table:
+         
+         <structname>actions</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>actions</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>data_type</structfield></term>
+              <listitem><para>
+                <type>character(1)</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>action</structfield></term>
+              <listitem><para>
+                <type>character(1)</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>id</structfield></term>
+              <listitem><para>
+                <type>bigint</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="osm.table.node-tags"
+               xreflabel="osm.node_tags">
+        <title id="osm.table.node-tags-title">
+         Table:
+         
+         <structname>node_tags</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>node_tags</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>node_id</structfield></term>
+              <listitem><para>
+                <type>bigint</type>
+
+
+
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="osm.table.nodes"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>k</structfield></term>
+              <listitem><para>
+                <type>text</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>v</structfield></term>
+              <listitem><para>
+                <type>text</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <variablelist>
+          <title>Indexes on node_tags</title>
+
+          <varlistentry>
+            <term>idx_node_tags_node_id</term>
+            <listitem><para>node_id</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="osm.table.nodes"
+               xreflabel="osm.nodes">
+        <title id="osm.table.nodes-title">
+         Table:
+         
+         <structname>nodes</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>nodes</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>id</structfield></term>
+              <listitem><para>
+                <type>bigint</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>version</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>user_id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="osm.table.users"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>tstamp</structfield></term>
+              <listitem><para>
+                <type>timestamp without time zone</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>changeset_id</structfield></term>
+              <listitem><para>
+                <type>bigint</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>geom</structfield></term>
+              <listitem><para>
+                <type>geometry</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+        <variablelist>
+          <title>Constraints on nodes</title>
+
+          <varlistentry>
+            <term>enforce_dims_geom</term>
+            <listitem><para>CHECK ((ndims(geom) = 2))</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>enforce_geotype_geom</term>
+            <listitem><para>CHECK (((geometrytype(geom) = &apos;POINT&apos;::text) OR (geom IS NULL)))</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>enforce_srid_geom</term>
+            <listitem><para>CHECK ((srid(geom) = 4326))</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <variablelist>
+          <title>Indexes on nodes</title>
+
+          <varlistentry>
+            <term>idx_nodes_geom</term>
+            <listitem><para>geom</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <itemizedlist>
+          <title>
+            Tables referencing node_tags via Foreign Key Constraints
+          </title>
+
+          <listitem>
+            <para>
+              <xref linkend="osm.table.node-tags"/>
+            </para>
+          </listitem>
+
+
+
+          <listitem>
+            <para>
+              <xref linkend="osm.table.way-nodes"/>
+            </para>
+          </listitem>
+
+        </itemizedlist>
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="osm.table.relation-members"
+               xreflabel="osm.relation_members">
+        <title id="osm.table.relation-members-title">
+         Table:
+         
+         <structname>relation_members</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>relation_members</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>relation_id</structfield></term>
+              <listitem><para>
+                <type>bigint</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="osm.table.relations"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>member_id</structfield></term>
+              <listitem><para>
+                <type>bigint</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>member_type</structfield></term>
+              <listitem><para>
+                <type>character(1)</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>member_role</structfield></term>
+              <listitem><para>
+                <type>text</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>sequence_id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="osm.table.relation-tags"
+               xreflabel="osm.relation_tags">
+        <title id="osm.table.relation-tags-title">
+         Table:
+         
+         <structname>relation_tags</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>relation_tags</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>relation_id</structfield></term>
+              <listitem><para>
+                <type>bigint</type>
+
+
+
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="osm.table.relations"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>k</structfield></term>
+              <listitem><para>
+                <type>text</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>v</structfield></term>
+              <listitem><para>
+                <type>text</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <variablelist>
+          <title>Indexes on relation_tags</title>
+
+          <varlistentry>
+            <term>idx_relation_tags_relation_id</term>
+            <listitem><para>relation_id</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="osm.table.relations"
+               xreflabel="osm.relations">
+        <title id="osm.table.relations-title">
+         Table:
+         
+         <structname>relations</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>relations</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>id</structfield></term>
+              <listitem><para>
+                <type>bigint</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>version</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>user_id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>tstamp</structfield></term>
+              <listitem><para>
+                <type>timestamp without time zone</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>changeset_id</structfield></term>
+              <listitem><para>
+                <type>bigint</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+        <itemizedlist>
+          <title>
+            Tables referencing relation_members via Foreign Key Constraints
+          </title>
+
+          <listitem>
+            <para>
+              <xref linkend="osm.table.relation-members"/>
+            </para>
+          </listitem>
+
+
+
+          <listitem>
+            <para>
+              <xref linkend="osm.table.relation-tags"/>
+            </para>
+          </listitem>
+
+        </itemizedlist>
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="osm.table.schema-info"
+               xreflabel="osm.schema_info">
+        <title id="osm.table.schema-info-title">
+         Table:
+         
+         <structname>schema_info</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>schema_info</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>version</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="osm.table.users"
+               xreflabel="osm.users">
+        <title id="osm.table.users-title">
+         Table:
+         
+         <structname>users</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>users</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>name</structfield></term>
+              <listitem><para>
+                <type>text</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+        <itemizedlist>
+          <title>
+            Tables referencing nodes via Foreign Key Constraints
+          </title>
+
+          <listitem>
+            <para>
+              <xref linkend="osm.table.nodes"/>
+            </para>
+          </listitem>
+
+
+
+          <listitem>
+            <para>
+              <xref linkend="osm.table.ways"/>
+            </para>
+          </listitem>
+
+        </itemizedlist>
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="osm.table.way-nodes"
+               xreflabel="osm.way_nodes">
+        <title id="osm.table.way-nodes-title">
+         Table:
+         
+         <structname>way_nodes</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>way_nodes</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>way_id</structfield></term>
+              <listitem><para>
+                <type>bigint</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="osm.table.ways"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>node_id</structfield></term>
+              <listitem><para>
+                <type>bigint</type>
+
+
+
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="osm.table.nodes"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>sequence_id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <variablelist>
+          <title>Indexes on way_nodes</title>
+
+          <varlistentry>
+            <term>idx_way_nodes_node_id</term>
+            <listitem><para>node_id</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="osm.table.way-tags"
+               xreflabel="osm.way_tags">
+        <title id="osm.table.way-tags-title">
+         Table:
+         
+         <structname>way_tags</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>way_tags</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>way_id</structfield></term>
+              <listitem><para>
+                <type>bigint</type>
+
+
+
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="osm.table.ways"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>k</structfield></term>
+              <listitem><para>
+                <type>text</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>v</structfield></term>
+              <listitem><para>
+                <type>text</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <variablelist>
+          <title>Indexes on way_tags</title>
+
+          <varlistentry>
+            <term>idx_way_tags_way_id</term>
+            <listitem><para>way_id</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="osm.table.ways"
+               xreflabel="osm.ways">
+        <title id="osm.table.ways-title">
+         Table:
+         
+         <structname>ways</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>ways</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>id</structfield></term>
+              <listitem><para>
+                <type>bigint</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>version</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>user_id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="osm.table.users"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>tstamp</structfield></term>
+              <listitem><para>
+                <type>timestamp without time zone</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>changeset_id</structfield></term>
+              <listitem><para>
+                <type>bigint</type>
+
+
+
+                <literal>NOT NULL</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>bbox</structfield></term>
+              <listitem><para>
+                <type>geometry</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>linestring</structfield></term>
+              <listitem><para>
+                <type>geometry</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+        <variablelist>
+          <title>Constraints on ways</title>
+
+          <varlistentry>
+            <term>enforce_dims_bbox</term>
+            <listitem><para>CHECK ((ndims(bbox) = 2))</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>enforce_dims_linestring</term>
+            <listitem><para>CHECK ((ndims(linestring) = 2))</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>enforce_srid_bbox</term>
+            <listitem><para>CHECK ((srid(bbox) = 4326))</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>enforce_srid_linestring</term>
+            <listitem><para>CHECK ((srid(linestring) = 4326))</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <variablelist>
+          <title>Indexes on ways</title>
+
+          <varlistentry>
+            <term>idx_ways_bbox</term>
+            <listitem><para>bbox</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>idx_ways_linestring</term>
+            <listitem><para>linestring</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <itemizedlist>
+          <title>
+            Tables referencing way_nodes via Foreign Key Constraints
+          </title>
+
+          <listitem>
+            <para>
+              <xref linkend="osm.table.way-nodes"/>
+            </para>
+          </listitem>
+
+
+
+          <listitem>
+            <para>
+              <xref linkend="osm.table.way-tags"/>
+            </para>
+          </listitem>
+
+        </itemizedlist>
+
+
+
+
+
+
+      </para>
+    </section>
+
+
+
+<!-- Function osmosisupdate() -->
+    <section id="osm.function.osmosisupdate"
+             xreflabel="osmosmosisupdate()">
+      <title id="osm.function.osmosisupdate-title">
+       osmosisupdate()
+      </title>
+      <titleabbrev id="osm.function.osmosisupdate-titleabbrev">
+       osmosisupdate()
+      </titleabbrev>
+
+      <para>
+       <segmentedlist>
+        <title>Function Properties</title>
+        <?dbhtml list-presentation="list"?>
+        <segtitle>Language</segtitle>
+        <segtitle>Return Type</segtitle>
+        <seglistitem>
+         <seg>PLPGSQL</seg>
+         <seg>void</seg>
+        </seglistitem>
+       </segmentedlist>
+ 
+       
+        <programlisting>
+DECLARE
+BEGIN
+END;
+</programlisting>
+      </para>
+    </section>
+
+  </chapter>
+
+</book>
+

@@ -1,0 +1,5 @@
+# pgrouting extension
+comment =  'PGRouting functions'
+default_version = '1.0.6'
+module_pathname = '$libdir/librouting'
+relocatable = true

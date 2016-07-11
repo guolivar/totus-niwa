@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- setup UAT database connection properties -->
+<project name="TOTUS-DATABASE-UAT">
+  <property name="db"     value="uat_totus" />
+  <property name="dbhost" value="atlantic.niwa.co.nz" />
+
+  <!-- properties that apply when cloned by -DFORCE_RELOAD=true -->
+  <property name="masterdb" value="prod_totus" />
+  <property name="masterhost" value="atlantic.niwa.co.nz" />
+</project>

@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<project name="TOTUS-DATABASE" basedir="." default="prepare-database-environment">
+    <!-- defs -->
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties" />
+
+    <fail unless="BUILD_ENVIRONMENT" message="The BUILD_ENVIRONMENT property needs to be set, eg. prod or test" />
+
+    <!-- default properties, may be overwritten -D external properties -->
+    <property name="driver"        value="org.postgresql.Driver" />
+    <property name="owner"         value="totus_admin" />
+    <property name="pass"          value="${PASSWORD}" />
+    <property name="workfile"      value="temp.properties" />
+    <property name="patchlocation" value="patches" />
+
+    <if>
+        <istrue value="${FORCE_RELOAD}" />
+        <then>
+            <property name="RELOAD" value="true" />
+        </then>
+    </if> 
+
+    <!-- import application/database host properties ${db} and ${dbhost} used in ${url} -->
+    <import file="build/${BUILD_ENVIRONMENT}.xml" />
+
+    <!-- fall back values, if none was set by environment -->
+    <property name="pg_jar_version" value="9.2-1002.jdbc4" />
+    <property name="dba_user"       value="postgres" />
+
+    <!-- now set properties that rely on local build environment settings sourced above -->
+    <property name="cp" value="lib/postgresql-${pg_jar_version}.jar" />
+    <property name="url" value="jdbc:postgresql://${dbhost}:5432/${db}" />
+
+    <!-- retrieve JAR dependencies from the Nexus -->
+    <target name="deps">
+        <if>
+            <isfalse value="${SKIP_DEPS}" />
+            <then>
+                <mkdir dir="lib" />
+                <nexus-get 
+                    groupId="postgresql" 
+                    artifactId="postgresql"
+                    version="${pg_jar_version}"
+                    repo="geomajas-releases"
+                    extension="jar" 
+                    dest="lib" 
+                />
+            </then>
+        </if>
+    </target>
+
+    <macrodef name="nexus-get">
+        <attribute name="groupId"/>
+        <attribute name="artifactId"/>
+        <attribute name="version"/>
+        <attribute name="repo"/>
+        <attribute name="extension"/>
+        <attribute name="dest"/>
+
+        <sequential>
+            <get src="http://repository.niwa.co.nz:8081/service/local/artifact/maven/redirect?r=@{repo}&amp;g=@{groupId}&amp;a=@{artifactId}&amp;v=@{version}&amp;e=@{extension}" dest="@{dest}/@{artifactId}-@{version}.@{extension}" usetimestamp="true" />
+        </sequential>
+    </macrodef>
+
+    <!-- Database related targets -->
+    <target name="prepare-database-environment" depends="deps" >
+        <fail unless="PASSWORD" message="The PASSWORD property for Totus admin user needs to be set" />
+
+        <!-- call the prepare database target -->
+        <antcall target="${BUILD_ENVIRONMENT}-prepare-database" />
+    </target>
+
+    <target name="prod-prepare-database" > 
+        <!-- by default production database is only updated a new version of TOTUS can be released using the -DFORCE_RELOAD=true option, which will
+             force a full re-populate (including recreating schema) of the database -->
+        <antcall inheritall="true">
+            <target name="populate-database" />
+            <target name="update-database" />
+            <target name="update-statistics" />
+        </antcall>
+    </target>
+
+    <!-- build UAT by cloning an existing system if -DFORCE_RELOAD=true and/or applying patches -->
+    <target name="uat-prepare-database" > 
+        <antcall inheritall="true">
+            <target name="clone-database" />
+            <target name="update-database" />
+            <target name="update-statistics" />
+        </antcall>
+    </target>
+
+    <target name="test-prepare-database" > 
+        <!-- always recreate full database for test call populate-database with FORCE_RELOAD set to TRUE -->
+        <antcall inheritall="true">
+            <param name="RELOAD" value="TRUE" />
+            <target name="populate-database" />
+            <target name="update-database" />
+            <target name="update-statistics" />
+        </antcall>
+    </target>
+
+    <target name="dev-prepare-database" > 
+        <!-- recreate test database for dev -->
+        <antcall inheritall="true">
+            <param name="RELOAD" value="TRUE" />
+            <target name="populate-test-database" />
+            <target name="update-database" />
+            <target name="update-statistics" />
+            <target name="run-tests" />
+        </antcall>
+    </target>
+
+    <!-- load test data to autotest -->
+    <target name="autotest-prepare-database" > 
+        <antcall inheritall="true">
+            <param name="RELOAD" value="TRUE" />
+            <target name="populate-test-database" />
+            <target name="update-database" />
+            <target name="update-statistics" />
+            <target name="run-tests" />
+        </antcall>
+    </target>
+
+    <!-- Amazon instance -->
+    <target name="aws-prepare-database" > 
+        <antcall inheritall="true">
+            <target name="clone-database" />
+            <target name="update-database" />
+            <target name="update-statistics" />
+        </antcall>
+    </target>
+
+    <!-- conditional target that clones target database from a snap shot of a clone host -->
+    <target name="clone-database" if="FORCE_RELOAD" >
+        <fail unless="masterhost" message="Provide the host name of the master database to clone from by setting 'masterhost'" />
+        <fail unless="masterdb" message="Provide the name of the master database to clone from by setting 'masterdb'" />
+
+        <if>
+            <!-- sanity check to make sure we don't force reload of production system -->
+            <equals arg1="${BUILD_ENVIRONMENT}" arg2="prod" />
+            <then>
+                <fail message="Not allowed to reload production database ${db}" />
+            </then>
+        </if>
+
+        <!-- remove existing schema completely -->
+        <if>
+            <isfalse value="${FIRST_RUN}" />
+            <then>
+                <!-- drop schema if it exists, as in not a newly created database -->
+                <sql classpath="${cp}" driver="${driver}" url="${url}" userid="${owner}" password="${pass}" onerror="abort" >
+                    <transaction src="schema/drop.sql"  />
+                </sql>
+            </then>
+        </if>
+
+        <!-- take snapshot of production database, prevent password prompt -->
+        <echo file="take_snapshot.sh" append="false" message="
+        PGPASSWORD=${pass} pg_dump -h ${masterhost} -p 5432 -F c -U ${owner} -N public -w ${masterdb} -f ${masterdb}.dump;
+        exit $?" />
+
+        <exec executable="sh" failonerror="true" >
+            <arg line="take_snapshot.sh" />
+        </exec>
+
+        <!-- load snapshot to target database -->
+        <echo file="load_snapshot.sh" append="false" message="
+        ret=0;
+        PGPASSWORD=${pass} pg_restore --no-data-for-failed-tables -h ${dbhost} -p 5432 -F c -d ${db} -U ${owner} -w ${masterdb}.dump;
+
+        if [ $? -ne 0 ]; then
+            echo WARNING: errors were encountered during the restore, check the logs;
+        fi;
+
+        rm -f ${masterdb}.dump;
+        exit $ret;" />
+
+        <exec executable="sh" failonerror="true" >
+            <arg line="load_snapshot.sh" />
+        </exec>
+
+        <delete file="take_snapshot.sh" verbose="true" />
+        <delete file="load_snapshot.sh" verbose="true" />
+    </target>
+
+
+    <target name="recreate-schemas" if="RELOAD" >
+        <sql classpath="${cp}" driver="${driver}" url="${url}" userid="${owner}" password="${pass}" onerror="abort" >
+            <!-- drop and create schemas -->
+            <transaction src="schema/drop.sql" />
+            <transaction src="schema/create.sql" />
+
+            <fileset dir="schema" >
+                <include name="*/tables.sql" />
+            </fileset>
+        </sql>
+
+        <!-- views and permissions rely on some of the functions, create them first -->
+        <antcall target="create-functions" />
+
+        <sql classpath="${cp}" driver="${driver}" url="${url}" userid="${owner}" password="${pass}" onerror="abort" >
+            <fileset dir="schema" >
+                <include name="*/views.sql" />
+            </fileset>
+        </sql>
+
+        <sql classpath="${cp}" driver="${driver}" url="${url}" userid="${owner}" password="${pass}" onerror="abort" >
+            <fileset dir="schema" >
+                <include name="*/permissions.sql" />
+            </fileset>
+        </sql>
+    </target>
+
+    <target name="create-functions">
+        <sql classpath="${cp}" driver="${driver}" url="${url}" userid="${owner}" password="${pass}" onerror="abort" delimiter="@" >
+            <!-- create function that grants schema permissions -->
+            <transaction src="procedures/grant_schema_permissions.sql" />
+
+            <fileset dir="procedures/trafficmodel" >
+                <include name="*.sql" />
+            </fileset>
+
+            <fileset dir="procedures/network" >
+                <include name="*.sql" />
+            </fileset>
+
+            <!-- in order of dependencies -->
+            <file file="procedures/exposure/create_grid.sql" />
+            <file file="procedures/exposure/grid_tif_edge.sql" />
+            <file file="procedures/exposure/model_no2.sql" />
+            <file file="procedures/exposure/base_no2.sql" />
+            <file file="procedures/exposure/tif_summary.sql" />
+            <file file="procedures/exposure/cumulative_tif.sql" />
+
+            <fileset dir="procedures/census" >
+                <include name="*.sql" />
+            </fileset>
+
+            <fileset dir="procedures/energy" >
+                <include name="*.sql" />
+            </fileset>
+        </sql>
+    </target>
+
+    <!-- add referential and check constraints to tables -->
+    <target name="apply-constraints">
+        <!-- add referential constraints in referential order -->
+        <sql classpath="${cp}" driver="${driver}" url="${url}" userid="${owner}" password="${pass}" onerror="abort">
+            <file file="schema/osm/constraints.sql" />
+            <file file="schema/network/constraints.sql" />
+            <file file="schema/trafficmodel/constraints.sql" />
+            <file file="schema/exposure/constraints.sql" />
+            <file file="schema/census/constraints.sql" />
+            <file file="schema/energy/constraints.sql" />
+        </sql>
+    </target>
+
+    <!-- add indexes to tables -->
+    <target name="add-indexes">
+        <sql classpath="${cp}" driver="${driver}" url="${url}" userid="${owner}" password="${pass}" onerror="abort">
+            <fileset dir="schema" >
+                <include name="*/indexes.sql"/>
+            </fileset>
+        </sql>
+    </target>
+
+    <!-- update table statistics to ensure query analyzer produces the best access plan -->
+    <target name="update-statistics">
+        <sql classpath="${cp}" driver="${driver}" url="${url}" userid="${owner}" password="${pass}" onerror="abort">
+            <fileset dir="schema" >
+                <include name="*/analyse.sql"/>
+            </fileset>
+        </sql>
+    </target>
+
+    <!-- update data loaded and ensure permissions was set on any tables created during load -->
+    <target name="post-load-update">
+        <sql classpath="${cp}" driver="${driver}" url="${url}" userid="${owner}" password="${pass}" onerror="abort">
+            <fileset dir="schema" >
+                <include name="*/update.sql"/>
+                <include name="*/permissions.sql" />
+            </fileset>
+        </sql>
+    </target>
+
+    <!-- recreate and populate test database -->
+    <target name="populate-test-database" depends="recreate-schemas" >
+        <property name="datadir" value="data/test" />
+
+        <antcall target="add-indexes" inheritall="true" />
+
+        <exec executable="bin/loadDatabase.sh" failonerror="true" >
+            <arg line="-i ${datadir} -r 'AK' -s ${dbhost} -d ${db} -u ${owner} -p ${pass}" />
+        </exec>
+
+        <antcall target="apply-constraints" inheritall="true" />
+        <antcall target="post-load-update" inheritall="true" />
+    </target>
+
+    <!-- conditional target, will only run when forced, eg. -DFORCE_RELOAD=true -->
+    <target name="populate-database" if="RELOAD" depends="recreate-schemas" >
+        <fail unless="DATADIR"  message="The DATADIR property for OSM/TrafficModel data needs to be set" />
+        <fail unless="REGION" message="The REGION property for OSM/TrafficModel data to extract needs to be set" />
+
+        <property name="datadir" value="${DATADIR}" />
+        <property name="region" value="${REGION}" />
+
+        <antcall target="add-indexes" inheritall="true" />
+
+        <exec executable="bin/loadDatabase.sh" failonerror="true" >
+            <arg line="-i ${datadir} -r ${region} -s ${dbhost} -d ${db} -u ${owner} -p ${pass}" />
+        </exec>
+
+        <antcall target="apply-constraints" inheritall="true" />
+        <antcall target="post-load-update" inheritall="true" />
+    </target>
+
+    <!-- targets for applying database patches -->
+    <target name="update-database">
+        <foreach param="current_patch_path" target="apply-patch" inheritall="true">
+            <path>
+                <fileset dir="${patchlocation}">
+                    <filename name="*.sql" />
+                </fileset>
+            </path>
+        </foreach>
+    </target>
+
+    <target name="apply-patch">
+        <basename property="patch_file_name" file="${current_patch_path}" />
+        <antcallback target="check-patch-applied" return="patch_applied" inheritall="true" />
+
+        <if>
+            <equals arg1="${patch_applied}" arg2="true" />
+            <then>
+                <!-- acceptable state, but must not proceed with this patch -->
+                <echo>${patch_file_name} was already installed, moving on.</echo>
+            </then>
+            <else>
+                <echo>${patch_file_name}  Has not been installed previously, starting installation now</echo>
+                <antcall target="do-apply-patch" inheritall="true">
+                </antcall>
+            </else>
+        </if>
+    </target>
+
+    <target name="check-patch-applied">
+        <sql classpath="${cp}" driver="${driver}" url="${url}" userid="${owner}" password="${pass}" print="yes"
+             output="${workfile}" expandProperties="true" showheaders="false" showtrailers="false">
+        SELECT 'patch_found_in_db=' || 'true' FROM ${schema}.applied_patch where file_name = '${patch_file_name}';
+        </sql>
+
+        <property file="${workfile}" />
+        <delete file="${workfile}" />
+        <var name="patch_applied" value="${patch_found_in_db}" />
+    </target>
+
+    <target name="do-apply-patch">
+        <sql classpath="${cp}" driver="${driver}" url="${url}" userid="${owner}" password="${pass}" onerror="abort" delimiter="@"> 
+            <transaction src="${current_patch_path}" />
+        </sql>
+        <sql classpath="${cp}" driver="${driver}" url="${url}" userid="${owner}" password="${pass}">
+        INSERT INTO ${schema}.applied_patch (file_name, date_applied) VALUES ('${patch_file_name}', now());
+        </sql>
+    </target>
+
+    <!-- run test -->
+    <target name="run-tests">
+        <exec executable="test/runTests.sh" failonerror="true">
+            <arg line="-s ${dbhost} -d ${db} -u ${owner} -p ${pass}" />
+        </exec>
+    </target>
+
+    <!-- Direct Admin Targets
+
+         create roles and users -->
+    <target name="create-database-users">
+        <fail unless="DBA_PASSWORD" message="The DBA_PASSWORD property for ${dba_user} admin user needs to be set" />
+
+        <echo message="Creating Totus database users" />
+        <input message="Enter a password for admin user:"     addproperty="ADMIN_PASSWORD" />
+        <input message="Enter a password for ingester user:"  addproperty="INGESTER_PASSWORD" />
+        <input message="Enter a password for read-only user:" addproperty="READ_ONLY_PASSWORD" />
+
+        <sql classpath="${cp}" driver="${driver}" url="jdbc:postgresql://${dbhost}:5432/postgres" 
+             userid="${dba_user}" password="${DBA_PASSWORD}" onerror="abort" autocommit="true" >
+        CREATE ROLE totus_admin WITH
+            NOSUPERUSER
+            NOCREATEDB
+            NOCREATEROLE
+            LOGIN
+            CONNECTION LIMIT 50
+            ENCRYPTED PASSWORD '${ADMIN_PASSWORD}';
+
+        CREATE ROLE totus_ingester WITH
+            NOSUPERUSER
+            NOCREATEDB
+            NOCREATEROLE
+            LOGIN
+            CONNECTION LIMIT 50
+            ENCRYPTED PASSWORD '${INGESTER_PASSWORD}';
+
+        CREATE ROLE totus WITH
+            NOSUPERUSER
+            NOCREATEDB
+            NOCREATEROLE
+            LOGIN
+            CONNECTION LIMIT 50
+            ENCRYPTED PASSWORD '${READ_ONLY_PASSWORD}';
+        </sql>
+    </target>
+
+    <target name="drop-database-users" >
+        <echo message="Dropping Totus database user" />
+        <sql classpath="${cp}" driver="${driver}" url="jdbc:postgresql://${dbhost}:5432/postgres" 
+             userid="${dba_user}" password="${DBA_PASSWORD}" onerror="abort" autocommit="true" >
+        DROP ROLE totus_admin;
+        DROP ROLE totus_ingester;
+        DROP ROLE totus;
+        </sql>
+    </target>
+
+    <!-- direct target to create a Totus database on pacific -->
+    <target name="create-database" depends="deps">
+        <fail unless="DBA_PASSWORD" message="The DBA_PASSWORD property for ${dba_user} admin user needs to be set" />
+    
+        <!-- create global roles and PL when it's a clean run -->
+        <if>
+            <istrue value="${FIRST_RUN}" />
+            <then>
+                <antcall inheritall="true">
+                    <param name="url" value="jdbc:postgresql://${dbhost}:5432/postgres" />
+                    <target name="create-database-users" />
+                </antcall>
+            </then>
+        </if>
+
+        <echo message="Creating ${BUILD_ENVIRONMENT} Totus database" />
+        <!-- create database -->
+        <sql classpath="${cp}" driver="${driver}" url="jdbc:postgresql://${dbhost}:5432/postgres" 
+             userid="${dba_user}" password="${DBA_PASSWORD}" onerror="abort" autocommit="true" >
+        CREATE DATABASE ${db} WITH 
+            OWNER            = ${owner}
+            ENCODING         = 'UTF8' 
+            TABLESPACE       = pg_default
+            CONNECTION LIMIT = 50
+            TEMPLATE         = template1
+        </sql>
+    </target>
+
+    <!-- direct target to drop a database on test Postgres instance -->
+    <target name="drop-database" >
+        <fail unless="DBA_PASSWORD" message="The DBA_PASSWORD property for ${dba_user} user needs to be set" />
+        <if>
+            <or>
+                <equals arg1="uat" arg2="${BUILD_ENVIRONMENT}" />
+                <equals arg1="test" arg2="${BUILD_ENVIRONMENT}" />
+                <equals arg1="autotest" arg2="${BUILD_ENVIRONMENT}" />
+                <equals arg1="dev" arg2="${BUILD_ENVIRONMENT}" />
+            </or>
+            <then>
+                <echo message="Dropping ${BUILD_ENVIRONMENT} Totus database" />
+                <!-- drop database -->
+                <sql classpath="${cp}" driver="${driver}" url="jdbc:postgresql://${dbhost}:5432/postgres" 
+                     userid="${dba_user}" password="${DBA_PASSWORD}" onerror="abort" autocommit="true" >
+                DROP DATABASE ${db}
+                </sql>
+            </then>
+            <else>
+                <echo message="Not allowed to drop production database '${db}'" />
+            </else>
+        </if>
+    </target>
+</project>

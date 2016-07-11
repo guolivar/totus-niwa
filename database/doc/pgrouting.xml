@@ -1,0 +1,1108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- $Header: /cvsroot/autodoc/autodoc/xml.tmpl,v 1.2 2006/05/16 19:01:27 rbt Exp $ -->
+
+<book id="database.totus" xreflabel="totus database schema"><title>totus Model</title>
+
+
+
+
+  <chapter id="network.schema"
+           xreflabel="network">
+    <title>Schema network</title>
+    <para></para>
+
+
+      <section id="network.table.classes"
+               xreflabel="network.classes">
+        <title id="network.table.classes-title">
+         Table:
+         
+         <structname>classes</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>classes</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>type_id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+
+
+
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="network.table.types"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>name</structfield></term>
+              <listitem><para>
+                <type>character(200)</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>cost</structfield></term>
+              <listitem><para>
+                <type>double precision</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+        <itemizedlist>
+          <title>
+            Tables referencing edges via Foreign Key Constraints
+          </title>
+
+          <listitem>
+            <para>
+              <xref linkend="network.table.edges"/>
+            </para>
+          </listitem>
+
+        </itemizedlist>
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="network.table.edge-points"
+               xreflabel="network.edge_points">
+        <title id="network.table.edge-points-title">
+         Table:
+         
+         <structname>edge_points</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>edge_points</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>edge_id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>point</structfield></term>
+              <listitem><para>
+                <type>smallint</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>geom</structfield></term>
+              <listitem><para>
+                <type>geometry</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <variablelist>
+          <title>Indexes on edge_points</title>
+
+          <varlistentry>
+            <term>edge_points_geom_idx</term>
+            <listitem><para>geom</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>edge_points_id_idx</term>
+            <listitem><para>edge_id</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="network.table.edges"
+               xreflabel="network.edges">
+        <title id="network.table.edges-title">
+         Table:
+         
+         <structname>edges</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>edges</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>gid</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+                <literal>DEFAULT nextval((&apos;&quot;edges_gid_seq&quot;&apos;::text)::regclass)</literal>
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>osm_id</structfield></term>
+              <listitem><para>
+                <type>bigint</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>class_id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+
+
+
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="network.table.classes"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>length</structfield></term>
+              <listitem><para>
+                <type>double precision</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>name</structfield></term>
+              <listitem><para>
+                <type>character(200)</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>x1</structfield></term>
+              <listitem><para>
+                <type>double precision</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>y1</structfield></term>
+              <listitem><para>
+                <type>double precision</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>x2</structfield></term>
+              <listitem><para>
+                <type>double precision</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>y2</structfield></term>
+              <listitem><para>
+                <type>double precision</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>reverse_cost</structfield></term>
+              <listitem><para>
+                <type>double precision</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>rule</structfield></term>
+              <listitem><para>
+                <type>text</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>to_cost</structfield></term>
+              <listitem><para>
+                <type>double precision</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>the_geom</structfield></term>
+              <listitem><para>
+                <type>geometry</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>source</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+
+
+
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="network.table.nodes"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>target</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+
+
+
+
+
+
+
+
+
+
+                <literal>REFERENCES</literal> <xref linkend="network.table.nodes"/>
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+        <variablelist>
+          <title>Constraints on edges</title>
+
+          <varlistentry>
+            <term>enforce_dims_the_geom</term>
+            <listitem><para>CHECK ((ndims(the_geom) = 2))</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>enforce_geotype_the_geom</term>
+            <listitem><para>CHECK (((geometrytype(the_geom) = &apos;MULTILINESTRING&apos;::text) OR (the_geom IS NULL)))</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>enforce_srid_the_geom</term>
+            <listitem><para>CHECK ((srid(the_geom) = 4326))</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <variablelist>
+          <title>Indexes on edges</title>
+
+          <varlistentry>
+            <term>edges_osm_id_idx</term>
+            <listitem><para>osm_id</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>geom_idx</term>
+            <listitem><para>the_geom</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>source_idx</term>
+            <listitem><para>source</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>target_idx</term>
+            <listitem><para>target</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="network.table.nodes"
+               xreflabel="network.nodes">
+        <title id="network.table.nodes-title">
+         Table:
+         
+         <structname>nodes</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>nodes</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>id</structfield></term>
+              <listitem><para>
+                <type>serial</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>the_geom</structfield></term>
+              <listitem><para>
+                <type>geometry</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+        <variablelist>
+          <title>Constraints on nodes</title>
+
+          <varlistentry>
+            <term>enforce_dims_the_geom</term>
+            <listitem><para>CHECK ((ndims(the_geom) = 2))</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>enforce_geotype_the_geom</term>
+            <listitem><para>CHECK (((geometrytype(the_geom) = &apos;POINT&apos;::text) OR (the_geom IS NULL)))</para></listitem>
+          </varlistentry>
+
+
+
+          <varlistentry>
+            <term>enforce_srid_the_geom</term>
+            <listitem><para>CHECK ((srid(the_geom) = 4326))</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <variablelist>
+          <title>Indexes on nodes</title>
+
+          <varlistentry>
+            <term>nodes_idx</term>
+            <listitem><para>the_geom</para></listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+        <itemizedlist>
+          <title>
+            Tables referencing edges via Foreign Key Constraints
+          </title>
+
+          <listitem>
+            <para>
+              <xref linkend="network.table.edges"/>
+            </para>
+          </listitem>
+
+        </itemizedlist>
+
+
+
+
+
+
+      </para>
+    </section>
+
+      <section id="network.table.types"
+               xreflabel="network.types">
+        <title id="network.table.types-title">
+         Table:
+         
+         <structname>types</structname>
+        </title>
+ 
+
+
+        <para>
+          <variablelist>
+            <title>
+              Structure of <structname>types</structname>
+            </title>
+
+
+            <varlistentry>
+              <term><structfield>id</structfield></term>
+              <listitem><para>
+                <type>integer</type>
+
+
+                <literal>PRIMARY KEY</literal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+            <varlistentry>
+              <term><structfield>name</structfield></term>
+              <listitem><para>
+                <type>character(200)</type>
+
+
+
+
+
+
+
+              </para>
+
+            </listitem>
+          </varlistentry>
+
+        </variablelist>
+
+
+
+
+
+
+
+        <itemizedlist>
+          <title>
+            Tables referencing classes via Foreign Key Constraints
+          </title>
+
+          <listitem>
+            <para>
+              <xref linkend="network.table.classes"/>
+            </para>
+          </listitem>
+
+        </itemizedlist>
+
+
+
+
+
+
+      </para>
+    </section>
+
+
+
+<!-- Function closest_edge(y numeric, x numeric) -->
+    <section id="network.function.closest-edge-y-numeric-x-numeric"
+             xreflabel="networkclosest_edge(y numeric, x numeric)">
+      <title id="network.function.closest-edge-y-numeric-x-numeric-title">
+       closest_edge(y numeric, x numeric)
+      </title>
+      <titleabbrev id="network.function.closest-edge-y-numeric-x-numeric-titleabbrev">
+       closest_edge(y numeric, x numeric)
+      </titleabbrev>
+
+      <para>
+       <segmentedlist>
+        <title>Function Properties</title>
+        <?dbhtml list-presentation="list"?>
+        <segtitle>Language</segtitle>
+        <segtitle>Return Type</segtitle>
+        <seglistitem>
+         <seg>PLPGSQL</seg>
+         <seg>SET OF edge</seg>
+        </seglistitem>
+       </segmentedlist>
+ 
+       
+        <programlisting>
+DECLARE
+  --range NUMERIC (12, 8) DEFAULT 0.002  ; -- ~222 m at equator
+  range NUMERIC (12, 8) DEFAULT 0.2; -- ~22.2 km at equator
+  srid  INTEGER         DEFAULT 4326;  -- WGS84
+  bbox  VARCHAR(256);
+  query TEXT;
+  result record;
+  edge edge;
+BEGIN
+  bbox := &#39;BOX3D(&#39; || x - range || &#39; &#39; || y - range || &#39;,&#39; || x + range || &#39; &#39; || y + range || &#39;)&#39;;
+
+  query := &#39;SELECT gid AS id,
+                   source AS startnode,
+                   target AS endnode
+              FROM network.edges
+             WHERE the_geom &amp;&amp; ST_SetSRID (&#39;&#39;&#39; || bbox || &#39;&#39;&#39;::box3d, &#39; || srid || &#39;)
+          ORDER BY distance(the_geom, GeometryFromText(&#39;&#39;POINT(&#39; || x || &#39; &#39; || y || &#39;)&#39;&#39;, &#39; || srid || &#39;))
+             LIMIT 1&#39;;
+	FOR result IN EXECUTE query
+    LOOP
+      edge.id        := result.id;
+      edge.startnode := result.startnode;
+      edge.endnode   := result.endnode;
+      RETURN NEXT edge;
+    END LOOP;
+END;
+</programlisting>
+      </para>
+    </section>
+
+<!-- Function closest_edge_node(range numeric, y numeric, x numeric) -->
+    <section id="network.function.closest-edge-node-range-numeric-y-numeric-x-numeric"
+             xreflabel="networkclosest_edge_node(range numeric, y numeric, x numeric)">
+      <title id="network.function.closest-edge-node-range-numeric-y-numeric-x-numeric-title">
+       closest_edge_node(range numeric, y numeric, x numeric)
+      </title>
+      <titleabbrev id="network.function.closest-edge-node-range-numeric-y-numeric-x-numeric-titleabbrev">
+       closest_edge_node(range numeric, y numeric, x numeric)
+      </titleabbrev>
+
+      <para>
+       <segmentedlist>
+        <title>Function Properties</title>
+        <?dbhtml list-presentation="list"?>
+        <segtitle>Language</segtitle>
+        <segtitle>Return Type</segtitle>
+        <seglistitem>
+         <seg>PLPGSQL</seg>
+         <seg>SET OF edge_node</seg>
+        </seglistitem>
+       </segmentedlist>
+ 
+       
+        <programlisting>
+DECLARE
+  srid       INTEGER         DEFAULT 4326;  -- WGS84
+  bbox       VARCHAR(256);
+  query      TEXT;
+  result     record;
+  edge_node  edge_node;
+BEGIN
+  bbox := &#39;BOX3D(&#39; || x - range || &#39; &#39; || y - range || &#39;,&#39; || x + range || &#39; &#39; || y + range || &#39;)&#39;;
+
+  query := &#39;SELECT e.gid AS edge_id,
+                   CASE WHEN 
+                          distance (ep.geom, ST_StartPoint (e.the_geom) ) &gt;= distance (ep.geom, ST_EndPoint (e.the_geom)) 
+                        THEN
+                          e.source
+                        ELSE
+                          e.target
+                   END AS nodeid
+              FROM network.edges AS e
+              JOIN network.edge_points AS ep
+                   ON e.gid = ep.edge_id 
+             WHERE ep.geom &amp;&amp; ST_SetSRID (&#39;&#39;&#39; || bbox || &#39;&#39;&#39;::box3d, &#39; || srid || &#39;)
+          ORDER BY distance(ep.geom, GeometryFromText(&#39;&#39;POINT(&#39; || x || &#39; &#39; || y || &#39;)&#39;&#39;, &#39; || srid || &#39;))
+             LIMIT 1&#39;;
+
+  FOR result IN EXECUTE query
+  LOOP
+    edge_node.edge_id := result.edge_id;
+    edge_node.node_id := result.node_id;
+
+    RETURN NEXT edge_node;
+  END LOOP;
+  RETURN;
+END
+</programlisting>
+      </para>
+    </section>
+
+<!-- Function closest_edge_node_id(range numeric, y numeric, x numeric) -->
+    <section id="network.function.closest-edge-node-id-range-numeric-y-numeric-x-numeric"
+             xreflabel="networkclosest_edge_node_id(range numeric, y numeric, x numeric)">
+      <title id="network.function.closest-edge-node-id-range-numeric-y-numeric-x-numeric-title">
+       closest_edge_node_id(range numeric, y numeric, x numeric)
+      </title>
+      <titleabbrev id="network.function.closest-edge-node-id-range-numeric-y-numeric-x-numeric-titleabbrev">
+       closest_edge_node_id(range numeric, y numeric, x numeric)
+      </titleabbrev>
+
+      <para>
+       <segmentedlist>
+        <title>Function Properties</title>
+        <?dbhtml list-presentation="list"?>
+        <segtitle>Language</segtitle>
+        <segtitle>Return Type</segtitle>
+        <seglistitem>
+         <seg>PLPGSQL</seg>
+         <seg>integer</seg>
+        </seglistitem>
+       </segmentedlist>
+ 
+       
+        <programlisting>
+DECLARE
+  srid       INTEGER         DEFAULT 4326;  -- WGS84
+  bbox       VARCHAR(256);
+  query      TEXT;
+  result     record;
+  nodeid     INTEGER;
+BEGIN
+  bbox := &#39;BOX3D(&#39; || x - range || &#39; &#39; || y - range || &#39;,&#39; || x + range || &#39; &#39; || y + range || &#39;)&#39;;
+
+  query := &#39;SELECT e.gid AS edge_id,
+                   CASE WHEN 
+                          distance (ep.geom, ST_StartPoint (e.the_geom) ) &gt;= distance (ep.geom, ST_EndPoint (e.the_geom)) 
+                        THEN
+                          e.source
+                        ELSE
+                          e.target
+                   END AS nodeid
+              FROM network.edges AS e
+              JOIN network.edge_points AS ep
+                   ON e.gid = ep.edge_id 
+             WHERE ep.geom &amp;&amp; ST_SetSRID (&#39;&#39;&#39; || bbox || &#39;&#39;&#39;::box3d, &#39; || srid || &#39;)
+          ORDER BY distance(ep.geom, GeometryFromText(&#39;&#39;POINT(&#39; || x || &#39; &#39; || y || &#39;)&#39;&#39;, &#39; || srid || &#39;))
+             LIMIT 1&#39;;
+
+  FOR result IN EXECUTE query
+  LOOP
+    nodeid := result.nodeid;
+  END LOOP;
+  RETURN nodeid;
+END
+</programlisting>
+      </para>
+    </section>
+
+<!-- Function closest_edge_point(range numeric, y numeric, x numeric) -->
+    <section id="network.function.closest-edge-point-range-numeric-y-numeric-x-numeric"
+             xreflabel="networkclosest_edge_point(range numeric, y numeric, x numeric)">
+      <title id="network.function.closest-edge-point-range-numeric-y-numeric-x-numeric-title">
+       closest_edge_point(range numeric, y numeric, x numeric)
+      </title>
+      <titleabbrev id="network.function.closest-edge-point-range-numeric-y-numeric-x-numeric-titleabbrev">
+       closest_edge_point(range numeric, y numeric, x numeric)
+      </titleabbrev>
+
+      <para>
+       <segmentedlist>
+        <title>Function Properties</title>
+        <?dbhtml list-presentation="list"?>
+        <segtitle>Language</segtitle>
+        <segtitle>Return Type</segtitle>
+        <seglistitem>
+         <seg>PLPGSQL</seg>
+         <seg>SET OF edge_point</seg>
+        </seglistitem>
+       </segmentedlist>
+ 
+       
+        <programlisting>
+DECLARE
+  srid   INTEGER         DEFAULT 4326;  -- WGS84
+  bbox   VARCHAR(256);
+  query  TEXT;
+  result record;
+  edge_point   network.edge_point;
+BEGIN
+  bbox := &#39;BOX3D(&#39; || x - range || &#39; &#39; || y - range || &#39;,&#39; || x + range || &#39; &#39; || y + range || &#39;)&#39;;
+
+  query := &#39;SELECT edge_id,
+                   point,
+                   ST_X(geom) AS x,
+                   ST_Y(geom) AS y,
+                   distance(geom, GeometryFromText(&#39;&#39;POINT(&#39; || x || &#39; &#39; || y || &#39;)&#39;&#39;, &#39; || srid || &#39;)) AS error
+              FROM network.edge_points
+             WHERE geom &amp;&amp; ST_SetSRID (&#39;&#39;&#39; || bbox || &#39;&#39;&#39;::box3d, &#39; || srid || &#39;)
+          ORDER BY distance(geom, GeometryFromText(&#39;&#39;POINT(&#39; || x || &#39; &#39; || y || &#39;)&#39;&#39;, &#39; || srid || &#39;))
+             LIMIT 1&#39;;
+
+	FOR result IN EXECUTE query
+  LOOP
+      edge_point.edge_id := result.edge_id;
+      edge_point.point   := result.point;
+      edge_point.x       := result.x;
+      edge_point.y       := result.y;
+      edge_point.error   := result.error;
+      RETURN NEXT edge_point;
+  END LOOP;
+  RETURN;
+END
+</programlisting>
+      </para>
+    </section>
+
+<!-- Function closest_nodes(number numeric, range numeric, y numeric, x smallint) -->
+    <section id="network.function.closest-nodes-number-numeric-range-numeric-y-numeric-x-smallint"
+             xreflabel="networkclosest_nodes(number numeric, range numeric, y numeric, x smallint)">
+      <title id="network.function.closest-nodes-number-numeric-range-numeric-y-numeric-x-smallint-title">
+       closest_nodes(number numeric, range numeric, y numeric, x smallint)
+      </title>
+      <titleabbrev id="network.function.closest-nodes-number-numeric-range-numeric-y-numeric-x-smallint-titleabbrev">
+       closest_nodes(number numeric, range numeric, y numeric, x smallint)
+      </titleabbrev>
+
+      <para>
+       <segmentedlist>
+        <title>Function Properties</title>
+        <?dbhtml list-presentation="list"?>
+        <segtitle>Language</segtitle>
+        <segtitle>Return Type</segtitle>
+        <seglistitem>
+         <seg>PLPGSQL</seg>
+         <seg>SET OF node</seg>
+        </seglistitem>
+       </segmentedlist>
+ 
+       
+        <programlisting>
+DECLARE
+  srid   INTEGER       DEFAULT 4326;  -- WGS84
+  bbox   VARCHAR(256);
+  query  TEXT;
+  result record;
+  node   network.node;
+BEGIN
+  bbox := &#39;BOX3D(&#39; || x - range || &#39; &#39; || y - range || &#39;,&#39; || x + range || &#39; &#39; || y + range || &#39;)&#39;;
+
+  query := &#39;SELECT id,
+                   ST_X(the_geom) AS x,
+                   ST_Y(the_geom) AS y,
+                   distance(the_geom, GeometryFromText(&#39;&#39;POINT(&#39; || x || &#39; &#39; || y || &#39;)&#39;&#39;, &#39; || srid || &#39;)) AS error
+              FROM network.nodes
+             WHERE the_geom &amp;&amp; ST_SetSRID (&#39;&#39;&#39; || bbox || &#39;&#39;&#39;::box3d, &#39; || srid || &#39;)
+          ORDER BY distance(the_geom, GeometryFromText(&#39;&#39;POINT(&#39; || x || &#39; &#39; || y || &#39;)&#39;&#39;, &#39; || srid || &#39;))
+             LIMIT &#39; || number;
+
+	FOR result IN EXECUTE query
+    LOOP
+      node.id    := result.id;
+      node.x     := result.x;
+      node.y     := result.y;
+      node.error := result.error;
+      RETURN NEXT node;
+    END LOOP;
+END;
+</programlisting>
+      </para>
+    </section>
+
+  </chapter>
+
+</book>
+

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- setup test database connection properties -->
+<project name="TOTUS-DATABASE-TEST">
+  <property name="db"     value="test_totus" />
+  <property name="dbhost" value="arctic.niwa.co.nz" />
+</project>

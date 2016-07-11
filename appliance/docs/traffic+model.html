@@ -1,0 +1,340 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>NIWA Systems : Traffic Model traffic model</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body>
+        <div id="page">
+            <div id="main">
+                <div id="main-header" class="pageSectionHeader">
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            NIWA Systems : Traffic Model traffic model
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div id="main-content" class="wiki-content group">
+                    <div>
+<ul>
+    <li><a href='#TrafficModeltrafficmodel-TrafficModel'>TrafficModel</a></li>
+<ul>
+    <li><a href='#TrafficModeltrafficmodel-Core'>Core</a></li>
+    <li><a href='#TrafficModeltrafficmodel-Trafficattributes'>Traffic attributes</a></li>
+    <li><a href='#TrafficModeltrafficmodel-TransportRoutesandAttributes'>Transport Routes and Attributes</a></li>
+    <li><a href='#TrafficModeltrafficmodel-Networklink'>Network link</a></li>
+    <li><a href='#TrafficModeltrafficmodel-Metadata'>Metadata</a></li>
+</ul>
+</ul></div>
+
+<h2 id="TrafficModeltrafficmodel-TrafficModel">TrafficModel</h2>
+
+<p>The Traffic Model schema was designed to hold all traffic data as an extensible set per link and to represent traffic routes.</p>
+
+<p><img class="confluence-embedded-image" src="attachments/52068791/52133925.png" data-image-src="attachments/52068791/52133925.png"></p>
+
+<p>TrafficModel provides a modelled view of traffic flow through topological network links, which is an abstracted view of the real network and may not correspond to the OSM road network features and needs to be transferred manually.</p>
+
+<p>TOTUS need to support:</p>
+
+<ul>
+	<li>different versions of the Auckland Transport Model and Traffic Model for the same yearly runs</li>
+	<li>same model runs for different years with
+	<ul>
+		<li>same or different link topology</li>
+		<li>same or different traffic attributes</li>
+	</ul>
+	</li>
+	<li>predetermined grouping of modelled links as routes, eg. public transport routes, freight routes, etc.</li>
+</ul>
+
+
+<p>The Traffic Model schema was designed with these in mind.</p>
+
+<h3 id="TrafficModeltrafficmodel-Core">Core</h3>
+
+<p>At the core of the Traffic Model schema we have the topological links, their model metadata, transport modes and the Aucklant Transport Model (ATM) zones.</p>
+
+<p><strong>link_type</strong>:</p>
+
+<p>This is a lookup table for the road types of the modelled links. These may not correspond to the OSM map feature types and are currently not used in transferring Traffic Model links to OSM network edges.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>INTEGER</em>): id allocated by database</li>
+	<li><strong><em>type</em></strong> (<em>VARCHAR(32)</em>): numerical road type descriptor as provided by Traffic Model data</li>
+	<li><strong><em>description</em></strong> (<em>TEXT</em>): the description of the road type (<strong>N/A</strong>)</li>
+</ul>
+
+
+<p><strong>congestion_function</strong>:</p>
+
+<p>These are the different congestion functions applied to the links during modelling.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>INTEGER</em>): key allocated by database</li>
+	<li><strong><em>function</em></strong> (<em>VARCHAR(32)</em>): numerical function descriptor as provided by Traffic Model data (<em>VDF</em>)</li>
+	<li><strong><em>description</em></strong> (<em>TEXT</em>): the description of congestion function (<strong>N/A</strong>)</li>
+</ul>
+
+
+<p><strong>transport_mode</strong>:</p>
+
+<p>The different transport modes supported by modelled link for which the traffic flow is relevant.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>SERIAL</em>): key allocated by database</li>
+	<li><strong><em>mode</em></strong> (<em>VARCHAR</em>): the code for the transport mode, eg. <em>b</em>, <em>r</em> modelled on the Traffic Model links or routes</li>
+	<li><strong><em>description</em></strong> (<em>VARCHAR</em>): mode description, eg Bus, Rail, Ferry, etc.</li>
+</ul>
+
+
+<p><strong>zone</strong>:</p>
+
+<p>These are the ATM zones and contain all Traffic Model links. All inter-zone modelling is filtered from TOTUS at this stage.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>SERIAL</em>): id allocated by database</li>
+	<li><strong><em>traffic_id</em></strong> (<em>INTEGER</em>): the original ATM zone id</li>
+	<li><strong><em>version_id</em></strong> (<em>INTEGER</em>): revisions the instances of an Traffic Model zone</li>
+	<li><strong><em>sector</em></strong> (<em>INTEGER</em>): ATM sector identifier</li>
+	<li><strong><em>sector_name</em></strong> (<em>VARCHAR(255)</em>): name of ATM zone, eg. Rodney North</li>
+	<li><strong><em>area_sqm</em></strong> (<em>NUMERIC</em>): area of zone (m2)</li>
+	<li><strong><em>geom</em></strong> (<em>MULTIPOLYGON</em>)</li>
+</ul>
+
+
+<p><strong>link</strong>:</p>
+
+<p>The modelled geometry.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>SERIAL</em>): id allocated by database</li>
+	<li><strong><em>traffic_id</em></strong> (<em>VARCHAR(16)</em>): Traffic Model id of the format <em>inode</em>-<em>jnode</em></li>
+	<li><strong><em>version_id</em></strong> (<em>INTEGER</em>): revisions the instance of an Traffic Model link, together with <em>traffic_id</em> uniquely identifies a link</li>
+	<li><strong><em>start_node_id</em></strong> (<em>INTEGER</em>): the id of it's bounding start node (generated from Traffic Model <em>inode</em>'s)</li>
+	<li><strong><em>end_node_id</em></strong> (<em>INTEGER</em>): the id of it's bounding end node (generated from Traffic Model <em>jnode</em>'s)</li>
+	<li><strong><em>length</em></strong> (<em>NUMERIC</em>): link length assigned by model (not always accurate)</li>
+	<li><strong><em>type_id</em></strong> (<em>INTEGER</em>): the road type associated with this link</li>
+	<li><strong><em>number_of_lanes</em></strong> (<em>SMALLINT</em>): how many lanes were modelled on this link</li>
+	<li><strong><em>function_id</em></strong> (<em>INTEGER</em>): the congestion function used to model traffic flow on this link</li>
+	<li><strong><em>geom</em></strong> (<em>MULTILINESTRING</em>): postGIS mutli-linestring geometry</li>
+</ul>
+
+
+<p><strong>node</strong>:</p>
+
+<p>The node table is created from the <em>inode</em> and <em>jnode</em> geometry provided by TrafficModel.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>SERIAL</em>): id allocated by database</li>
+	<li><strong><em>traffic_id</em></strong> (<em>INTEGER</em>): the Traffic Model identifier (original Traffic Model link's <em>inode</em> or <em>jnode</em>)</li>
+	<li><strong><em>version_id</em></strong> (<em>INTEGER</em>): revision this node</li>
+	<li><strong><em>x</em></strong> (<em>NUMERIC</em>): longitude</li>
+	<li><strong><em>y</em></strong> (<em>NUMERIC</em>): latitude</li>
+	<li><strong><em>iszone</em></strong> (<em>BOOLEAN</em>): inter zone node</li>
+	<li><strong><em>geom</em></strong> (<em>POINT</em>): postGIS point geometry</li>
+</ul>
+
+
+<p><strong>link_transport_mode</strong>:</p>
+
+<p>All the transport modes modelled for a link.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>SERIAL</em>): id allocated by database</li>
+	<li><strong><em>link_id</em></strong> (<em>INTEGER</em>): TOTUS Traffic Model link id</li>
+	<li><strong><em>mode_id</em></strong> (<em>INTEGER</em>): transport mode</li>
+</ul>
+
+
+<h3 id="TrafficModeltrafficmodel-Trafficattributes">Traffic attributes</h3>
+
+<p>TrafficModel provides a set of traffic attributes for each link for different traffic peaks, eg. morning, inter and evening peak.</p>
+
+<p><strong>traffic_peak</strong>:</p>
+
+<p>The lookup table for traffic peaks.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>SERIAL</em>): id allocated by database</li>
+	<li><strong><em>type</em></strong> (<em>CHAR(2)</em>): traffic peak code, eg. <em>AM</em>, <em>IP</em>, <em>PM</em></li>
+	<li><strong><em>description</em></strong> (<em>VARCHAR(64)</em>): description of the traffic peak</li>
+</ul>
+
+
+<p><strong>traffic_attribute</strong>:</p>
+
+<p>Identifies a traffic attribute, eg. link traversal time, total vehicles/2hr, and provides information on how to interpret data, eg. data type. Traffic attributes may different from one model and/or year run to the next and may not always be present and are revisioned.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>SERIAL</em>): id allocated by database</li>
+	<li><strong><em>attribute</em></strong> (<em>VARCHAR(64)</em>): the attribute name (type), eg. <em>LkTime</em> and correspond to the fields in the traffic attribute file</li>
+	<li><strong><em>data_type</em></strong> (<em>VARCHAR(64)</em>): it's data type</li>
+	<li><strong><em>description</em></strong> (<em>TEXT</em>): description of attribute, eg. time taken to traverse link</li>
+	<li><strong><em>version_id</em></strong> (<em>INTEGER</em>): have no guarantee that attribute types are unique, always indentify attributes using the model and Traffic Model versioning information</li>
+</ul>
+
+
+<p><strong>traffic_data</strong>:</p>
+
+<p>The instances of the traffic attributes, eg. the attribute values</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>SERIAL</em>): id allocated by database</li>
+	<li><strong><em>attribute_id</em></strong> (<em>INTEGER</em>): the attribute type</li>
+	<li><strong><em>value</em></strong> (<em>NUMERIC</em>): the numeric value for the attribute</li>
+</ul>
+
+
+<p><strong>link_traffic_data</strong>:</p>
+
+<p>Links an Traffic Model link to all instances of it's traffic attributes for each traffic peak and model year.</p>
+
+<ul>
+	<li><strong><em>link_id</em></strong> (<em>INTEGER</em>): parent Traffic Model link</li>
+	<li><strong><em>data_id</em></strong> (<em>INTEGER</em>): attribute instance</li>
+	<li><strong><em>peak</em></strong> (<em>CHAR(2)</em>): traffic peak</li>
+	<li><strong><em>year</em></strong> (<em>SMALLINT</em>): year of the data used in model run</li>
+</ul>
+
+
+<p><strong>node_traffic_data</strong>:</p>
+
+<p>Any traffic data present for link nodes.</p>
+
+<ul>
+	<li><strong><em>node_id</em></strong> (<em>INTEGER</em>): parent Traffic Model node</li>
+	<li><strong><em>data_id</em></strong> (<em>INTEGER</em>): attribute instance</li>
+	<li><strong><em>peak</em></strong> (<em>CHAR(2)</em>): traffic peak</li>
+	<li><strong><em>year</em></strong> (<em>SMALLINT</em>): year of the data used in model run</li>
+</ul>
+
+
+<h3 id="TrafficModeltrafficmodel-TransportRoutesandAttributes">Transport Routes and Attributes</h3>
+
+<p>The following tables are used to represent a modelled view of transport routes, eg. public or freight routes. The routes consist of a sequence of Traffic Model links, which holds the route link's attributes, eg. number of public transport routes allocated. The route itself may also have attributes, eg. like 1 ton trucks only.</p>
+
+<p><strong>route_attribute</strong>:</p>
+
+<p>A route attribute definition.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>SERIAL</em>): id allocated by database</li>
+	<li><strong><em>attribute</em></strong> (<em>VARCHAR(64)</em>): attribute type for a route</li>
+	<li><strong><em>data_type</em></strong> (<em>VARCHAR(64)</em>): the data type for attribute values it holds</li>
+	<li><strong><em>description</em></strong> (<em>TEXT</em>): description of the attribute</li>
+</ul>
+
+
+<p><strong>route_data</strong>:</p>
+
+<p>An instance of a route attribute, eg. attribute value</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>SERIAL</em>): id allocated by database</li>
+	<li><strong><em>attribute_id</em></strong> (<em>INTEGER</em>): traffic attribute</li>
+	<li><strong><em>value</em></strong> (<em>TEXT</em>): value for the attribute, stored as a string, needs to be cast as a data type</li>
+</ul>
+
+
+<p><strong>transport_type</strong>:</p>
+
+<p>Each transport route are associated with a type of transport, which consist of a type, eg. public, a transport mode, eg. rail, a vehicle, eg. train and a description.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>SERIAL</em>): id allocated by database</li>
+	<li><strong><em>type</em></strong> (<em>VARCHAR(64)</em>): the route transport type, eg. public, freight</li>
+	<li><strong><em>mode_id</em></strong> (<em>INTEGER</em>): the mode of transport used on route, eg. truck, bus</li>
+	<li><strong><em>vehicle</em></strong> (<em>VARCHAR(64)</em>): the vehicle description</li>
+	<li><strong><em>description</em></strong> (<em>TEXT</em>): the transport type description</li>
+</ul>
+
+
+<p><strong>transport_route</strong>:</p>
+
+<p>This describes the route itself.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>SERIAL</em>): id allocated by database</li>
+	<li><strong><em>route_identifier</em></strong> (<em>VARCHAR(64)</em>): the identifier used by Traffic Model model, eg. may be bus route number</li>
+	<li><strong><em>transport_type_id</em></strong> (<em>INTEGER</em>): the type of transport used on route</li>
+	<li><strong><em>description</em></strong> (<em>TEXT</em>): general description of route</li>
+</ul>
+
+
+<p><strong>transport_route_data</strong>:</p>
+
+<p>Links a route to all of it's transport attributes</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>SERIAL</em>): id allocated by database</li>
+	<li><strong><em>route_id</em></strong> (<em>INTEGER</em>): transport route id</li>
+	<li><strong><em>data_id</em></strong> (<em>INTEGER</em>): attribute value id</li>
+</ul>
+
+
+<p><strong>transport_route_link</strong>:</p>
+
+<p>All the Traffic Model links (in order) that makes up the route path.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>SERIAL</em>): id allocated by database</li>
+	<li><strong><em>route_id</em></strong> (<em>INTEGER</em>): transport route id</li>
+	<li><strong><em>link_id</em></strong> (<em>INTEGER</em>): Traffic Model link id</li>
+	<li><strong><em>sequence</em></strong> (<em>SMALLINT</em>): the order of the link in the route, used to construct the route geometry correctly</li>
+</ul>
+
+
+<h3 id="TrafficModeltrafficmodel-Networklink">Network link</h3>
+
+<p>Provides the mechanism of relating an Traffic Model link to one or more OSM network edges. Each OSM network edge assigned to an Traffic Model link is allocated a fraction of the traffic flow of the Traffic Model link. This information is used mostly for aggregated Traffic Model traffic information on a sub-network, a dynamic route, etc.</p>
+
+<p><strong>link_network</strong>:</p>
+
+<p>Relates an Traffic Model link with one or more OSM network edges.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>SERIAL</em>): id allocated by database</li>
+	<li><strong><em>traffic_link_id</em></strong> (<em>INTEGER</em>): the Traffic Model link</li>
+	<li><strong><em>network_edge_id</em></strong> (<em>INTEGER</em>): the OSM network edge</li>
+	<li><strong><em>fraction</em></strong> (<em>NUMERIC</em>): percentage coverage of OSM network edge on Traffic Model link</li>
+	<li><strong><em>snapped</em></strong> (<em>BOOLEAN</em>): snapped by distance only (<em>TRUE</em>) or linked using candidate routes (<em>FALSE</em>)</li>
+	<li><strong><em>filled</em></strong> (<em>BOOLEAN</em>): an edge in an Traffic Model network link gap, has been filled in (<em>TRUE</em>)</li>
+	<li><strong><em>geom</em></strong> (<em>MULTILINESTRING</em>): the road geometry</li>
+</ul>
+
+
+<h3 id="TrafficModeltrafficmodel-Metadata">Metadata</h3>
+
+<p><strong>version</strong>:</p>
+
+<p>Provides information about the versions of the Traffic Model and transport model, as well as the year of the ARC data used in model run.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>SERIAL</em>): id allocated by database</li>
+	<li><strong><em>traffic_model</em></strong> (<em>VARCHAR(64)</em>): Traffic Model model version identifier, eg. Traffic Model 2</li>
+	<li><strong><em>transport_model</em></strong> (<em>VARCHAR(64)</em>): the ATM model version identifier</li>
+	<li><strong><em>data_year</em></strong> (<em>SMALLINT</em>): year of the ARC data used</li>
+</ul>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/52068791/52133925.png">totus_trafficmodel.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+        </div>     </body>
+</html>

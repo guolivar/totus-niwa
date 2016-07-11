@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>  
+    <head>  
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Towards Sustainable Urban Areas (TOTUS) RUF Demo</title>
+    
+        <link rel="stylesheet" type="text/css" href="/js/libs/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/js/libs/bootstrap/css/bootstrap-theme.css">
+        <link rel="stylesheet" type="text/css" href="/css/greenBlueTheme.css" />
+
+        <script src="/js/libs/openlayers/OpenLayers.js" type="text/javascript"></script>
+        <script src="/js/totus.js" type="text/javascript"></script>
+        <script src="/js/libs/jquery/js/jquery-1.11.1.min.js" type="text/javascript"></script>
+        <script src="/js/libs/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+        <div id="page">
+            <nav class="navbar navbar-static-top navbar-niwa" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="/">
+                            <span class="light">Towards Sustainable Urban Areas (TOTUS) RUF Demo</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <br/>
+
+            <div id="pageContent" class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <p>
+                                  TOTUS consist of a spatial, routing database which are exposed by a feature and web map service. This system integrates information from a strategic traffic model with a Open Street Map street network and a routing engine and is used to derive air quality information. For more information on the TOTUS project read <a href="http://totus-external.wikidot.com/start">here</a> and for details about the system implementation refer to <a href="docs/totus.pdf">developing the TOTUS system</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="panel-group" id="accordion">
+                            <!-- traffic summary -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#trafficSummary">&raquo; Traffic Attribute Summary</a>
+                                    </h4>
+                                 </div>
+                                 <div id="trafficSummary" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>
+                                        Calculate Traffic Attribute Summary for an area on map. The summary contain aggregated traffic information for the network inside the area and the flux into and out of chosen area. Please note that this is a spatial aggregation query and may take a long time to complete on large areas.
+                                        </p>
+                                        <div>
+                                            <div class="form-group">
+                                                <input type="radio" name="control" id="noneToggle" onclick="toggleControl(this);" checked="checked" />
+                                                <label for="noneToggle">Browse map</label>
+                                                <br/>
+                                                <input type="radio" name="control" value="trafficArea" id="trafficAreaToggle" onclick="toggleControl(this);" />
+                                                <label for="trafficAreaToggle">Choose area</label>
+                                                <br/>
+                                                <input type="radio" name="control" id="trafficAreaClear" onclick="clearTrafficArea();" />
+                                                <label for="trafficAreaClear">Clear area</label>
+                                                <br/>
+                                            </div>
+                                            <button class="btn btn-primary" onclick="computeTrafficSummary()">Produce Traffic Attribute Summary</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- TIF summary -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#TIFSummary">&raquo; Traffic Impact Factor Summary</a>
+                                    </h4>
+                                </div>
+                                <div id="TIFSummary" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>
+                                        Produce Traffic Impact Factor (TIF) Summary for an area on the map using a standard 100m TIF grid. The TIF grid is produced by applying a distance based dispersion factor of -0.65 to the traffic volume on the closest 20 roads, omitting roads closer than 10 m to grid centroid. The summary contain some basic statistics of the TIF values inside the area and the traffic road network that contributed to the result.
+                                        </p>
+                                        <div>
+                                            <div class="form-group">
+                                                <input type="radio" name="control" id="noneToggle" onclick="toggleControl(this);" checked="checked" />
+                                                <label for="noneToggle">Browse map</label>
+                                                <br/>
+                                                <input type="radio" name="control" value="TIFArea" id="tifAreaToggle" onclick="toggleControl(this);" />
+                                                <label for="tifAreaToggle">Choose TIF Area</label>
+                                                <br/>
+                                                <input type="radio" name="control" id="tifAreaClear" onclick="clearTIFArea();" />
+                                                <label for="tifAreaClear">Clear TIF Area</label>
+                                                <br/>
+                                            </div>
+                                            <button class="btn btn-primary" onclick="computeTIFSummary()">Produce TIF Summary</button>
+                                        </div>                                    
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Cumulative TIF -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#CumulativeTIF">&raquo; Cumulative Traffic Impact Factor</a>
+                                    </h4>
+                                </div>
+                                <div id="CumulativeTIF" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>
+                                          Produce cumulative TIF for a point chosen on the map or for a set of points (longitude, latitude) uploaded from a CSV file. The cumulative TIF is calculated by applying a distance based dispersion factor to the total traffic volume on the closest number of roads further than a inclusion distance from chosen point.
+                                        </p>
+                                        <div>
+                                            <div class="form-group">
+                                                <label for="dispersionFactor">Dispersion Factor</label>
+                                                <input type="text" id="dispersionFactor" class="form-control" value="-0.65" size="10" />
+
+                                                <label for="roadCount">Number of roads to sample</label>
+                                                <input type="text" id="roadCount" class="form-control" value="20" size="10" />
+
+                                                <label for="inclusionDistance">Road inclusion distance (meters)</label>
+                                                <input type="text" id="inclusionDistance" class="form-control" value="10" size="10" />
+
+                                                <br/>
+                                                <input type="radio" name="control" id="noneToggle" onclick="toggleControl(this);" checked="checked" />
+                                                <label for="noneToggle">Browse map</label>
+                                                <br/>
+
+                                                <input type="radio" name="control" value="TIFPoint" id="tifPointToggle" onclick="toggleControl(this);" />
+                                                <label for="tifPointToggle">Choose TIF Point</label>
+                                                <br/>
+
+                                                <input type="radio" name="control" id="tifFileToggle" onclick="toggleControl(this);" />
+                                                <label for="tifFileToggle">Upload CSV file of TIF coordinates</label>
+                                                <br/>
+
+                                                <input type="radio" name="control" id="tifPointClear" style="visibility:hidden" onchange="clearTIFPoint(); document.getElementById ('tifCSVFile').style.visibility = 'hidden';"/>
+                                                <label id="tifPointClearLabel" style="visibility:hidden" for="tifPointClear">Clear TIF Point</label>
+                                                <br/>
+
+                                                <input type="file" accept="text/csv" id="tifCSVFile" size=30 style="visibility:hidden" />
+                                                <input type="text" id="tifCSVFileContents" style="visibility:hidden" />
+
+                                            </div>
+                                            <input class="btn btn-primary" type="submit" id="submitCumulativeTIF" onclick="computeCumulativeTIF()" value="Produce Cumulative TIF" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Traffic Routes -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#trafficRoutes">&raquo; Traffic Routes</a>
+                                    </h4>
+                                </div>
+                                <div id="trafficRoutes" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>
+                                        Produce network routes from start and end coordinates (longitude, latitude) uploaded from CSV and produce traffic information for each road network link that has been assigned traffic attributes from a strategic traffic model.
+                                        </p>
+                                        <div>
+                                            <div class="form-group">
+                                                <label for="trafficStartCSVFile">Upload CSV file of start coordinates</label>
+                                                <input type="file" accept="test/csv" id="trafficStartCSVFile" size=30 />
+
+                                                <input type="text" id="trafficStartCSVFileContents" class="form-control" style="visibility:hidden" />
+
+                                                <label for="trafficEndCSVFile">Upload CSV file of end coordinates</label>
+                                                <input type="file" accept="test/csv" id="trafficEndCSVFile" size=30 />
+
+                                                <input type="text" id="trafficEndCSVFileContents" class="form-control" style="visibility:hidden" />
+
+                                                <label for="trafficCostingOption">Routing option</label>
+                                                <select id="trafficCostingOption" class="form-control">
+                                                    <option value="distance">Shortest Distance</option>
+                                                    <option value="vehicle">Vehicle</option>
+                                                    <option value="pedestrian">Pedestrian</option>
+                                                    <option value="cycling">Cycle</option>
+                                                </select>
+                                                <br/>
+
+                                                <label for="trafficRoutingMethod">Routing method</label>
+                                                <select id="trafficRoutingMethod" class="form-control">
+                                                    <option value="dijkstra">Dijkstra</option>
+                                                    <option value="astar">A Star</option>
+                                                    <option value="shootingstar">Shooting Star</option>
+                                                </select>
+                                            </div>
+                                            <input type="submit" id="submitTrafficRoutes" class="btn btn-primary" onclick="computeTrafficRoutes()" value="Produce Traffic Routes" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- routing -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#routing">&raquo; Network Route</a>
+                                    </h4>
+                                </div>
+                                <div id="routing" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>
+                                        Calculate route between points on map using Open Street Map data for Auckland.
+                                        </p>
+                                        <div>
+                                            <p>
+                                            Use options below to choose a start and end point on map and the routing method to use to calculate network route between them.
+                                            </p>
+                                            <div class="form-group">
+                                                <input type="radio" name="control" id="noneToggle" onclick="toggleControl(this);" checked="checked" />
+                                                <label for="noneToggle">Browse map</label>
+                                                <br />
+                                                <input type="radio" name="control" value="routeStart" id="routeStartToggle" onclick="toggleControl(this);" />
+                                                <label for="routeStartToggle">Set start of route</label>
+                                                <br />
+                                                <input type="radio" name="control" value="routeEnd" id="routeEndToggle" onclick="toggleControl(this);" />
+                                                <label for="routeEndToggle">Set end of route</label>
+                                                <br />
+                                                <br />
+
+                                                <label for="costingOption">Routing option</label>
+                                                <select id="costingOption" class="form-control">
+                                                    <option value="distance">Shortest Distance</option>
+                                                    <option value="vehicle">Vehicle</option>
+                                                    <option value="pedestrian">Pedestrian</option>
+                                                    <option value="cycling">Cycle</option>
+                                                </select>
+
+                                                <label for="routingMethod">Routing method</label>
+                                                <select id="routingMethod" class="form-control">
+                                                    <option value="dijkstra">Dijkstra</option>
+                                                    <option value="astar">A Star</option>
+                                                    <option value="shootingstar">Shooting Star</option>
+                                                </select>
+                                            </div>
+                                            <button class="btn btn-primary" onclick="computeRoute()">Produce Network Route</button>
+                                        </div>
+                                     </div>
+                                </div>
+                            </div>
+                         </div>
+                        <div id="FormErrors">
+                        </div>
+                    </div>
+
+                    <div class="col-md-9">
+                        <!-- map -->
+                        <div id="map">
+                            <script>
+                                initTotusMap();
+                            </script>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div id="QueryResults">
+                        </div>
+                    </div>
+                </div> <!-- end of row -->
+
+                <div class="row">
+                    <br/>
+                </div> <!-- end of row -->
+                <br/>
+            </div> <!-- end of page content -->
+        </div> <!-- end of page div -->
+
+        <footer>
+            <div class="container">
+                <ul id="footer_notes">
+                    <li>TOTUS</li>
+                    <li>&copy;2014 NIWA</li>
+                    <li><a href="http://www.niwa.co.nz/privacy-policy">Privacy statement</a></li>
+                </ul>
+            </div>
+        </footer><!-- end footer -->
+    </body>
+</html>

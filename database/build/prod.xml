@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- setup production database connection properties -->
+<project name="TOTUS-DATABASE-PROD">
+  <property name="db"     value="prod_totus" />
+  <property name="dbhost" value="atlantic.niwa.co.nz" />
+</project>

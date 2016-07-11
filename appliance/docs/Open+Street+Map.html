@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>NIWA Systems : Open Street Map</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body>
+        <div id="page">
+            <div id="main">
+                <div id="main-header" class="pageSectionHeader">
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            NIWA Systems : Open Street Map
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div id="main-content" class="wiki-content group">
+                    <div>
+<ul>
+    <li><a href='#OpenStreetMap-OpenStreetMap(OSM)'>Open Street Map (OSM)</a></li>
+<ul>
+    <li><a href='#OpenStreetMap-Nodes'>Nodes</a></li>
+    <li><a href='#OpenStreetMap-Ways'>Ways</a></li>
+    <li><a href='#OpenStreetMap-Relations'>Relations</a></li>
+    <li><a href='#OpenStreetMap-Metadata'>Metadata</a></li>
+</ul>
+</ul></div>
+
+<h2 id="OpenStreetMap-OpenStreetMap(OSM)">Open Street Map (OSM)</h2>
+
+<p>TOTUS uses the simple schema representation of the OSM data model, as required by the OSM planet file loader <a href="http://wiki.openstreetmap.org/wiki/Osmosis" class="external-link" rel="nofollow">osmosis</a></p>
+
+<p><img class="confluence-embedded-image" src="attachments/52068780/52133923.png" data-image-src="attachments/52068780/52133923.png"></p>
+
+<h3 id="OpenStreetMap-Nodes">Nodes</h3>
+
+<p>A <a href="http://wiki.openstreetmap.org/wiki/Nodes" class="external-link" rel="nofollow">node</a> is the atomic element in the OSM data schema and used to construct all linear features. It holds the only geometry needed by OSM to represent linear map features and may or may not have any attributes. Attribute are stored as an extensible list in what is a <a href="http://en.wikipedia.org/wiki/Entity%E2%80%93attribute%E2%80%93value_model" class="external-link" rel="nofollow">EAV</a> representation of spatial features. Nodes are allowed to be stranded (isolated from road network) when marked as an amenity (Point Of Interest - POI), but are usually the constituent parts of a linear feature.</p>
+
+<p><strong>nodes</strong>:</p>
+
+<p>The node table is one of the three data primitive tables in the OSM physical model. It holds all the information needed to identify a vertex and revision it's changes. The OSM simple schema used by TOTUS only stores the most recent version of all data primitives.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>BIGINT</em>): the node id allocated by OSM</li>
+	<li><strong><em>version</em></strong> (<em>INT</em>): it's internal version number, eg. 14th change</li>
+	<li><strong><em>user_id</em></strong> (<em>INT</em>): reference to user who made last change</li>
+	<li><strong><em>tstamp</em></strong> (<em>TIMESTAMP</em>): when last updated</li>
+	<li><strong><em>changeset_id</em></strong> (<em>BIGINT</em>): reference to its change set (not stored here)</li>
+	<li><strong><em>geom</em></strong> (<em>POINT</em>): the vertice position (2D or 3D) in geographical coordinate system and WGS84</li>
+</ul>
+
+
+<p><strong>node_tags</strong>:</p>
+
+<p>Extensible set of attribute type/value pairs that holds any attribution associated with the vertex, eg. a roundabout, amenity, etc. Most nodes only exist to describe ways, however they may still have attributes that provided more information about the linear feature they are part of.</p>
+
+<ul>
+	<li><strong><em>node_id</em></strong> (<em>BIGINT</em>): the id of parent OSM node</li>
+	<li><strong><em>k</em></strong> (<em>TEXT</em>): attribute type tag</li>
+	<li><strong><em>v</em></strong> (<em>TEXT</em>): attribute value (stored as character string)</li>
+</ul>
+
+
+<h3 id="OpenStreetMap-Ways">Ways</h3>
+
+<p>A <a href="http://wiki.openstreetmap.org/wiki/Ways" class="external-link" rel="nofollow">way</a> identifies any linear map features, eg. a road, ferry route, railway line, cycle way, tramping track, area, etc. Polygon features are represented as closed ways, but multi-polygons features can only be represented using relations, eg. relationship amongst all it's constituent area features.</p>
+
+<p><strong>ways</strong>:</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>BIGINT</em>): the way id allocated by OSM</li>
+	<li><strong><em>version</em></strong> (<em>INT</em>): it's version number</li>
+	<li><strong><em>user_id</em></strong> (<em>INT</em>): reference to user who made last change</li>
+	<li><strong><em>tstamp</em></strong> (<em>TIMESTAMP</em>): when last updated</li>
+	<li><strong><em>changeset_id</em></strong> (<em>BIGINT</em>): reference to its change set</li>
+	<li><strong><em>bbox</em></strong> (<em>ENVELOPE</em>): bounding box geometry, not part of OSM model; created to allow efficient searching using indexed intersect operator (<code>&amp;&amp;</code>) by osmosis</li>
+	<li><strong><em>linestring</em></strong> (<em>LINESTRING</em>): the complete linear feature, not part of OSM model; created by osmosis</li>
+</ul>
+
+
+<p><strong>way_nodes</strong>:</p>
+
+<p>A way's constituent vertices. As a linear feature a way must have at least 2 bounding nodes (for efficiency OSM limits number of nodes to 2000)</p>
+
+<ul>
+	<li><strong><em>way_id</em></strong> (<em>BIGINT</em>): the parent OSM way</li>
+	<li><strong><em>node_id</em></strong> (<em>BIGINT</em>): the OSM node</li>
+	<li><strong><em>sequence_id</em></strong> (<em>INT</em>): sequence of the node in the way, used to maintain digitisation direction and to construct the linear feature correctly</li>
+</ul>
+
+
+<p><strong>way_tags</strong>:</p>
+
+<p>Extensible list of way attribution stored as generic key/value <code>k/v</code> pairs. Although any properties can be stored here, OSM encourages a <a href="http://wiki.openstreetmap.org/wiki/Map_Features" class="external-link" rel="nofollow">standard</a> way of denoting tags to allow for interoperability of tools using OSM data.</p>
+
+<ul>
+	<li><strong><em>way_id</em></strong> (<em>BIGINT</em>)</li>
+	<li><strong><em>k</em></strong> (<em>TEXT</em>): attribute key</li>
+	<li><strong><em>v</em></strong> (<em>TEXT</em>): attribuute value</li>
+</ul>
+
+
+<h3 id="OpenStreetMap-Relations">Relations</h3>
+
+<p><a href="http://wiki.openstreetmap.org/wiki/Relations" class="external-link" rel="nofollow">Relations</a> are used to construct complex features from nodes, ways or even other relations and may be used to represent entities, eg. turn restrictions. Relations groups related features together, eg. <a href="http://wiki.openstreetmap.org/wiki/Relation:route" class="external-link" rel="nofollow">routes</a>. A relation consist of feature or relation members, each with it's own role in the relation. As with other primitives relations may have an arbritary number of attribute tags.</p>
+
+<p><strong>relations</strong>:</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>BIGINT</em>): id allocated by OSM</li>
+	<li><strong><em>version</em></strong> (<em>INT</em>): it's revision</li>
+	<li><strong><em>user_id</em></strong> (<em>INT</em>): the user who last updated the relation</li>
+	<li><strong><em>tstamp</em></strong> (<em>TIMESTAMP</em>): when the relation was last updated</li>
+	<li><strong><em>changeset_id</em></strong> (<em>BIGINT</em>): reference to its change set</li>
+</ul>
+
+
+<p><strong>relation_members</strong>:</p>
+
+<p>The data primitives that are members of the relation.</p>
+
+<ul>
+	<li><strong><em>relation_id</em></strong> (<em>BIGINT</em>): the relation this member is part of</li>
+	<li><strong><em>member_id</em></strong> (<em>BIGINT</em>): the id of a data primitive, eg. a node, way or relation</li>
+	<li><strong><em>member_type</em></strong> (<em>CHARACTER(1)</em>): specifies the type, eg. node, way or relation (where to resolve the above member id)</li>
+	<li><strong><em>member_role</em></strong> (<em>TEXT</em>): the member's role within the relation</li>
+	<li><strong><em>sequence_id</em></strong> (<em>INT</em>): the member's order within the relation</li>
+</ul>
+
+
+<p><strong>relation_tags</strong>:</p>
+
+<p>Any attributes associated with the relation, eg. public transport route number.</p>
+
+<ul>
+	<li><strong><em>relation_id</em></strong> (<em>BIGINT</em>)</li>
+	<li><strong><em>k</em></strong> (<em>TEXT</em>): relation attribute key</li>
+	<li><strong><em>v</em></strong> (<em>TEXT</em>): attribute value</li>
+</ul>
+
+
+<h3 id="OpenStreetMap-Metadata">Metadata</h3>
+
+<p>The following tables assist in revisioning the content and structure of the simple schema. This information is dependent on by the schema objects and osmosis when loading data to the target schema. Osmosis support incremental data loads and use the revision history to only update the records affected in a change set.</p>
+
+<p><strong>users</strong>:</p>
+
+<p>These are OSM users that have made changes to loaded dataset. OSM revisions all changes made to data primitives and their attribution, however OSM simple does not hold any historical data, only the latest.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>INT</em>): the user id allocated by OSM</li>
+	<li><strong><em>name</em></strong> (<em>TEXT</em>): OSM user name, chosen by user</li>
+</ul>
+
+
+<p><strong>schema_info</strong>:</p>
+
+<p>This table holds the version number of the OSM simple schema, currently version 5. This allows osmosis to know which schema to target when loading the data.</p>
+
+<ul>
+	<li><strong><em>version</em></strong> (<em>INTEGER</em>)</li>
+</ul>
+
+
+<p><strong>actions</strong>:</p>
+
+<ul>
+	<li><strong><em>data_type</em></strong> (<em>CHARACTER(1)</em>)</li>
+	<li><strong><em>action</em></strong> (<em>CHARACTER(1)</em>)</li>
+	<li><strong><em>id</em></strong> (<em>BIGINT</em>)</li>
+</ul>
+
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/52068780/52133923.png">totus_osm.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+        </div>     </body>
+</html>

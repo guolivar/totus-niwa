@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>NIWA Systems : TOTUS - Model energy intensity with census data</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body>
+        <div id="page">
+            <div id="main">
+                <div id="main-header" class="pageSectionHeader">
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            NIWA Systems : TOTUS - Model energy intensity with census data
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div id="main-content" class="wiki-content group">
+                    <div>
+<ul>
+    <li><a href='#TOTUS-Modelenergyintensitywithcensusdata-Modellingenergyintensity'>Modelling energy intensity</a></li>
+<ul>
+    <li><a href='#TOTUS-Modelenergyintensitywithcensusdata-Defineanenergyintensityderivation(model)'>Define an energy intensity derivation (model)</a></li>
+<ul>
+    <li><a href='#TOTUS-Modelenergyintensitywithcensusdata-Censusclasscodes'>Census class codes</a></li>
+    <li><a href='#TOTUS-Modelenergyintensitywithcensusdata-Scenariocode'>Scenario code</a></li>
+    <li><a href='#TOTUS-Modelenergyintensitywithcensusdata-Activitycode'>Activity code</a></li>
+    <li><a href='#TOTUS-Modelenergyintensitywithcensusdata-Runthestoredproceduretoconfigurethemodel'>Run the stored procedure to configure the model</a></li>
+</ul>
+    <li><a href='#TOTUS-Modelenergyintensitywithcensusdata-Runanenergyintensitymodel'>Run an energy intensity model</a></li>
+</ul>
+</ul></div>
+
+<h1 id="TOTUS-Modelenergyintensitywithcensusdata-Modellingenergyintensity">Modelling energy intensity</h1>
+
+<p>The <a href="Energy.html" rel="nofollow">energy intensity database schema</a> in TOTUS has been designed to facilitate deriving energy intensity from one or more demographic variables. It contains meta data about the definition of a modelling equation and the energy intensity output of the model run. Two</p>
+
+<h2 id="TOTUS-Modelenergyintensitywithcensusdata-Defineanenergyintensityderivation(model)">Define an energy intensity derivation (model)</h2>
+
+<p>Energy intensity is modelled by performing a set of operations on one or more demographic statistics. </p>
+
+<h3 id="TOTUS-Modelenergyintensitywithcensusdata-Censusclasscodes">Census class codes</h3>
+
+<p>The <a href="Census.html" rel="nofollow">census database schema</a> in TOTUS holds demographic data for a set of topics each with their own categories. Each category consist of one or more classes, each of which may be assigned a count per meshblock area. Each part of an energy equation is derived from one such class instance, eg. to find all household demographic classes</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>SELECT t.code AS topic,
+       c.description AS category,
+       cc.description AS class
+  FROM census.topic AS t 
+  JOIN census.category AS c 
+       ON t.id = c.topic_id
+  JOIN census.class AS cc 
+       ON c.id = cc.category_id 
+ WHERE t.code = &#39;HOUSEHOLD&#39;
+ORDER BY t.id, c.id, cc.id
+</pre>
+</div></div>
+
+<p>Now pick the census classes of interest and note their class <em>code</em></p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre> SELECT * FROM census.class WHERE description IN (&#39;Wood&#39;, &#39;No Fuels Used in this Dwelling&#39;);
+
+ id | category_id |   code    |          description           
+----+-------------+-----------+--------------------------------
+ 34 |          13 | W 34      | Wood
+ 37 |          13 | NFUITD 37 | No Fuels Used in this Dwelling
+</pre>
+</div></div>
+
+<p>NOTE: the examples used here are bogus</p>
+
+<h3 id="TOTUS-Modelenergyintensitywithcensusdata-Scenariocode">Scenario code</h3>
+
+<p>The energy schema allows user to define different model definitions, as in apply different coefficients or equation parts to the same census classes to model some scenario, eg. continual growth, current accounts, etc.</p>
+
+<p>These scenario need to be defined prior to configuring a model and is currently done in the energy schema loader</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre> SELECT * FROM energy.scenario;
+
+ id |    code    |   description    
+----+------------+------------------
+  1 | CONTINUITY | Continuity
+  2 | CURRENT    | Current accounts
+</pre>
+</div></div>
+
+<p>TODO: add complete list</p>
+
+<h3 id="TOTUS-Modelenergyintensitywithcensusdata-Activitycode">Activity code</h3>
+
+<p>Each energy intensity may be associated with a specific energy activity, eg. <em>household heating</em>. As with scenarios these are defined in the energy schema loader.</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>SELECT * FROM energy.activity;
+
+ id |  code   |    description    
+----+---------+-------------------
+  1 | HEATING | Household heating
+</pre>
+</div></div>
+
+<p>TODO: add complete list</p>
+
+<h3 id="TOTUS-Modelenergyintensitywithcensusdata-Runthestoredproceduretoconfigurethemodel">Run the stored procedure to configure the model</h3>
+
+<p>The model definition is setup using the <em>energy.configure_model_run</em> stored procedure, which has the following parameters:</p>
+
+<ul>
+	<li><strong>identifier</strong> (<em>character varying</em>): a unique model identifier, will be used to run the model afterwards</li>
+	<li><strong>description</strong> (<em>text</em>): a description of what the model's output mean</li>
+	<li><strong>activity</strong> (<em>character varying(64)</em>): identifier code for the energy activity to model intensity for</li>
+	<li><strong>scenario</strong> (<em>character varying(64)</em>): identifier code for the scenario applied in equation</li>
+	<li><strong>definition_parts</strong> (<em>energy.definition_part[]</em>): array (list) of definitions for the equation parts, this is a data structure with the following fields:
+	<ul>
+		<li><strong><em>census_class</em></strong> (<em>character varying(32)</em>): identifier code for the census class whose demographic data will be used in the intensity equation part</li>
+		<li><strong><em>equation</em></strong> (<em>text</em>): a simple or complex equation to run, must refer to the demographic field <em>count</em> (<em>census.demographic.count</em>), when specified the below coefficient will be ignored</li>
+		<li><strong><em>coefficient</em></strong> (<em>numeric</em>): coefficient to apply to demographic field <em>count</em></li>
+	</ul>
+	</li>
+</ul>
+
+
+<p>Eg.</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>  SELECT * 
+   FROM energy.configure_model_run (
+     &#39;TEST_MODEL_5&#39;,
+     &#39;Test model 5&#39;, 
+     &#39;HEATING&#39;, 
+     &#39;CURRENT&#39;, 
+     ARRAY [ 
+       (&#39;W 34&#39;, &#39;POW (count, 0.009)&#39;, 1)::energy.definition_part, 
+       (&#39;NFUITD 37&#39;, &#39;&#39;, 0.1)::energy.definition_part
+     ]
+  );
+</pre>
+</div></div>
+
+<h2 id="TOTUS-Modelenergyintensitywithcensusdata-Runanenergyintensitymodel">Run an energy intensity model</h2>
+
+<p>The model run is facilitated by the database function <em>energy.model_intesity</em>. Choose the model to run and the census year data to use. <em>model_intensity</em> will store the output of the model in the <em>energy.intensity</em> table and return the results. If the requested model has run already its output is read from the database and returned.</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>SELECT * FROM energy.model_intensity (&#39;TEST_MODEL_5&#39;::VARCHAR, 2006::SMALLINT);
+</pre>
+</div></div>
+
+<p>The above function call will generate and execute the following SQL if model has not been run already:</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>              INSERT INTO energy.intensity (census_admin_area_id, model_definition_id, year, value)
+              SELECT admin_area_id, 
+                     model_definition_id,
+                     year,
+                     SUM (intensity_part) AS intensity
+                FROM (
+                  SELECT p.model_definition_id,
+                         d.admin_area_id,
+                         d.year, 
+                         POW (count, 0.009) AS intensity_part
+                    FROM energy.model_definition_part AS p
+                    JOIN census.demographic AS d
+                         ON p.census_class_id = d.class_id
+                   WHERE p.model_definition_id = 6
+                     AND p.part = 1
+                     AND d.year = 2006
+                 UNION ALL
+                  SELECT p.model_definition_id,
+                         d.admin_area_id,
+                         d.year, 
+                         count * coefficient AS intensity_part
+                    FROM energy.model_definition_part AS p
+                    JOIN census.demographic AS d
+                         ON p.census_class_id = d.class_id
+                   WHERE p.model_definition_id = 6
+                     AND p.part = 2
+                     AND d.year = 2006
+                ) AS m
+            GROUP BY model_definition_id, admin_area_id, year
+</pre>
+</div></div>
+
+<p>Next it will retrieve the output of the model run (by identifier) and return <em>energy.intensity</em> records.</p>
+
+<p>To use the ouput in a GIS perform the following query in preferred GIS:</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>SELECT m.id, 
+       m.census_admin_area_id,
+       m.model_definition_id,
+       m.year,
+       m.value,
+       ST_AsBinary (ST_Centroid (a.geom)) AS geom
+  FROM energy.model_intensity (&#39;TEST_MODEL_5&#39;::VARCHAR, 2006::SMALLINT) AS m
+  JOIN census.admin_area AS a
+       ON m.census_admin_area_id = a.id
+</pre>
+</div></div>
+
+
+<p><img class="confluence-embedded-image confluence-content-image-border" src="attachments/53482519/53412839.png" data-image-src="attachments/53482519/53412839.png"></p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/53482519/53412839.png">energy_model_in_gis.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+        </div>     </body>
+</html>

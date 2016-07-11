@@ -1,0 +1,82 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.6	//
+CDataBlockInternal	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/ConfigurationParserCallback.h	/^	virtual void CDataBlockInternal(const char *value, int len)$/;"	f	class:osm::ConfigurationParserCallback
+CDataBlockInternal	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/OSMDocumentParserCallback.h	/^	virtual void CDataBlockInternal(const char *value, int len)$/;"	f	class:osm::OSMDocumentParserCallback
+CLASS_H	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Class.h	22;"	d
+CONFIGURATIONPARSERCALLBACK_H	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/ConfigurationParserCallback.h	22;"	d
+CONFIGURATION_H	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Configuration.h	22;"	d
+Class	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Class.h	/^class Class$/;"	c	namespace:osm
+Configuration	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Configuration.h	/^class Configuration$/;"	c	namespace:osm
+ConfigurationParserCallback	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/ConfigurationParserCallback.h	/^	ConfigurationParserCallback( Configuration& doc )$/;"	f	class:osm::ConfigurationParserCallback
+ConfigurationParserCallback	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/ConfigurationParserCallback.h	/^class ConfigurationParserCallback : public xml::XMLParserCallback$/;"	c	namespace:osm
+EXPORT2DB_H	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Export2DB.h	22;"	d
+Export2DB	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Export2DB.h	/^class Export2DB$/;"	c
+MATH_FUNCTIONS_H	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/math_functions.h	22;"	d
+NODE_H	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Node.h	22;"	d
+Node	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Node.h	/^class Node$/;"	c	namespace:osm
+OSMDOCUMENTPARSERCALLBACK_H	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/OSMDocumentParserCallback.h	22;"	d
+OSMDOCUMENT_H	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/OSMDocument.h	22;"	d
+OSMDocument	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/OSMDocument.h	/^class OSMDocument$/;"	c	namespace:osm
+OSMDocumentParserCallback	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/OSMDocumentParserCallback.h	/^	OSMDocumentParserCallback( OSMDocument& doc )$/;"	f	class:osm::OSMDocumentParserCallback
+OSMDocumentParserCallback	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/OSMDocumentParserCallback.h	/^class OSMDocumentParserCallback : public xml::XMLParserCallback$/;"	c	namespace:osm
+ProcessingInstruction	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/ConfigurationParserCallback.h	/^	virtual void ProcessingInstruction( const char* target, const char* data )$/;"	f	class:osm::ConfigurationParserCallback
+ProcessingInstruction	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/OSMDocumentParserCallback.h	/^	virtual void ProcessingInstruction( const char* target, const char* data )$/;"	f	class:osm::OSMDocumentParserCallback
+SetContent	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/ConfigurationParserCallback.h	/^	virtual void SetContent( const char* ch, int len)$/;"	f	class:osm::ConfigurationParserCallback
+SetContent	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/OSMDocumentParserCallback.h	/^	virtual void SetContent( const char* ch, int len)$/;"	f	class:osm::OSMDocumentParserCallback
+TYPE_H	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Type.h	22;"	d
+Type	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Type.h	/^class Type$/;"	c	namespace:osm
+WAY_H	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Way.h	21;"	d
+Way	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Way.h	/^class Way$/;"	c	namespace:osm
+XMLPARSERT_H	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/XMLParser.h	22;"	d
+XMLParser	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/XMLParser.h	/^	XMLParser(){}$/;"	f	class:xml::XMLParser
+XMLParser	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/XMLParser.h	/^class XMLParser$/;"	c	namespace:xml
+XMLParserCallback	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/XMLParser.h	/^  XMLParserCallback(){}$/;"	f	class:xml::XMLParserCallback
+XMLParserCallback	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/XMLParser.h	/^class XMLParserCallback$/;"	c	namespace:xml
+categories	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Way.h	/^  std::vector< std::pair<std::string, std::string> > categories;$/;"	m	class:osm::Way
+conninf	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Export2DB.h	/^  std::string conninf;$/;"	m	class:Export2DB
+dbschema	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Export2DB.h	/^  std::string dbschema;$/;"	m	class:Export2DB
+ez_mapdelete	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Configuration.h	/^inline void ez_mapdelete( Map& c )$/;"	f	namespace:osm
+ez_vectordelete	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Configuration.h	/^inline void ez_vectordelete( Vector& c )$/;"	f	namespace:osm
+geom	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Way.h	/^	std::string geom;$/;"	m	class:osm::Way
+id	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Class.h	/^	long long id;$/;"	m	class:osm::Class
+id	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Node.h	/^	long long id;$/;"	m	class:osm::Node
+id	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Type.h	/^	long long id;$/;"	m	class:osm::Type
+id	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Way.h	/^	long long id;$/;"	m	class:osm::Way
+lat	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Node.h	/^	double lat;$/;"	m	class:osm::Node
+length	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Way.h	/^	double length;$/;"	m	class:osm::Way
+lon	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Node.h	/^	double lon;$/;"	m	class:osm::Node
+m_Classes	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Type.h	/^	std::map<std::string, Class*> m_Classes;$/;"	m	class:osm::Type
+m_NodeRefs	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Way.h	/^	std::vector<Node*> m_NodeRefs;$/;"	m	class:osm::Way
+m_Nodes	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/OSMDocument.h	/^	std::map<long long, Node*> m_Nodes;$/;"	m	class:osm::OSMDocument
+m_ParserCtxt	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/XMLParser.h	/^	XML_Parser			m_ParserCtxt;$/;"	m	class:xml::XMLParser
+m_SplittedWays	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/OSMDocument.h	/^	std::vector<Way*> m_SplittedWays;$/;"	m	class:osm::OSMDocument
+m_Types	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Configuration.h	/^	std::map<std::string, Type*> m_Types;$/;"	m	class:osm::Configuration
+m_Ways	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/OSMDocument.h	/^	std::vector<Way*> m_Ways;$/;"	m	class:osm::OSMDocument
+m_pActType	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/ConfigurationParserCallback.h	/^	Type* m_pActType;$/;"	m	class:osm::ConfigurationParserCallback
+m_pActWay	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/OSMDocumentParserCallback.h	/^	Way* m_pActWay;$/;"	m	class:osm::OSMDocumentParserCallback
+m_rConfig	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/OSMDocument.h	/^	Configuration& m_rConfig;$/;"	m	class:osm::OSMDocument
+m_rDocument	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/ConfigurationParserCallback.h	/^	Configuration& m_rDocument;$/;"	m	class:osm::ConfigurationParserCallback
+m_rDocument	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/OSMDocumentParserCallback.h	/^	OSMDocument& m_rDocument;$/;"	m	class:osm::OSMDocumentParserCallback
+mycon	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Export2DB.h	/^  PGconn *mycon;$/;"	m	class:Export2DB
+name	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Class.h	/^	std::string name;$/;"	m	class:osm::Class
+name	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Type.h	/^	std::string name;$/;"	m	class:osm::Type
+name	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Way.h	/^	std::string name;$/;"	m	class:osm::Way
+numsOfUse	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Node.h	/^	ushort numsOfUse;$/;"	m	class:osm::Node
+oneway	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Way.h	/^	bool oneway;$/;"	m	class:osm::Way
+osm	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Class.h	/^namespace osm$/;"	n
+osm	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Configuration.h	/^namespace osm$/;"	n
+osm	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/ConfigurationParserCallback.h	/^namespace osm$/;"	n
+osm	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Node.h	/^namespace osm$/;"	n
+osm	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/OSMDocument.h	/^namespace osm$/;"	n
+osm	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/OSMDocumentParserCallback.h	/^namespace osm$/;"	n
+osm	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Type.h	/^namespace osm$/;"	n
+osm	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Way.h	/^namespace osm$/;"	n
+osmId	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Way.h	/^	long long osmId;$/;"	m	class:osm::Way
+visible	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/Way.h	/^	bool visible;$/;"	m	class:osm::Way
+xml	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/XMLParser.h	/^namespace xml$/;"	n
+~XMLParser	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/XMLParser.h	/^	virtual ~XMLParser(){}$/;"	f	class:xml::XMLParser
+~XMLParserCallback	/mnt/hgfs/sandbox/trunk/totus/database/thirdparty/osm2pgrouting/src/XMLParser.h	/^  virtual ~XMLParserCallback(){}$/;"	f	class:xml::XMLParserCallback

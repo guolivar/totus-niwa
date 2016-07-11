@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>NIWA Systems : Exposure</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body>
+        <div id="page">
+            <div id="main">
+                <div id="main-header" class="pageSectionHeader">
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            NIWA Systems : Exposure
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div id="main-content" class="wiki-content group">
+                    <div>
+<ul>
+    <li><a href='#Exposure-Exposure'>Exposure</a></li>
+<ul>
+    <li><a href='#Exposure-Gridgeometry'>Grid geometry</a></li>
+    <li><a href='#Exposure-TrafficImpactFactorNetworkEdges'>Traffic Impact Factor Network Edges</a></li>
+    <li><a href='#Exposure-ModelledNO2'>Modelled NO2</a></li>
+</ul>
+</ul></div>
+
+<h2 id="Exposure-Exposure">Exposure</h2>
+
+<p>The exposure schema is used to model NO2 on a grid using the Traffic Model traffic data transferred to the OSM road network. For more information read <a href="TrafficModel-Based+Air+Quality+Mapping.html" rel="nofollow">here</a></p>
+
+<p><img class="confluence-embedded-image" src="attachments/52068797/52133926.png" data-image-src="attachments/52068797/52133926.png"></p>
+
+<h3 id="Exposure-Gridgeometry">Grid geometry</h3>
+
+<p>This table holds the 100m grid for the whole of Auckland. A new grid table, eg. <em>grid_10m</em>, can be created for a specific area using the <em>create_grid</em> function. This table is meant to hold the default implementation of the NO2 model. The grid is only created for areas that overlap the ATM zones.</p>
+
+<p><strong>grid</strong>:</p>
+
+<p>Polygon version of a 100m grid for Auckland.</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>SERIAL</em>): cell id allocated by database</li>
+	<li><strong><em>geom</em></strong> (<em>POLYGON</em>): cell geometry</li>
+</ul>
+
+
+<h3 id="Exposure-TrafficImpactFactorNetworkEdges">Traffic Impact Factor Network Edges</h3>
+
+<p>The traffic impact factor (TIF) is an indicator of the importance of a network edge's traffic flow contribution to exposure intensity at x distance from edge. TIF is calculated by choosing a grid cell (center of cell), choosing the x closest number of cells and applying a distance based dispersion function to their traffic volume.</p>
+
+<p><strong>grid_tif_edge</strong>:</p>
+
+<ul>
+	<li><strong><em>grid_id</em></strong> (<em>INTEGER</em>): the cell id of the grid for which the TIF is valid</li>
+	<li><strong><em>edge_id</em></strong> (<em>INTEGER</em>): the network edge with Traffic Model data</li>
+	<li><strong><em>tif</em></strong> (<em>NUMERIC</em>): the value of the edge's TIF</li>
+	<li><strong><em>rank</em></strong> (<em>INTEGER</em>): how close the edge was to center of cell</li>
+	<li><strong><em>geom</em></strong> (<em>LINESTRING</em>): the edge geometry</li>
+</ul>
+
+
+<h3 id="Exposure-ModelledNO2">Modelled NO2</h3>
+
+<p>NO2 is calculated for a cell using the linear relationship NO2 has with the TIF value aggregated from all network edges that contributed traffic volume to cell.</p>
+
+<p><strong>no2_grid</strong>:</p>
+
+<ul>
+	<li><strong><em>id</em></strong> (<em>INTEGER</em>): actually the grid id</li>
+	<li><strong><em>tif</em></strong> (<em>NUMERIC</em>): total TIF for cell</li>
+	<li><strong><em>no2</em></strong> (<em>NUMERIC</em>): NO2 calculated from TIF</li>
+	<li><strong><em>geom</em></strong> (<em>POLYGON</em>): grid geometry</li>
+</ul>
+
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/52068797/52133926.png">totus_exposure.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+        </div>     </body>
+</html>

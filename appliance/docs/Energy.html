@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>NIWA Systems : Energy</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body>
+        <div id="page">
+            <div id="main">
+                <div id="main-header" class="pageSectionHeader">
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            NIWA Systems : Energy
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div id="main-content" class="wiki-content group">
+                    <h1 id="Energy-Energymodelling">Energy modelling</h1>
+
+<p>Energy intensity is derived from census demographic data for census meshblocks. The schema is designed to be generic and to allow some form of aggregation to be applied to a set of model equation parts, each which derives information from a single census demographic statistic.</p>
+
+<div>
+<ul>
+    <li><a href='#Energy-Energymodelling'>Energy modelling</a></li>
+<ul>
+    <li><a href='#Energy-Physicalmodel'>Physical model</a></li>
+<ul>
+    <li><a href='#Energy-Modelmetadata'>Model meta data</a></li>
+<ul>
+    <li><a href='#Energy-activity'>activity</a></li>
+    <li><a href='#Energy-scenario'>scenario</a></li>
+</ul>
+    <li><a href='#Energy-Modeldefinition'>Model definition</a></li>
+<ul>
+    <li><a href='#Energy-model_definition'>model_definition</a></li>
+    <li><a href='#Energy-model_definition_part'>model_definition_part</a></li>
+</ul>
+    <li><a href='#Energy-Modelrun'>Model run</a></li>
+<ul>
+    <li><a href='#Energy-intensity'>intensity</a></li>
+</ul>
+</ul>
+</ul>
+</ul></div>
+
+<h2 id="Energy-Physicalmodel">Physical model</h2>
+
+<p><img class="confluence-embedded-image" src="attachments/53482243/53412796.png" data-image-src="attachments/53482243/53412796.png"></p>
+
+<h3 id="Energy-Modelmetadata">Model meta data</h3>
+
+<p>The meta data needed to configure a energy model run.</p>
+
+<h4 id="Energy-activity">activity </h4>
+
+<p>The energy activity to model energy intensity for, eg. <em>household heating</em>, <em>total energy consumption</em></p>
+
+<ul>
+	<li>id          (<em>SERIAL</em>)</li>
+	<li>code        (<strong><em>VARCHAR(32)</em></strong>)</li>
+	<li>description (<em>TEXT</em>)</li>
+</ul>
+
+
+<h4 id="Energy-scenario">scenario </h4>
+
+<p>The scenario to apply to modelling energy intensity, eg. <em>current accounts</em>, <em>continuity</em></p>
+
+<ul>
+	<li>id          (<em>SERIAL</em>)</li>
+	<li>code        (<strong><em>VARCHAR(32)</em></strong>)</li>
+	<li>description (<em>TEXT</em>)</li>
+</ul>
+
+
+<h3 id="Energy-Modeldefinition">Model definition</h3>
+
+<p>A model definition provides the aggregation rules to use for producing an energy intensity value for a specific energy producing activity and scenario.</p>
+
+<div class="preformatted panel" style="border-width: 1px;"><div class="preformattedContent panelContent">
+<pre>
+   Energy Intensity = some demographic data * coefficient + POW (some other demographic data, coefficient)
+                      |---- model definition part 1 ----| + |---------- model definition part 2----------|
+                      +------------------------- complete model definition ------------------------------+
+
+</pre>
+</div></div>
+
+<h4 id="Energy-model_definition">model_definition</h4>
+
+<p>Hold information about a specific model</p>
+
+<ul>
+	<li>id           (_SERIAL)</li>
+	<li>activity_id  (<strong><em>INTEGER</em></strong>)</li>
+	<li>scenario_id  (<strong><em>INTEGER</em></strong>)</li>
+	<li>number_parts (<strong><em>INTEGER</em></strong>)</li>
+	<li>description  (<em>TEXT</em>)</li>
+</ul>
+
+
+<h4 id="Energy-model_definition_part">model_definition_part </h4>
+
+<p>The individual parts of the equation that are aggregated to produce final intensity value.</p>
+
+<ul>
+	<li>id                  (<em>SERIAL</em>)</li>
+	<li>model_definition_id (<strong><em>INTEGER</em></strong>)</li>
+	<li>census_class_id     (<strong><em>INTEGER</em></strong>)</li>
+	<li>equation            (<em>TEXT</em>)</li>
+	<li>coefficient         (<strong><em>NUMERIC</em></strong>)</li>
+	<li>part                (<strong><em>INTEGER</em></strong>)</li>
+</ul>
+
+
+<h3 id="Energy-Modelrun">Model run</h3>
+
+<p>This is the output of a model when run on meshblock census demographic data. A stored procedure will take care of generating and executing the SQL statements that will derive the Energy intensity value for a specific energy activity and scenario.</p>
+
+<h4 id="Energy-intensity">intensity </h4>
+
+<ul>
+	<li>id                   (<em>SERIAL</em>)</li>
+	<li>census_admin_area_id (<strong><em>INTEGER</em></strong>)</li>
+	<li>model_definition_id  (<strong><em>INTEGER</em></strong>)</li>
+	<li>year                 (<strong><em>SMALLINT</em></strong>)</li>
+	<li>value                (<strong><em>NUMERIC</em></strong>)</li>
+</ul>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/53482243/53412796.png">totus_energy.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                                                      
+                </div>             </div> 
+        </div>     </body>
+</html>

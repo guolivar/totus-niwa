@@ -1,0 +1,2555 @@
+<!-- $Header: /cvsroot/autodoc/autodoc/html.tmpl,v 1.4 2006/05/16 19:01:27 rbt Exp $ -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+  <head>
+    <title>Index for test_totus</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+	BODY {
+		color:	#000000;
+		background-color: #FFFFFF;
+		font-family: Helvetica, sans-serif;
+	}
+
+	P {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	P.w3ref {
+		font-size: 8pt;
+		font-style: italic;
+		text-align: right;
+	}
+
+	P.detail {
+		font-size: 10pt;
+	}
+
+	.error {
+		color: #FFFFFF;
+		background-color: #FF0000;
+	}
+
+	H1, H2, H3, H4, H5, H6 {
+	}
+
+	OL {
+		list-style-type: upper-alpha;
+	}
+
+	UL.topic {
+		list-style-type: upper-alpha;
+	}
+
+	LI.topic {
+		font-weight : bold;
+	}
+
+	HR {
+		color: #00FF00;
+		background-color: #808080;
+	}
+
+	TABLE {
+		border-width: medium;
+		padding: 3px;
+		background-color: #000000;
+		width: 90%;
+	}
+
+	CAPTION {
+		text-transform: capitalize;
+		font-weight : bold;
+		font-size: 14pt;
+	}
+
+	TH {
+		color: #FFFFFF;
+		background-color: #000000;
+		text-align: left;
+	}
+
+	TR {
+		color: #000000;
+		background-color: #000000;
+		vertical-align: top;
+	}
+
+	TR.tr0 {
+		background-color: #F0F0F0;
+	}
+
+	TR.tr1 {
+		background-color: #D8D8D8;
+	}
+
+	TD {
+		font-size: 12pt;
+	}
+
+	TD.col0 {
+		font-weight : bold;
+		width: 20%;
+	}
+
+	TD.col1 {
+		font-style: italic;
+		width: 15%;
+	}
+
+	TD.col2 {
+		font-size: 12px;
+	}
+    </style>
+    <link rel="stylesheet" type="text/css" media="all" href="all.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="screen.css">
+    <link rel="stylesheet" type="text/css" media="print" href="print.css">
+    <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+  </head>
+  <body>
+
+    <!-- Primary Index -->
+	<p><br><br>Dumped on 2011-06-08</p>
+<h1><a name="index">Index of database - test_totus</a></h1>
+<ul>
+    
+    <li><a name="trafficmodel.schema">trafficmodel</a></li><ul>
+    	<li><a href="#trafficmodel.table.atm2-zones">atm2_zones</a></li><li><a href="#trafficmodel.table.link-network">link_network</a></li><li><a href="#trafficmodel.table.link-traffic-data">link_traffic_data</a></li><li><a href="#trafficmodel.table.links">links</a></li><li><a href="#trafficmodel.table.node-traffic-data">node_traffic_data</a></li><li><a href="#trafficmodel.table.nodes">nodes</a></li><li><a href="#trafficmodel.table.traffic-attr">traffic_attr</a></li><li><a href="#trafficmodel.table.traffic-data">traffic_data</a></li><li><a href="#trafficmodel.table.traffic-peak">traffic_peak</a></li><li><a href="#trafficmodel.table.version">version</a></li>
+  	<li><a href="#trafficmodel.function.area-aggregate-text">area_aggregate(text)</a></li><li><a href="#trafficmodel.function.area-flux-text">area_flux(text)</a></li><li><a href="#trafficmodel.function.array-accum-anyelement">array_accum(anyelement)</a></li><li><a href="#trafficmodel.function.route-aggregator-routemethod-public.geometryARRAY-endgeoms-public.geometryARRAY-startgeoms-character-varying">route_aggregator(routemethod public.geometry[], endgeoms public.geometry[], startgeoms character varying)</a></li><li><a href="#trafficmodel.function.route-aggregator-basic-routemethod-public.geometryARRAY-endgeoms-public.geometryARRAY-startgeoms-character-varying">route_aggregator_basic(routemethod public.geometry[], endgeoms public.geometry[], startgeoms character varying)</a></li><li><a href="#trafficmodel.function.route-aggregator-basic-routemethod-public.geometryARRAY-trafficpeak-public.geometryARRAY-endgeoms-bpchar-startgeoms-character-varying">route_aggregator_basic(routemethod public.geometry[], trafficpeak public.geometry[], endgeoms bpchar, startgeoms character varying)</a></li>
+    </ul>
+    
+</ul>
+
+    <!-- Schema Creation -->
+    <!-- trafficmodeltrafficmodel -->
+
+		
+		
+        <hr>
+		<h2>Table:
+			<a name="trafficmodel.table.atm2-zones">atm2_zones</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>atm2_zones Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>gid</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>zone</td>
+            	<td>numeric</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>area</td>
+            	<td>numeric</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>atm2_secto</td>
+            	<td>numeric</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>sector_nam</td>
+            	<td>character varying(32)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>date</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>geom</td>
+            	<td>geometry</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+        <p>&nbsp;</p>
+		<table width="100%" cellspacing="0" cellpadding="3">
+            <caption>atm2_zones Constraints</caption>
+            <tr>
+            	<th>Name</th>
+            	<th>Constraint</th>
+            </tr>
+			
+            <tr class="tr0">
+				<td>enforce_dims_geom</td>
+                <td>CHECK ((ndims(geom) = 2))</td>
+            </tr>
+			
+            <tr class="tr1">
+				<td>enforce_geotype_geom</td>
+                <td>CHECK (((geometrytype(geom) = &#39;MULTIPOLYGON&#39;::text) OR (geom IS NULL)))</td>
+            </tr>
+			
+            <tr class="tr0">
+				<td>enforce_srid_geom</td>
+                <td>CHECK ((srid(geom) = 4326))</td>
+            </tr>
+			
+		</table>
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+       atm2_zones_geom_gist geom
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#trafficmodel.schema">Schema trafficmodel</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="trafficmodel.table.link-network">link_network</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>link_network Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#trafficmodel.table.links">links.gid</a>
+                  
+                
+                </td>
+            	<td>traffic_link_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>network_edge_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>fraction</td>
+            	<td>numeric(9,8)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>geom</td>
+            	<td>geometry</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+        <p>&nbsp;</p>
+		<table width="100%" cellspacing="0" cellpadding="3">
+            <caption>link_network Constraints</caption>
+            <tr>
+            	<th>Name</th>
+            	<th>Constraint</th>
+            </tr>
+			
+            <tr class="tr0">
+				<td>enforce_dims_geom</td>
+                <td>CHECK ((ndims(geom) = 2))</td>
+            </tr>
+			
+            <tr class="tr1">
+				<td>enforce_geotype_geom</td>
+                <td>CHECK (((geometrytype(geom) = &#39;MULTILINESTRING&#39;::text) OR (geom IS NULL)))</td>
+            </tr>
+			
+            <tr class="tr0">
+				<td>enforce_srid_geom</td>
+                <td>CHECK ((srid(geom) = 4326))</td>
+            </tr>
+			
+            <tr class="tr1">
+				<td>link_network_fraction_check</td>
+                <td>CHECK (((fraction &gt;= 0.0) AND (fraction &lt;= 1.0)))</td>
+            </tr>
+			
+		</table>
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+       link_network_idx1 traffic_link_id
+    
+       link_network_idx2 network_edge_id
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#trafficmodel.schema">Schema trafficmodel</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="trafficmodel.table.link-traffic-data">link_traffic_data</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>link_traffic_data Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#trafficmodel.table.links">links.gid</a>
+                  
+                
+                </td>
+            	<td>link_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#trafficmodel.table.traffic-data">traffic_data.id</a>
+                  
+                
+                </td>
+            	<td>data_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#trafficmodel.table.traffic-peak">traffic_peak.type</a>
+                  
+                
+                </td>
+            	<td>peak</td>
+            	<td>character(2)</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>year</td>
+            	<td>smallint</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+       link_traffic_data_idx1 link_id
+    
+       link_traffic_data_idx2 data_id
+    
+       link_traffic_data_idx3 peak
+    
+       link_traffic_data_idx4 year
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#trafficmodel.schema">Schema trafficmodel</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="trafficmodel.table.links">links</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>links Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>gid</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>character varying(16)</td>
+                <td><i>
+				
+					
+
+					
+                       UNIQUE
+                    
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#trafficmodel.table.nodes">nodes.id</a>
+                  
+                
+                </td>
+            	<td>inode</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#trafficmodel.table.nodes">nodes.id</a>
+                  
+                
+                </td>
+            	<td>jnode</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>length</td>
+            	<td>numeric</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>type</td>
+            	<td>character varying(10)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>modes</td>
+            	<td>character varying(20)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>vdf</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>data1</td>
+            	<td>numeric</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>data2</td>
+            	<td>numeric</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>data3</td>
+            	<td>numeric</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>geom</td>
+            	<td>geometry</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+        <p>&nbsp;</p>
+		<table width="100%" cellspacing="0" cellpadding="3">
+            <caption>links Constraints</caption>
+            <tr>
+            	<th>Name</th>
+            	<th>Constraint</th>
+            </tr>
+			
+            <tr class="tr0">
+				<td>enforce_dims_geom</td>
+                <td>CHECK ((ndims(geom) = 2))</td>
+            </tr>
+			
+            <tr class="tr1">
+				<td>enforce_geotype_geom</td>
+                <td>CHECK (((geometrytype(geom) = &#39;MULTILINESTRING&#39;::text) OR (geom IS NULL)))</td>
+            </tr>
+			
+            <tr class="tr0">
+				<td>enforce_srid_geom</td>
+                <td>CHECK ((srid(geom) = 4326))</td>
+            </tr>
+			
+		</table>
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#trafficmodel.table.link-network">link_network</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#trafficmodel.table.link-traffic-data">link_traffic_data</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+       link_geom_idx geom
+    
+       link_inode_idx inode
+    
+       link_jnode_idx jnode
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#trafficmodel.schema">Schema trafficmodel</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="trafficmodel.table.node-traffic-data">node_traffic_data</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>node_traffic_data Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#trafficmodel.table.nodes">nodes.gid</a>
+                  
+                
+                </td>
+            	<td>node_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#trafficmodel.table.traffic-data">traffic_data.id</a>
+                  
+                
+                </td>
+            	<td>data_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#trafficmodel.table.traffic-peak">traffic_peak.type</a>
+                  
+                
+                </td>
+            	<td>peak</td>
+            	<td>character(2)</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>year</td>
+            	<td>smallint</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+       node_traffic_data_idx1 node_id
+    
+       node_traffic_data_idx2 data_id
+    
+       node_traffic_data_idx3 peak
+    
+       node_traffic_data_idx4 year
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#trafficmodel.schema">Schema trafficmodel</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="trafficmodel.table.nodes">nodes</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>nodes Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>gid</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+                       UNIQUE
+                    
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>x</td>
+            	<td>numeric</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>y</td>
+            	<td>numeric</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>data1</td>
+            	<td>numeric</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>data2</td>
+            	<td>numeric</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>data3</td>
+            	<td>numeric</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>iszone</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>geom</td>
+            	<td>geometry</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+        <p>&nbsp;</p>
+		<table width="100%" cellspacing="0" cellpadding="3">
+            <caption>nodes Constraints</caption>
+            <tr>
+            	<th>Name</th>
+            	<th>Constraint</th>
+            </tr>
+			
+            <tr class="tr0">
+				<td>enforce_dims_geom</td>
+                <td>CHECK ((ndims(geom) = 2))</td>
+            </tr>
+			
+            <tr class="tr1">
+				<td>enforce_geotype_geom</td>
+                <td>CHECK (((geometrytype(geom) = &#39;POINT&#39;::text) OR (geom IS NULL)))</td>
+            </tr>
+			
+            <tr class="tr0">
+				<td>enforce_srid_geom</td>
+                <td>CHECK ((srid(geom) = 4326))</td>
+            </tr>
+			
+		</table>
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#trafficmodel.table.links">links</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#trafficmodel.table.node-traffic-data">node_traffic_data</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+       node_geom_idx geom
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#trafficmodel.schema">Schema trafficmodel</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="trafficmodel.table.traffic-attr">traffic_attr</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>traffic_attr Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>attr_type</td>
+            	<td>character varying(64)</td>
+                <td><i>
+				
+					
+
+					
+                       UNIQUE
+                    
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>attr_name</td>
+            	<td>character varying(256)</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>data_type</td>
+            	<td>character varying(64)</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#trafficmodel.table.version">version.id</a>
+                  
+                
+                </td>
+            	<td>version_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#trafficmodel.table.traffic-data">traffic_data</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#trafficmodel.schema">Schema trafficmodel</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="trafficmodel.table.traffic-data">traffic_data</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>traffic_data Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#trafficmodel.table.traffic-attr">traffic_attr.id</a>
+                  
+                
+                </td>
+            	<td>type_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>value</td>
+            	<td>character varying(256)</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#trafficmodel.table.link-traffic-data">link_traffic_data</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#trafficmodel.table.node-traffic-data">node_traffic_data</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+       traffic_data_type_idx type_id
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#trafficmodel.schema">Schema trafficmodel</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="trafficmodel.table.traffic-peak">traffic_peak</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>traffic_peak Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>type</td>
+            	<td>character(2)</td>
+                <td><i>
+				
+					
+
+					
+                       UNIQUE
+                    
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>description</td>
+            	<td>character varying(64)</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#trafficmodel.table.link-traffic-data">link_traffic_data</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#trafficmodel.table.node-traffic-data">node_traffic_data</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#trafficmodel.schema">Schema trafficmodel</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="trafficmodel.table.version">version</a>
+		</h2>
+        
+         <p>Holds Traffic Model model, input transport model and data year information</p>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>version Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				<br><br>Unique key for Traffic Model version information
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>traffic_model</td>
+            	<td>character varying(64)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				<br><br>TrafficModel model version number
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>transport_model</td>
+            	<td>character varying(64)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				<br><br>TrafficModel input transport model version number, eg. ATM2, ATM3, etc.
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>data_year</td>
+            	<td>character(4)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				<br><br>Year of the data for which the traffic model was run
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#trafficmodel.table.traffic-attr">traffic_attr</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#trafficmodel.schema">Schema trafficmodel</a>
+    </p>
+	
+
+	<!-- We've gone through the table structure, now lets take a look at user functions -->
+	
+		<hr>
+		<h2>Function:
+			<a href="#trafficmodel.schema"><a name="trafficmodel.function.area-aggregate-text">area_aggregate(text)</a>
+		</h2>
+<h3>Returns: area_aggregate</h3>
+<h3>Language: PLPGSQL</h3>
+        
+        <pre>
+DECLARE
+  spatial_filter ALIAS FOR $1;
+  query          TEXT;
+  result         RECORD;
+  attrs          VARCHAR(64)[];
+  aggrs          VARCHAR(256)[];
+  summary        AREA_AGGREGATE;
+  geomText       VARCHAR(256)[];
+  prevId         INTEGER;
+  l              INTEGER;
+  i              INTEGER;
+BEGIN
+  -- sanity check on spatial filter supplied
+  IF spatial_filter !~ &#39;^(MULTIP|P)OLYGON&#39; OR spatial_filter ~ &#39;(SELECT|;|DROP|UPDATE)&#39;
+  THEN
+    RAISE EXCEPTION &#39;Invalid spatial filter supplied: %&#39;, spatial_filter;
+  END IF;
+
+  -- query all trafficmodel network (edge) links inside spatial area
+  -- and extract it&#39;s trafficmodel link traffic attributes and scaling
+  -- factor
+  query := &#39;SELECT td.type_id AS id, ta.attr_name, ta.data_type, td.value, ST_AsText (ne.the_geom) AS geom, ln.fraction 
+              FROM link_network AS ln
+              JOIN link_traffic_data AS ltd
+                   ON ln.traffic_link_id = ltd.link_id
+              JOIN traffic_data AS td
+                   ON ltd.data_id = td.id
+              JOIN traffic_attr AS ta
+                   ON td.type_id = ta.id
+              JOIN network.edges AS ne
+                   ON ln.network_edge_id = ne.gid,
+                   ST_GeomFromText (&#39; || quote_literal (spatial_filter) || &#39;, 4326) AS filter (geom)
+             WHERE ne.the_geom &amp;&amp; filter.geom AND
+                   ST_Within (ne.the_geom, filter.geom) AND
+                   ST_IsValid (filter.geom) AND
+                   ta.attr_type &lt;&gt; &#39; || quote_literal (&#39;lanes&#39;) || &#39;
+          ORDER BY td.type_id&#39;;
+
+  prevId := -9999;
+  l      := 0;
+  i      := 0;
+
+  attrs[l] := &#39;&#39;;
+  aggrs[l] := &#39;0&#39;;
+
+  FOR result IN EXECUTE query
+  LOOP
+    IF prevId &lt;&gt; -9999 AND prevId &lt;&gt; result.id
+    THEN
+      -- result set is ordered by attribute type, when attribute type id changes advance to next attribute
+      l := l + 1;
+
+      -- init to zero
+      aggrs[l] := &#39;0&#39;;
+    END IF;
+
+    -- attribute name
+    attrs[l]    := result.attr_name;
+    -- accumulate scaled value
+    aggrs[l]    := (aggrs[l]::NUMERIC + (result.value::NUMERIC * result.fraction)::NUMERIC)::VARCHAR(256);
+    -- capture coordinate list in mutli-line string
+    geomText[i] := REGEXP_REPLACE (result.geom, E&#39;MULTILINESTRING\((\.*)\)&#39;, E&#39;\\1&#39;, &#39;&#39;);
+    geomText[i] := SUBSTRING (geomText[i], 2, LENGTH (geomText[i]) - 2);
+
+    prevId := result.id;
+    i := i + 1;
+  END LOOP;
+
+  summary.geom       := ST_MLineFromText (E&#39;MULTILINESTRING (&#39; || ARRAY_TO_STRING (geomText, &#39;, &#39;) || E&#39;)&#39;, 4326);
+  summary.attributes := attrs;
+  summary.aggregates := aggrs;
+
+  RETURN summary;
+END;
+</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#trafficmodel.schema"><a name="trafficmodel.function.area-flux-text">area_flux(text)</a>
+		</h2>
+<h3>Returns: area_flux</h3>
+<h3>Language: PLPGSQL</h3>
+        
+        <pre>
+DECLARE
+  spatial_filter ALIAS FOR $1;
+  query          TEXT;
+  result         RECORD;
+  attrs          VARCHAR(64)[];
+  influx         VARCHAR(256)[];
+  outflux        VARCHAR(256)[];
+  flux           AREA_FLUX;
+  geomText       VARCHAR(256)[];
+  prevId         INTEGER;
+  l              INTEGER;
+  i              INTEGER;
+BEGIN
+  -- sanity check on spatial filter supplied
+  IF spatial_filter !~ &#39;^(MULTIP|P)OLYGON&#39; OR spatial_filter ~ &#39;(SELECT|;|DROP|UPDATE)&#39;
+  THEN
+    RAISE EXCEPTION &#39;Invalid spatial filter supplied: %&#39;, spatial_filter;
+  END IF;
+
+  -- query all trafficmodel network (edge) links inside spatial area
+  -- and extract it&#39;s trafficmodel link traffic attributes and scaling
+  -- factor
+  query := &#39;SELECT td.type_id AS id, ta.attr_name, ta.data_type, td.value, ST_AsText (ne.the_geom) AS geom, ln.fraction,
+                   CASE WHEN ST_Within (ST_SetSrid (ST_MakePoint (x1, y1), 4326), filter.geom)
+                        THEN &#39; || quote_literal (&#39;outflux&#39;) || &#39;
+                        ELSE &#39; || quote_literal (&#39;influx&#39;)  || &#39;
+                   END AS flux_type
+              FROM link_network AS ln
+              JOIN link_traffic_data AS ltd
+                   ON ln.traffic_link_id = ltd.link_id
+              JOIN traffic_data AS td
+                   ON ltd.data_id = td.id
+              JOIN traffic_attr AS ta
+                   ON td.type_id = ta.id
+              JOIN network.edges AS ne
+                   ON ln.network_edge_id = ne.gid,
+                   ST_GeomFromText (&#39; || quote_literal (spatial_filter) || &#39;, 4326) AS filter (geom)
+             WHERE ne.the_geom &amp;&amp; filter.geom AND
+                   ST_Crosses (ne.the_geom, filter.geom) AND
+                   ST_IsValid (filter.geom) AND
+                   ta.attr_type &lt;&gt; &#39; || quote_literal (&#39;lanes&#39;) || &#39;
+          ORDER BY td.type_id&#39;;
+
+  prevId := -9999;
+  l      := 0;
+  i      := 0;
+
+  attrs[l]   := &#39;&#39;;
+  influx[l]  := &#39;0&#39;;
+  outflux[l] := &#39;0&#39;;
+
+  FOR result IN EXECUTE query
+  LOOP
+    IF prevId &lt;&gt; -9999 AND prevId &lt;&gt; result.id
+    THEN
+      -- result set is ordered by attribute type, when attribute type id changes advance to next attribute
+      l := l + 1;
+
+      -- init to zero
+      influx[l]  := &#39;0&#39;;
+      outflux[l] := &#39;0&#39;;
+    END IF;
+
+    -- attribute name
+    attrs[l] := result.attr_name;
+
+    -- accumulate scaled value for either in-flux or out-flux
+    IF result.flux_type = &#39;influx&#39;
+    THEN
+      influx[l] := (influx[l]::NUMERIC + (result.value::NUMERIC * result.fraction)::NUMERIC)::VARCHAR(256);
+    ELSE
+      outflux[l] := (outflux[l]::NUMERIC + (result.value::NUMERIC * result.fraction)::NUMERIC)::VARCHAR(256);
+    END IF;
+
+    -- capture coordinate list in mutli-line string
+    geomText[i] := REGEXP_REPLACE (result.geom, E&#39;MULTILINESTRING\((\.*)\)&#39;, E&#39;\\1&#39;, &#39;&#39;);
+    geomText[i] := SUBSTRING (geomText[i], 2, LENGTH (geomText[i]) - 2);
+
+    prevId := result.id;
+    i := i + 1;
+  END LOOP;
+
+  flux.geom       := ST_MLineFromText (E&#39;MULTILINESTRING (&#39; || ARRAY_TO_STRING (geomText, &#39;, &#39;) || E&#39;)&#39;, 4326);
+  flux.attributes := attrs;
+  flux.influx     := influx;
+  flux.outflux    := outflux;
+
+  RETURN flux;
+END;
+</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#trafficmodel.schema"><a name="trafficmodel.function.array-accum-anyelement">array_accum(anyelement)</a>
+		</h2>
+<h3>Returns: anyarray</h3>
+<h3>Language: INTERNAL</h3>
+        
+        <pre>aggregate_dummy</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#trafficmodel.schema"><a name="trafficmodel.function.route-aggregator-routemethod-public.geometryARRAY-endgeoms-public.geometryARRAY-startgeoms-character-varying">route_aggregator(routemethod public.geometry[], endgeoms public.geometry[], startgeoms character varying)</a>
+		</h2>
+<h3>Returns: route_aggr</h3>
+<h3>Language: PLPGSQL</h3>
+        
+        <pre>
+DECLARE
+  pathQuery    TEXT;
+  trafficmodelQuery    TEXT;
+  query        TEXT;
+  pathResult   RECORD;
+  trafficmodelResult   RECORD;
+  edgePath     INTEGER[];
+  nodePath     INTEGER[];
+  i            INTEGER;
+  j            INTEGER;
+  l            INTEGER;
+  k            INTEGER;
+  m            INTEGER;
+  prevPeak     CHAR(2);
+  prevType     VARCHAR(64);
+  aggr         trafficmodel.ROUTE_AGGR;
+  trafficmodelAggr     trafficmodel.TRAFFIC_AGGR;
+  totalEmme    trafficmodel.TRAFFIC_AGGR;
+  prevEmme     trafficmodel.TRAFFIC_AGGR;
+  adjustStart  BOOLEAN DEFAULT false;
+  adjustEnd    BOOLEAN DEFAULT false; 
+BEGIN
+  -- validate that geometries are POINTs
+
+  -- closest_node for each start geomtry
+  -- closest_node for each end geometry
+  -- route from each start node to each end node
+
+  -- aggregate results
+  -- return geometry collection of all edges routed
+  -- and one for trafficmodel edges
+
+  -- TODO: scale start/end edge&#39;s Traffic Model scaling fraction to account for house half way
+  --       down road, trafficmodel cost will differ
+  --       add these if they have been missed on route
+
+  IF routeMethod NOT IN (&#39;dijkstra&#39;, &#39;astar&#39;, &#39;shootingstar&#39;)
+  THEN
+    RAISE EXCEPTION &#39;Invalid routing method supplied: %, not &#39;&#39;dijkstra&#39;&#39;, &#39;&#39;astar&#39;&#39; or &#39;&#39;shootingstar&#39;&#39;&#39;, routeMethod;
+  END IF;
+
+  IF ARRAY_UPPER (startGeoms, 1) IS NULL
+  THEN
+    RAISE EXCEPTION &#39;No start geometries provided to route from&#39;;
+  END IF;
+
+  IF ARRAY_UPPER (endGeoms, 1) IS NULL
+  THEN
+    RAISE EXCEPTION &#39;No end geometries provided to route to&#39;;
+  END IF;
+
+  -- FIXME:
+  -- get paths first
+  -- loop through them
+  -- query their traffic attributes
+  -- aggregate these
+  -- compensate for start/end partials
+
+  -- TODO:
+  -- add geometry
+
+  pathQuery := &#39;SELECT r.sourceNodeId,
+                       r.targetNodeId,
+                       (r.path_result).vertex_id AS nodeId,
+                       (r.path_result).edge_id   AS edgeId,
+                       r.sourceGeom,
+                       r.targetGeom,
+                       e.the_geom 
+                  FROM (
+                    SELECT (c.source).nodeId AS sourceNodeId,
+                           (c.target).nodeId AS targetNodeId,
+                           c.sourceGeom,
+                           c.targetGeom,
+                           network.route_filtered (c.source, c.target, &#39; ||
+                             quote_literal (routeMethod) || &#39;, 0.09) AS path_result
+
+                    FROM (
+                       SELECT network.closest_edge_node (ST_X(s.geom)::NUMERIC(12,8),
+                                                         ST_Y(s.geom)::NUMERIC(12,8),
+                                                         0.09::NUMERIC(12,8)) AS source,
+                              network.closest_edge_node (ST_X(t.geom)::NUMERIC(12,8),
+                                                         ST_Y(t.geom)::NUMERIC(12,8),
+                                                         0.09::NUMERIC(12,8)) AS target,
+                              s.geom AS sourceGeom,
+                              t.geom AS targetGeom
+                         FROM (VALUES (&#39;&#39;&#39; || ARRAY_TO_STRING (startGeoms, &#39;&#39;&#39;::GEOMETRY),(&#39;&#39;&#39;) || &#39;&#39;&#39;::GEOMETRY)) AS s (geom),
+                              (VALUES (&#39;&#39;&#39; || ARRAY_TO_STRING (endGeoms, &#39;&#39;&#39;::GEOMETRY),(&#39;&#39;&#39;) || &#39;&#39;&#39;::GEOMETRY)) AS t (geom)
+                     ) AS c
+                  ) AS r
+             LEFT JOIN network.edges AS e
+                       ON (r.path_result).edge_id = e.gid&#39;;
+     
+  trafficmodelQuery := &#39;SELECT ltd.peak, ta.attr_type AS type, (ln.fraction * td.value::NUMERIC) AS value,
+                       ln.network_edge_id AS trafficmodelEdgeId
+                  FROM trafficmodel.link_network AS ln
+                  JOIN trafficmodel.link_traffic_data AS ltd
+                       ON ln.traffic_link_id = ltd.link_id
+                  JOIN trafficmodel.traffic_data AS td
+                       ON ltd.data_id = td.id
+                  JOIN trafficmodel.traffic_attr AS ta
+                       ON td.type_id = ta.id AND
+                       ta.attr_type  &lt;&gt; &#39;&#39;lanes&#39;&#39;&#39;;
+  
+  -- init first AM value
+  trafficmodelAggr.aggregates[0] := &#39;0&#39;;
+
+  FOR pathResult IN EXECUTE pathQuery
+  LOOP
+    i := 0;
+    j := 0;
+    l := 0;
+
+    -- end of path is signaled by edge id of -1
+    IF pathResult.edgeId = -1
+    THEN
+      -- end of current path
+           
+      -- check that we did have a path
+      IF ARRAY_LENGTH (edgePath, 1) &lt;&gt; -1
+      THEN
+        -- fetch all of the paths traffic attributes sorted by peak and type aggregated as array of arrays
+        query := trafficmodelQuery || &#39;
+                 JOIN (
+                  VALUES (&#39; || ARRAY_TO_STRING (edgePath, &#39;),(&#39;) || &#39;)) AS ep (edgeId) 
+                        ON ln.network_edge_id = ep.edgeId
+                ORDER BY ltd.peak, ta.attr_type&#39;;
+
+        prevPeak := &#39;&#39;;
+        prevType := &#39;&#39;;
+
+        -- execute
+        FOR trafficmodelResult IN EXECUTE query
+        LOOP
+          -- aggregate result
+          IF prevPeak &lt;&gt; &#39;&#39; AND prevPeak &lt;&gt; trafficmodelResult.peak
+          THEN
+            -- init total Traffic Model the first time
+            IF totalEmme IS NULL
+            THEN
+              FOR k IN SELECT GENERATE_SERIES (0, ARRAY_UPPER(trafficmodelAggr.attributes, 1))
+              LOOP  
+                totalEmme.peak          := &#39;AD&#39;;
+                totalEmme.attributes[k] := trafficmodelAggr.attributes[k];
+                totalEmme.aggregates[k] := &#39;0.0&#39;;
+              END LOOP;
+            END IF;
+
+            -- init previous Emme
+            IF prevEmme IS NULL
+            THEN
+              FOR k IN SELECT GENERATE_SERIES (0, ARRAY_UPPER(trafficmodelAggr.attributes, 1))
+              LOOP
+                prevEmme.attributes[k] := trafficmodelAggr.attributes[k];
+                prevEmme.aggregates[k] := &#39;0.0&#39;;
+              END LOOP;
+
+              FOR m IN SELECT GENERATE_SERIES (0, 3)
+              LOOP
+                aggr.trafficmodelResults[m] = prevEmme;
+              END LOOP;
+            END IF;
+ 
+            prevEmme = aggr.trafficmodelResults[j];
+
+            -- sanity check to assert sort order of traffic peaks
+            IF prevEmme.peak &lt;&gt; trafficmodelAggr.peak
+            THEN
+              RAISE EXCEPTION &#39;Cannot aggregate with different peaks: % &lt;&gt; %&#39;, prevEmme.peak, trafficmodelAggr.peak;
+            END IF;
+
+            FOR k IN SELECT GENERATE_SERIES (0, ARRAY_UPPER(trafficmodelAggr.attributes, 1))
+            LOOP
+              -- sanity check to assert sort order of traffic attributes
+              IF prevEmme.attributes[k] &lt;&gt; trafficmodelAggr.attributes[k]
+              THEN
+                RAISE EXCEPTION &#39;Cannot aggregate with different attributesL % &lt;&gt; %&#39;, 
+                                prevEmme.attributes[k], trafficmodelAggr.attributes[k];
+              END IF;
+
+              -- trafficmodel total
+              totalEmme.aggregates[k] := (totalEmme.aggregates[k]::NUMERIC + trafficmodelAggr.aggregates[k]::NUMERIC)::VARCHAR(255);
+
+              -- add previous trafficmodel results
+              trafficmodelAggr.aggregates[k] := (prevEmme.aggregates[k]::NUMERIC + trafficmodelAggr.aggregates[k]::NUMERIC)::VARCHAR(255);
+            END LOOP;
+
+            aggr.trafficmodelResults[j] := trafficmodelAggr;
+            trafficmodelAggr            := NULL;
+
+            -- init first value
+            trafficmodelAggr.aggregates[0] := &#39;0&#39;;
+
+            -- advance to next peak
+            j := j + 1;
+
+            IF j &gt; 3
+            THEN
+              RAISE EXCEPTION &#39;Cannot have more than 3 traffic peaks&#39;;
+            END IF;
+
+            -- reset attributes
+            l := 0;
+
+            -- init value aggregate
+            trafficmodelAggr.aggregates[l] := &#39;0&#39;;
+          END IF;
+
+          IF prevPeak = trafficmodelResult.peak AND prevType &lt;&gt; &#39;&#39; AND prevType &lt;&gt; trafficmodelResult.type
+          THEN
+            -- advance no next attribute for peak
+            l := l + 1;
+
+            -- init value aggregate 
+            trafficmodelAggr.aggregates[l] = 0;
+          END IF;
+
+          -- accumulate trafficmodel cost for edges in path
+          trafficmodelAggr.peak          := trafficmodelResult.peak;
+          trafficmodelAggr.attributes[l] := trafficmodelResult.type;
+          trafficmodelAggr.aggregates[l] := (trafficmodelAggr.aggregates[l]::NUMERIC + trafficmodelResult.value)::VARCHAR(256);
+
+          prevPeak := trafficmodelResult.peak;
+          prevType := trafficmodelResult.type;
+
+          -- check first and last trafficmodelEdgeId
+          IF trafficmodelResult.trafficmodelEdgeId = edgePath[0]
+          THEN
+            adjustStart = true; 
+          END IF;
+
+          IF trafficmodelResult.trafficmodelEdgeId = edgePath[ARRAY_UPPER(edgePath, 1)]
+          THEN
+            adjustEnd = true;
+          END IF;
+        END LOOP;
+
+        -- TODO: adjust start/end costs
+
+        -- assign last trafficmodel 
+        prevEmme = aggr.trafficmodelResults[j];
+
+        -- sanity check to assert sort order of traffic peaks
+        IF prevEmme.peak &lt;&gt; trafficmodelAggr.peak
+        THEN
+          RAISE EXCEPTION &#39;Cannot aggregate with different peaks: % &lt;&gt; %&#39;, prevEmme.peak, trafficmodelAggr.peak;
+        END IF;
+
+        FOR k IN SELECT GENERATE_SERIES (0, ARRAY_UPPER(trafficmodelAggr.attributes, 1))
+        LOOP
+          -- sanity check to assert sort order of traffic attributes
+          IF prevEmme.attributes[k] &lt;&gt; trafficmodelAggr.attributes[k]
+          THEN
+            RAISE EXCEPTION &#39;Cannot aggregate with different attributesL % &lt;&gt; %&#39;, 
+                            prevEmme.attributes[k], trafficmodelAggr.attributes[k];
+          END IF;
+
+          -- trafficmodel total
+          totalEmme.aggregates[k] := (totalEmme.aggregates[k]::NUMERIC + trafficmodelAggr.aggregates[k]::NUMERIC)::VARCHAR(255);
+
+          -- add previous trafficmodel results
+          trafficmodelAggr.aggregates[k] := (prevEmme.aggregates[k]::NUMERIC + trafficmodelAggr.aggregates[k]::NUMERIC)::VARCHAR(255);
+        END LOOP;
+
+        aggr.trafficmodelResults[j] := trafficmodelAggr;
+        trafficmodelAggr            := NULL;
+
+        -- init first value
+        trafficmodelAggr.aggregates[0] := &#39;0&#39;;
+
+        -- assign total trafficmodel result
+        j := j + 1;       
+
+        aggr.trafficmodelResults[j] := totalEmme;
+
+        -- check if source and target edges were inserted, if not could be that start or end node was used
+        -- but route start was along side edge, fetch this edges traffic information, but scale it by
+        -- proportion of point along side edge and create partial geometry
+
+        -- if these edges were wholly inserted and needed not be, remove it&#39;s trafficmodel cost and apply
+        -- it as a fraction
+
+        -- clear out path
+        edgePath := NULL;
+
+        i := 0;
+      END IF;
+    ELSE
+      edgePath[i] := pathResult.edgeId;
+      nodePath[i] := pathResult.nodeId;
+
+      i := i + 1;
+    END IF;
+  END LOOP;
+
+  RETURN aggr;
+END;
+</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#trafficmodel.schema"><a name="trafficmodel.function.route-aggregator-basic-routemethod-public.geometryARRAY-endgeoms-public.geometryARRAY-startgeoms-character-varying">route_aggregator_basic(routemethod public.geometry[], endgeoms public.geometry[], startgeoms character varying)</a>
+		</h2>
+<h3>Returns: route_aggr</h3>
+<h3>Language: PLPGSQL</h3>
+        
+        <pre>
+DECLARE
+  query    TEXT;
+  result   RECORD;
+  aggr     trafficmodel.ROUTE_AGGR;
+  trafficmodelAggr trafficmodel.TRAFFIC_AGGR;
+  i        INTEGER;
+  l        INTEGER;
+  k        INTEGER;
+  m        INTEGER;
+  prevPeak CHAR(2);
+  geomText VARCHAR(256)[];
+BEGIN
+  -- validate that geometries are POINTs
+
+  -- closest_node for each start geomtry
+  -- closest_node for each end geometry
+  -- route from each start node to each end node
+  -- aggregate results
+  -- return geometry collection of all edges routed
+
+  IF routeMethod NOT IN (&#39;dijkstra&#39;, &#39;astar&#39;, &#39;shootingstar&#39;)
+  THEN
+    RAISE EXCEPTION &#39;Invalid routing method supplied: %, not &#39;&#39;dijkstra&#39;&#39;, &#39;&#39;astar&#39;&#39; or &#39;&#39;shootingstar&#39;&#39;&#39;, routeMethod;
+  END IF;
+
+  query := &#39;SELECT ltd.peak, ta.attr_type AS type,
+                   SUM(ln.fraction * td.value::NUMERIC) AS value,
+                   trafficmodel.ARRAY_ACCUM (ST_AsText (ne.the_geom)) AS geoms
+              FROM (
+                SELECT network.route_filtered (c.source, c.target, &#39; ||
+                       quote_literal (routeMethod) || &#39;, 0.09) AS path_result
+                  FROM (
+                   SELECT network.closest_edge_node (ST_X(s.geom)::NUMERIC(12,8),
+                                                     ST_Y(s.geom)::NUMERIC(12,8),
+                                                     0.09::NUMERIC(12,8)) AS source,
+                          network.closest_edge_node (ST_X(e.geom)::NUMERIC(12,8),
+                                                     ST_Y(e.geom)::NUMERIC(12,8),
+                                                     0.09::NUMERIC(12,8)) AS target
+                     FROM (VALUES (&#39;&#39;&#39; || ARRAY_TO_STRING (startGeoms, &#39;&#39;&#39;::GEOMETRY),(&#39;&#39;&#39;) || &#39;&#39;&#39;::GEOMETRY)) AS s (geom),
+                          (VALUES (&#39;&#39;&#39; || ARRAY_TO_STRING (endGeoms, &#39;&#39;&#39;::GEOMETRY),(&#39;&#39;&#39;) || &#39;&#39;&#39;::GEOMETRY)) AS e (geom)
+                 ) AS c
+              ) AS r
+              JOIN network.edges AS ne
+                   ON (r.path_result).edge_id = ne.gid
+              JOIN trafficmodel.link_network AS ln
+                   ON (r.path_result).edge_id = ln.network_edge_id
+              JOIN trafficmodel.link_traffic_data AS ltd
+                   ON ln.traffic_link_id = ltd.link_id
+              JOIN trafficmodel.traffic_data AS td
+                   ON ltd.data_id = td.id
+              JOIN trafficmodel.traffic_attr AS ta
+                   ON td.type_id = ta.id
+             WHERE (r.path_result).edge_id &lt;&gt; -1 AND
+                   ta.attr_type            &lt;&gt; &#39;&#39;lanes&#39;&#39;
+          GROUP BY ltd.peak, ta.attr_type
+          ORDER BY ltd.peak, ta.attr_type&#39;;
+ 
+  i := 0;
+  l := 0;
+  k := 0;
+  prevPeak := &#39;&#39;;
+
+  FOR result IN EXECUTE query
+  LOOP
+    IF prevPeak &lt;&gt; &#39;&#39; AND prevPeak &lt;&gt; result.peak
+    THEN
+      l := 0;
+      -- assign peak data
+      aggr.trafficmodelResults[i] = trafficmodelAggr;
+      -- next peak
+      i := i + 1;
+    END IF;
+    
+    trafficmodelAggr.peak          := result.peak;
+    trafficmodelAggr.attributes[l] := result.type;
+    trafficmodelAggr.aggregates[l] := result.value;
+
+    IF i = 0 AND l = 0
+    THEN
+      -- assign geometry only once
+      geomText := result.geoms;
+    END IF;
+
+    l := l + 1;
+    prevPeak := result.peak;
+  END LOOP;
+
+  -- assign trafficmodel geom
+  FOR k IN SELECT GENERATE_SERIES (0, ARRAY_UPPER (geomText, 1))
+  LOOP
+    geomText[k] := REGEXP_REPLACE (geomText[k], E&#39;MULTILINESTRING\((\.*)\)&#39;, E&#39;\\1&#39;, &#39;&#39;);
+    geomText[k] := SUBSTRING (geomText[k], 2, LENGTH (geomText[k]) - 2);
+  END LOOP;
+
+  aggr.trafficgeom := ST_MLineFromText (E&#39;MULTILINESTRING (&#39; || ARRAY_TO_STRING (geomText, &#39;, &#39;) || E&#39;)&#39;, 4326);
+  RETURN aggr;
+END;
+</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#trafficmodel.schema"><a name="trafficmodel.function.route-aggregator-basic-routemethod-public.geometryARRAY-trafficpeak-public.geometryARRAY-endgeoms-bpchar-startgeoms-character-varying">route_aggregator_basic(routemethod public.geometry[], trafficpeak public.geometry[], endgeoms bpchar, startgeoms character varying)</a>
+		</h2>
+<h3>Returns: peak_traffic_aggr</h3>
+<h3>Language: PLPGSQL</h3>
+        
+        <pre>
+DECLARE
+  query    TEXT;
+  result   RECORD;
+  aggr trafficmodel.PEAK_TRAFFIC_AGGR;
+  i        INTEGER;
+  l        INTEGER;
+  k        INTEGER;
+  m        INTEGER;
+  geomText TEXT[];
+BEGIN
+  -- validate that geometries are POINTs
+
+  -- closest_node for each start geomtry
+  -- closest_node for each end geometry
+  -- route from each start node to each end node
+  -- aggregate results
+  -- return geometry collection of all edges routed
+
+  IF routeMethod NOT IN (&#39;dijkstra&#39;, &#39;astar&#39;, &#39;shootingstar&#39;)
+  THEN
+    RAISE EXCEPTION &#39;Invalid routing method supplied: %, not &#39;&#39;dijkstra&#39;&#39;, &#39;&#39;astar&#39;&#39; or &#39;&#39;shootingstar&#39;&#39;&#39;, routeMethod;
+  END IF;
+
+  query := &#39;SELECT ltd.peak, ta.attr_type AS type,
+                   SUM(ln.fraction * td.value::NUMERIC) AS value,
+                   trafficmodel.ARRAY_ACCUM (ST_AsText (ne.the_geom)) AS geoms
+              FROM (
+                SELECT network.route_filtered (c.source, c.target, &#39; ||
+                       quote_literal (routeMethod) || &#39;, 0.09) AS path_result
+                  FROM (
+                   SELECT network.closest_edge_node (ST_X(s.geom)::NUMERIC(12,8),
+                                                     ST_Y(s.geom)::NUMERIC(12,8),
+                                                     0.09::NUMERIC(12,8)) AS source,
+                          network.closest_edge_node (ST_X(e.geom)::NUMERIC(12,8),
+                                                     ST_Y(e.geom)::NUMERIC(12,8),
+                                                     0.09::NUMERIC(12,8)) AS target
+                     FROM (VALUES (&#39;&#39;&#39; || ARRAY_TO_STRING (startGeoms, &#39;&#39;&#39;::GEOMETRY),(&#39;&#39;&#39;) || &#39;&#39;&#39;::GEOMETRY)) AS s (geom),
+                          (VALUES (&#39;&#39;&#39; || ARRAY_TO_STRING (endGeoms, &#39;&#39;&#39;::GEOMETRY),(&#39;&#39;&#39;) || &#39;&#39;&#39;::GEOMETRY)) AS e (geom)
+                 ) AS c
+              ) AS r
+              JOIN network.edges AS ne
+                   ON (r.path_result).edge_id = ne.gid
+              JOIN trafficmodel.link_network AS ln
+                   ON (r.path_result).edge_id = ln.network_edge_id
+              JOIN trafficmodel.link_traffic_data AS ltd
+                   ON ln.traffic_link_id = ltd.link_id
+              JOIN trafficmodel.traffic_data AS td
+                   ON ltd.data_id = td.id
+              JOIN trafficmodel.traffic_attr AS ta
+                   ON td.type_id = ta.id
+             WHERE (r.path_result).edge_id &lt;&gt; -1
+               AND ta.attr_type            &lt;&gt; &#39;&#39;lanes&#39;&#39; 
+               AND ltd.peak                = &#39; || quote_literal (trafficPeak) || &#39;
+          GROUP BY ltd.peak, ta.attr_type
+          ORDER BY ltd.peak, ta.attr_type&#39;;
+ 
+  l := 0;
+
+  FOR result IN EXECUTE query
+  LOOP
+    aggr.peak          := result.peak;
+    aggr.attributes[l] := result.type;
+    aggr.aggregates[l] := result.value;
+
+    IF l = 0
+    THEN
+      -- assign geometry only once
+      geomText := result.geoms;
+    END IF;
+
+    l := l + 1;
+  END LOOP;
+
+  -- assign trafficmodel geom
+  FOR k IN SELECT GENERATE_SERIES (0, ARRAY_UPPER (geomText, 1))
+  LOOP
+    geomText[k] := REGEXP_REPLACE (geomText[k], E&#39;MULTILINESTRING\((\.*)\)&#39;, E&#39;\\1&#39;, &#39;&#39;);
+    geomText[k] := SUBSTRING (geomText[k], 2, LENGTH (geomText[k]) - 2);
+  END LOOP;
+
+  aggr.trafficgeom := ST_MLineFromText (E&#39;MULTILINESTRING (&#39; || ARRAY_TO_STRING (geomText, &#39;, &#39;) || E&#39;)&#39;, 4326);
+  RETURN aggr;
+END;
+</pre>
+	
+
+
+<p class="w3ref">Generated by <a href="http://www.rbt.ca/autodoc/">PostgreSQL Autodoc</a></p>
+<p class="w3ref"><a href="http://validator.w3.org/check/referer">W3C HTML 4.01 Strict</a></p>
+</body></html>

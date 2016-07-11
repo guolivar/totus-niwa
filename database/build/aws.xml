@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- setup production database connection properties -->
+<project name="TOTUS-DATABASE-AWS">
+  <property name="db"       value="totus" />
+  <!-- we proxy localhost:5432 through ssh tunnel through NIWA proxy to totus-niwa.dyndns.org as localhost:5432 -->
+  <property name="dbhost"   value="localhost" />
+  <!--<property name="pg_jar_version" value="9.3-1102.jdbc4" />-->
+  <property name="dba_user" value="dba" />
+
+  <!-- we always clone AWS instance from a local NIWA master -->
+  <property name="masterdb" value="dev_totus" />
+  <property name="masterhost" value="niwa-30396.niwa.local" />
+</project>

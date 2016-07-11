@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!-- setup development database connection properties -->
+<project name="TOTUS-DATABASE-DEV">
+  <property name="db"     value="dev_totus" />
+  <property name="dbhost" value="localhost" />
+</project>

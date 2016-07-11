@@ -1,0 +1,224 @@
+@CHARSET "UTF-8";
+
+/********************************
+ * NAVBAR
+ * override the default bootstrap navbar styling
+ */
+
+.navbar-niwa {
+  background: #80bd26;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #d5ec17 0%, #009fee 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #80bd26), color-stop(100%, #009fee));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, #80bd26 0%, #009fee 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, #80bd26 0%, #009fee 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, #80bd26 0%, #009fee 100%);
+  /* IE10+ */
+  background: linear-gradient(to right, #80bd26 0%, #009fee 100%);
+  /* W3C */
+  margin-bottom: 0;
+}
+
+/* current active menu item */
+.navbar-niwa .navbar-nav > .active > a {
+  background-image: none !important;
+  text-shadow: 0 5px 0 rgba(255, 255, 255, 0.25);
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  background-color: #000000;
+  color: #199DD8;
+}
+
+.navbar-niwa .navbar-brand,
+.navbar-niwa .navbar-nav > li > a {
+  text-shadow: none;
+  color: white;
+}
+.navbar-niwa .navbar-brand:hover,
+.navbar-brand:focus {
+    text-decoration: underline;
+}
+
+.navbar-niwa .navbar-toggle .icon-bar {
+    background-color: #ffffff;
+}
+
+/* add the NIWA logo and indent the brand text */
+.navbar-niwa .navbar-brand {
+  background: url('../images/logo.png') 4px 13px no-repeat;
+  padding-left: 120px;
+}
+
+.navbar-niwa .navbar-brand .light {
+  font-weight:200;
+}
+
+.white {
+  background-color: #ffffff;
+}
+.error {
+  color: #DD0000;
+}
+
+/******************************************
+ *  NavigationBar
+ ******************************************/
+.navigationBar {
+  list-style: none outside none;
+  margin-bottom: 0;
+  background-color: #191919;
+  min-height: 0;
+}
+
+.navigationBar .container {
+  background-color: transparent;
+  padding: 0 15px;
+}
+
+.navigationBar .container .icon-bar {
+  background-color: #ffffff;
+}
+
+.navigationBar .container .navbar-nav > li > a {
+  font-family: "HelveticaNeueW02-45Ligh" !important;
+  font-style: normal;
+  color: #ffffff;
+  display: block;
+  min-width: 80px;
+}
+
+.navigationBar .container #navigationList {
+  margin: 0 0 0 -35px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navigationBar .container #navigationList .nav > li > a:hover,
+.navigationBar .container #navigationList .nav > li > a:focus {
+  color: #ccc;
+}
+
+.navigationBar .container #navigationList li {
+  padding: 7px 0;
+}
+
+.navigationBar .container #navigationList li a {
+  padding: 0 20px;
+  background-image: url(../images/separator.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.navigationBar .container #navigationList li:last-child a {
+  background-image: none;
+}
+
+.navigationBar .container #navigationList.navbar-collapse.in {
+  margin-left: 0;
+}
+
+/********************************
+ * FOOTER
+ * default footer style is a black bar seated at the bottom of the screen or page whichever is longer
+ * contains a list of items in a row including the app name, copyright notice, build tag, dev environement and EULA links.
+ */
+footer {
+  background-color: #191919;
+  color: #ccc;
+  /* faint bar separator between each item in the footer (except the last) */
+}
+
+footer #leftFooter,
+
+footer #copyrightNiwa {
+  padding-top: 18px;
+  display: inline-block;
+}
+
+footer #leftFooter {
+  float: left;
+  padding-left: 155px;
+}
+
+footer #leftFooter span {
+  padding-left: 1em;
+}
+
+footer #leftFooter a {
+  color: white;
+}
+
+footer #leftFooter a:hover {
+  color: #80bd26;
+}
+
+footer #copyrightNiwa {
+  float: right;
+}
+
+footer > div {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: auto 49px;
+  background-color: #191919;
+  height: 55px;
+  overflow: hidden;
+}
+
+footer li {
+  display: inline-block;
+  line-height: 29px;
+}
+
+footer li a {
+  color: #ccc;
+  /* override the blue back to grey*/
+  text-decoration: none;
+}
+
+footer li a:hover {
+  color: #ccc;
+  text-decoration: underline;
+}
+
+footer li + li::before {
+  content: "|";
+  color: #666;
+  padding: 0 1em;
+}
+
+footer .notes {
+  margin: 0;
+  padding-left: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#page {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -55px;
+  /* the bottom margin is the negative value of the footer's height */
+}
+
+footer,
+#innerfooter {
+  height: 55px;
+  /* .push must be the same height as footer */
+}
+
+div#map {
+  width: 100%;
+  height: 800px;
+}

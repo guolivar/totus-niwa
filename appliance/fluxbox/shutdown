@@ -1,0 +1,16 @@
+#! /bin/bash
+# shutdown script
+
+xmessage "Are you sure you want to shut down your computer?" -center -title "Take action" -default "Cancel" -buttons "Cancel":1,"Reboot":2,"Shutdown":3 
+
+case $? in
+    1)
+        echo "Exit"
+        ;;
+    2)
+        sudo /sbin/reboot
+        ;;
+    3)
+        sudo /sbin/shutdown -h now
+        ;;
+esac

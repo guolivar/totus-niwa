@@ -1,0 +1,7763 @@
+<!-- $Header: /cvsroot/autodoc/autodoc/html.tmpl,v 1.4 2006/05/16 19:01:27 rbt Exp $ -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+  <head>
+    <title>Index for osm</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+	BODY {
+		color:	#000000;
+		background-color: #FFFFFF;
+		font-family: Helvetica, sans-serif;
+	}
+
+	P {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	P.w3ref {
+		font-size: 8pt;
+		font-style: italic;
+		text-align: right;
+	}
+
+	P.detail {
+		font-size: 10pt;
+	}
+
+	.error {
+		color: #FFFFFF;
+		background-color: #FF0000;
+	}
+
+	H1, H2, H3, H4, H5, H6 {
+	}
+
+	OL {
+		list-style-type: upper-alpha;
+	}
+
+	UL.topic {
+		list-style-type: upper-alpha;
+	}
+
+	LI.topic {
+		font-weight : bold;
+	}
+
+	HR {
+		color: #00FF00;
+		background-color: #808080;
+	}
+
+	TABLE {
+		border-width: medium;
+		padding: 3px;
+		background-color: #000000;
+		width: 90%;
+	}
+
+	CAPTION {
+		text-transform: capitalize;
+		font-weight : bold;
+		font-size: 14pt;
+	}
+
+	TH {
+		color: #FFFFFF;
+		background-color: #000000;
+		text-align: left;
+	}
+
+	TR {
+		color: #000000;
+		background-color: #000000;
+		vertical-align: top;
+	}
+
+	TR.tr0 {
+		background-color: #F0F0F0;
+	}
+
+	TR.tr1 {
+		background-color: #D8D8D8;
+	}
+
+	TD {
+		font-size: 12pt;
+	}
+
+	TD.col0 {
+		font-weight : bold;
+		width: 20%;
+	}
+
+	TD.col1 {
+		font-style: italic;
+		width: 15%;
+	}
+
+	TD.col2 {
+		font-size: 12px;
+	}
+    </style>
+    <link rel="stylesheet" type="text/css" media="all" href="all.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="screen.css">
+    <link rel="stylesheet" type="text/css" media="print" href="print.css">
+    <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+  </head>
+  <body>
+
+    <!-- Primary Index -->
+	<p><br><br>Dumped on 2010-09-29</p>
+<h1><a name="index">Index of database - osm</a></h1>
+<ul>
+    
+    <li><a name="public.schema">public</a></li><ul>
+    	<li><a href="#public.table.acls">acls</a></li><li><a href="#public.table.changeset-tags">changeset_tags</a></li><li><a href="#public.table.changesets">changesets</a></li><li><a href="#public.table.client-applications">client_applications</a></li><li><a href="#public.table.countries">countries</a></li><li><a href="#public.table.current-node-tags">current_node_tags</a></li><li><a href="#public.table.current-nodes">current_nodes</a></li><li><a href="#public.table.current-relation-members">current_relation_members</a></li><li><a href="#public.table.current-relation-tags">current_relation_tags</a></li><li><a href="#public.table.current-relations">current_relations</a></li><li><a href="#public.table.current-way-nodes">current_way_nodes</a></li><li><a href="#public.table.current-way-tags">current_way_tags</a></li><li><a href="#public.table.current-ways">current_ways</a></li><li><a href="#public.table.diary-comments">diary_comments</a></li><li><a href="#public.table.diary-entries">diary_entries</a></li><li><a href="#public.table.friends">friends</a></li><li><a href="#public.table.gps-points">gps_points</a></li><li><a href="#public.table.gpx-file-tags">gpx_file_tags</a></li><li><a href="#public.table.gpx-files">gpx_files</a></li><li><a href="#public.table.languages">languages</a></li><li><a href="#public.table.messages">messages</a></li><li><a href="#public.table.node-tags">node_tags</a></li><li><a href="#public.table.nodes">nodes</a></li><li><a href="#public.table.oauth-nonces">oauth_nonces</a></li><li><a href="#public.table.oauth-tokens">oauth_tokens</a></li><li><a href="#public.table.relation-members">relation_members</a></li><li><a href="#public.table.relation-tags">relation_tags</a></li><li><a href="#public.table.relations">relations</a></li><li><a href="#public.table.schema-migrations">schema_migrations</a></li><li><a href="#public.table.sessions">sessions</a></li><li><a href="#public.table.user-blocks">user_blocks</a></li><li><a href="#public.table.user-preferences">user_preferences</a></li><li><a href="#public.table.user-roles">user_roles</a></li><li><a href="#public.table.user-tokens">user_tokens</a></li><li><a href="#public.table.users">users</a></li><li><a href="#public.table.way-nodes">way_nodes</a></li><li><a href="#public.table.way-tags">way_tags</a></li><li><a href="#public.table.ways">ways</a></li>
+  	<li><a href="#public.function.gbt-bit-compress-internal">gbt_bit_compress(internal)</a></li><li><a href="#public.function.gbt-bit-consistent-internal-bit-smallint">gbt_bit_consistent(internal, &quot;bit&quot;, smallint)</a></li><li><a href="#public.function.gbt-bit-penalty-internal-internal-internal">gbt_bit_penalty(internal, internal, internal)</a></li><li><a href="#public.function.gbt-bit-picksplit-internal-internal">gbt_bit_picksplit(internal, internal)</a></li><li><a href="#public.function.gbt-bit-same-internal-internal-internal">gbt_bit_same(internal, internal, internal)</a></li><li><a href="#public.function.gbt-bit-union-bytea-internal">gbt_bit_union(bytea, internal)</a></li><li><a href="#public.function.gbt-bpchar-compress-internal">gbt_bpchar_compress(internal)</a></li><li><a href="#public.function.gbt-bpchar-consistent-internal-bpchar-smallint">gbt_bpchar_consistent(internal, bpchar, smallint)</a></li><li><a href="#public.function.gbt-bytea-compress-internal">gbt_bytea_compress(internal)</a></li><li><a href="#public.function.gbt-bytea-consistent-internal-bytea-smallint">gbt_bytea_consistent(internal, bytea, smallint)</a></li><li><a href="#public.function.gbt-bytea-penalty-internal-internal-internal">gbt_bytea_penalty(internal, internal, internal)</a></li><li><a href="#public.function.gbt-bytea-picksplit-internal-internal">gbt_bytea_picksplit(internal, internal)</a></li><li><a href="#public.function.gbt-bytea-same-internal-internal-internal">gbt_bytea_same(internal, internal, internal)</a></li><li><a href="#public.function.gbt-bytea-union-bytea-internal">gbt_bytea_union(bytea, internal)</a></li><li><a href="#public.function.gbt-cash-compress-internal">gbt_cash_compress(internal)</a></li><li><a href="#public.function.gbt-cash-consistent-internal-money-smallint">gbt_cash_consistent(internal, money, smallint)</a></li><li><a href="#public.function.gbt-cash-penalty-internal-internal-internal">gbt_cash_penalty(internal, internal, internal)</a></li><li><a href="#public.function.gbt-cash-picksplit-internal-internal">gbt_cash_picksplit(internal, internal)</a></li><li><a href="#public.function.gbt-cash-same-internal-internal-internal">gbt_cash_same(internal, internal, internal)</a></li><li><a href="#public.function.gbt-cash-union-bytea-internal">gbt_cash_union(bytea, internal)</a></li><li><a href="#public.function.gbt-date-compress-internal">gbt_date_compress(internal)</a></li><li><a href="#public.function.gbt-date-consistent-internal-date-smallint">gbt_date_consistent(internal, date, smallint)</a></li><li><a href="#public.function.gbt-date-penalty-internal-internal-internal">gbt_date_penalty(internal, internal, internal)</a></li><li><a href="#public.function.gbt-date-picksplit-internal-internal">gbt_date_picksplit(internal, internal)</a></li><li><a href="#public.function.gbt-date-same-internal-internal-internal">gbt_date_same(internal, internal, internal)</a></li><li><a href="#public.function.gbt-date-union-bytea-internal">gbt_date_union(bytea, internal)</a></li><li><a href="#public.function.gbt-decompress-internal">gbt_decompress(internal)</a></li><li><a href="#public.function.gbt-float4-compress-internal">gbt_float4_compress(internal)</a></li><li><a href="#public.function.gbt-float4-consistent-internal-real-smallint">gbt_float4_consistent(internal, real, smallint)</a></li><li><a href="#public.function.gbt-float4-penalty-internal-internal-internal">gbt_float4_penalty(internal, internal, internal)</a></li><li><a href="#public.function.gbt-float4-picksplit-internal-internal">gbt_float4_picksplit(internal, internal)</a></li><li><a href="#public.function.gbt-float4-same-internal-internal-internal">gbt_float4_same(internal, internal, internal)</a></li><li><a href="#public.function.gbt-float4-union-bytea-internal">gbt_float4_union(bytea, internal)</a></li><li><a href="#public.function.gbt-float8-compress-internal">gbt_float8_compress(internal)</a></li><li><a href="#public.function.gbt-float8-consistent-internal-double-precision-smallint">gbt_float8_consistent(internal, double precision, smallint)</a></li><li><a href="#public.function.gbt-float8-penalty-internal-internal-internal">gbt_float8_penalty(internal, internal, internal)</a></li><li><a href="#public.function.gbt-float8-picksplit-internal-internal">gbt_float8_picksplit(internal, internal)</a></li><li><a href="#public.function.gbt-float8-same-internal-internal-internal">gbt_float8_same(internal, internal, internal)</a></li><li><a href="#public.function.gbt-float8-union-bytea-internal">gbt_float8_union(bytea, internal)</a></li><li><a href="#public.function.gbt-inet-compress-internal">gbt_inet_compress(internal)</a></li><li><a href="#public.function.gbt-inet-consistent-internal-inet-smallint">gbt_inet_consistent(internal, inet, smallint)</a></li><li><a href="#public.function.gbt-inet-penalty-internal-internal-internal">gbt_inet_penalty(internal, internal, internal)</a></li><li><a href="#public.function.gbt-inet-picksplit-internal-internal">gbt_inet_picksplit(internal, internal)</a></li><li><a href="#public.function.gbt-inet-same-internal-internal-internal">gbt_inet_same(internal, internal, internal)</a></li><li><a href="#public.function.gbt-inet-union-bytea-internal">gbt_inet_union(bytea, internal)</a></li><li><a href="#public.function.gbt-int2-compress-internal">gbt_int2_compress(internal)</a></li><li><a href="#public.function.gbt-int2-consistent-internal-smallint-smallint">gbt_int2_consistent(internal, smallint, smallint)</a></li><li><a href="#public.function.gbt-int2-penalty-internal-internal-internal">gbt_int2_penalty(internal, internal, internal)</a></li><li><a href="#public.function.gbt-int2-picksplit-internal-internal">gbt_int2_picksplit(internal, internal)</a></li><li><a href="#public.function.gbt-int2-same-internal-internal-internal">gbt_int2_same(internal, internal, internal)</a></li><li><a href="#public.function.gbt-int2-union-bytea-internal">gbt_int2_union(bytea, internal)</a></li><li><a href="#public.function.gbt-int4-compress-internal">gbt_int4_compress(internal)</a></li><li><a href="#public.function.gbt-int4-consistent-internal-integer-smallint">gbt_int4_consistent(internal, integer, smallint)</a></li><li><a href="#public.function.gbt-int4-penalty-internal-internal-internal">gbt_int4_penalty(internal, internal, internal)</a></li><li><a href="#public.function.gbt-int4-picksplit-internal-internal">gbt_int4_picksplit(internal, internal)</a></li><li><a href="#public.function.gbt-int4-same-internal-internal-internal">gbt_int4_same(internal, internal, internal)</a></li><li><a href="#public.function.gbt-int4-union-bytea-internal">gbt_int4_union(bytea, internal)</a></li><li><a href="#public.function.gbt-int8-compress-internal">gbt_int8_compress(internal)</a></li><li><a href="#public.function.gbt-int8-consistent-internal-bigint-smallint">gbt_int8_consistent(internal, bigint, smallint)</a></li><li><a href="#public.function.gbt-int8-penalty-internal-internal-internal">gbt_int8_penalty(internal, internal, internal)</a></li><li><a href="#public.function.gbt-int8-picksplit-internal-internal">gbt_int8_picksplit(internal, internal)</a></li><li><a href="#public.function.gbt-int8-same-internal-internal-internal">gbt_int8_same(internal, internal, internal)</a></li><li><a href="#public.function.gbt-int8-union-bytea-internal">gbt_int8_union(bytea, internal)</a></li><li><a href="#public.function.gbt-intv-compress-internal">gbt_intv_compress(internal)</a></li><li><a href="#public.function.gbt-intv-consistent-internal-interval-smallint">gbt_intv_consistent(internal, interval, smallint)</a></li><li><a href="#public.function.gbt-intv-decompress-internal">gbt_intv_decompress(internal)</a></li><li><a href="#public.function.gbt-intv-penalty-internal-internal-internal">gbt_intv_penalty(internal, internal, internal)</a></li><li><a href="#public.function.gbt-intv-picksplit-internal-internal">gbt_intv_picksplit(internal, internal)</a></li><li><a href="#public.function.gbt-intv-same-internal-internal-internal">gbt_intv_same(internal, internal, internal)</a></li><li><a href="#public.function.gbt-intv-union-bytea-internal">gbt_intv_union(bytea, internal)</a></li><li><a href="#public.function.gbt-macad-compress-internal">gbt_macad_compress(internal)</a></li><li><a href="#public.function.gbt-macad-consistent-internal-macaddr-smallint">gbt_macad_consistent(internal, macaddr, smallint)</a></li><li><a href="#public.function.gbt-macad-penalty-internal-internal-internal">gbt_macad_penalty(internal, internal, internal)</a></li><li><a href="#public.function.gbt-macad-picksplit-internal-internal">gbt_macad_picksplit(internal, internal)</a></li><li><a href="#public.function.gbt-macad-same-internal-internal-internal">gbt_macad_same(internal, internal, internal)</a></li><li><a href="#public.function.gbt-macad-union-bytea-internal">gbt_macad_union(bytea, internal)</a></li><li><a href="#public.function.gbt-numeric-compress-internal">gbt_numeric_compress(internal)</a></li><li><a href="#public.function.gbt-numeric-consistent-internal-numeric-smallint">gbt_numeric_consistent(internal, numeric, smallint)</a></li><li><a href="#public.function.gbt-numeric-penalty-internal-internal-internal">gbt_numeric_penalty(internal, internal, internal)</a></li><li><a href="#public.function.gbt-numeric-picksplit-internal-internal">gbt_numeric_picksplit(internal, internal)</a></li><li><a href="#public.function.gbt-numeric-same-internal-internal-internal">gbt_numeric_same(internal, internal, internal)</a></li><li><a href="#public.function.gbt-numeric-union-bytea-internal">gbt_numeric_union(bytea, internal)</a></li><li><a href="#public.function.gbt-oid-compress-internal">gbt_oid_compress(internal)</a></li><li><a href="#public.function.gbt-oid-consistent-internal-oid-smallint">gbt_oid_consistent(internal, oid, smallint)</a></li><li><a href="#public.function.gbt-oid-penalty-internal-internal-internal">gbt_oid_penalty(internal, internal, internal)</a></li><li><a href="#public.function.gbt-oid-picksplit-internal-internal">gbt_oid_picksplit(internal, internal)</a></li><li><a href="#public.function.gbt-oid-same-internal-internal-internal">gbt_oid_same(internal, internal, internal)</a></li><li><a href="#public.function.gbt-oid-union-bytea-internal">gbt_oid_union(bytea, internal)</a></li><li><a href="#public.function.gbt-text-compress-internal">gbt_text_compress(internal)</a></li><li><a href="#public.function.gbt-text-consistent-internal-text-smallint">gbt_text_consistent(internal, text, smallint)</a></li><li><a href="#public.function.gbt-text-penalty-internal-internal-internal">gbt_text_penalty(internal, internal, internal)</a></li><li><a href="#public.function.gbt-text-picksplit-internal-internal">gbt_text_picksplit(internal, internal)</a></li><li><a href="#public.function.gbt-text-same-internal-internal-internal">gbt_text_same(internal, internal, internal)</a></li><li><a href="#public.function.gbt-text-union-bytea-internal">gbt_text_union(bytea, internal)</a></li><li><a href="#public.function.gbt-time-compress-internal">gbt_time_compress(internal)</a></li><li><a href="#public.function.gbt-time-consistent-internal-time-without-time-zone-smallint">gbt_time_consistent(internal, time without time zone, smallint)</a></li><li><a href="#public.function.gbt-time-penalty-internal-internal-internal">gbt_time_penalty(internal, internal, internal)</a></li><li><a href="#public.function.gbt-time-picksplit-internal-internal">gbt_time_picksplit(internal, internal)</a></li><li><a href="#public.function.gbt-time-same-internal-internal-internal">gbt_time_same(internal, internal, internal)</a></li><li><a href="#public.function.gbt-time-union-bytea-internal">gbt_time_union(bytea, internal)</a></li><li><a href="#public.function.gbt-timetz-compress-internal">gbt_timetz_compress(internal)</a></li><li><a href="#public.function.gbt-timetz-consistent-internal-time-with-time-zone-smallint">gbt_timetz_consistent(internal, time with time zone, smallint)</a></li><li><a href="#public.function.gbt-ts-compress-internal">gbt_ts_compress(internal)</a></li><li><a href="#public.function.gbt-ts-consistent-internal-timestamp-without-time-zone-smallint">gbt_ts_consistent(internal, timestamp without time zone, smallint)</a></li><li><a href="#public.function.gbt-ts-penalty-internal-internal-internal">gbt_ts_penalty(internal, internal, internal)</a></li><li><a href="#public.function.gbt-ts-picksplit-internal-internal">gbt_ts_picksplit(internal, internal)</a></li><li><a href="#public.function.gbt-ts-same-internal-internal-internal">gbt_ts_same(internal, internal, internal)</a></li><li><a href="#public.function.gbt-ts-union-bytea-internal">gbt_ts_union(bytea, internal)</a></li><li><a href="#public.function.gbt-tstz-compress-internal">gbt_tstz_compress(internal)</a></li><li><a href="#public.function.gbt-tstz-consistent-internal-timestamp-with-time-zone-smallint">gbt_tstz_consistent(internal, timestamp with time zone, smallint)</a></li><li><a href="#public.function.gbt-var-decompress-internal">gbt_var_decompress(internal)</a></li><li><a href="#public.function.gbtreekey16-in-cstring">gbtreekey16_in(cstring)</a></li><li><a href="#public.function.gbtreekey16-out-public.gbtreekey16">gbtreekey16_out(public.gbtreekey16)</a></li><li><a href="#public.function.gbtreekey32-in-cstring">gbtreekey32_in(cstring)</a></li><li><a href="#public.function.gbtreekey32-out-public.gbtreekey32">gbtreekey32_out(public.gbtreekey32)</a></li><li><a href="#public.function.gbtreekey4-in-cstring">gbtreekey4_in(cstring)</a></li><li><a href="#public.function.gbtreekey4-out-public.gbtreekey4">gbtreekey4_out(public.gbtreekey4)</a></li><li><a href="#public.function.gbtreekey8-in-cstring">gbtreekey8_in(cstring)</a></li><li><a href="#public.function.gbtreekey8-out-public.gbtreekey8">gbtreekey8_out(public.gbtreekey8)</a></li><li><a href="#public.function.gbtreekey-var-in-cstring">gbtreekey_var_in(cstring)</a></li><li><a href="#public.function.gbtreekey-var-out-public.gbtreekey-var">gbtreekey_var_out(public.gbtreekey_var)</a></li>
+    </ul>
+    
+</ul>
+
+    <!-- Schema Creation -->
+    <!-- publicpublic -->
+
+		
+		
+        <hr>
+		<h2>Table:
+			<a name="public.table.acls">acls</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>acls Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>address</td>
+            	<td>inet</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>netmask</td>
+            	<td>inet</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>k</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>v</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+       acls_k_idx k
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.changeset-tags">changeset_tags</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>changeset_tags Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.changesets">changesets.id</a>
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>k</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT &#39;&#39;::character varying
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>v</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT &#39;&#39;::character varying
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+       changeset_tags_id_idx id
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.changesets">changesets</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>changesets Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigserial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.users">users.id</a>
+                  
+                
+                </td>
+            	<td>user_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>created_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>min_lat</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>max_lat</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>min_lon</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>max_lon</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>closed_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>num_changes</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.changeset-tags">changeset_tags</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.current-nodes">current_nodes</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.current-relations">current_relations</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.current-ways">current_ways</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.nodes">nodes</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.relations">relations</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.ways">ways</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+       changesets_bbox_idx min_lat, max_lat, min_lon, max_lon
+    
+       changesets_closed_at_idx closed_at
+    
+       changesets_created_at_idx created_at
+    
+       changesets_user_id_created_at_idx user_id, created_at
+    
+       changesets_user_id_id_idx user_id, id
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.client-applications">client_applications</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>client_applications Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>name</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>url</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>support_url</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>callback_url</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>key</td>
+            	<td>character varying(50)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>secret</td>
+            	<td>character varying(50)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.users">users.id</a>
+                  
+                
+                </td>
+            	<td>user_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>created_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>updated_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>allow_read_prefs</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT false
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>allow_write_prefs</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT false
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>allow_write_diary</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT false
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>allow_write_api</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT false
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>allow_read_gpx</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT false
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>allow_write_gpx</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT false
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.oauth-tokens">oauth_tokens</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.countries">countries</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>countries Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>code</td>
+            	<td>character varying(2)</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>min_lat</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>max_lat</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>min_lon</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>max_lon</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.current-node-tags">current_node_tags</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>current_node_tags Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.current-nodes">current_nodes.id</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>k</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				DEFAULT &#39;&#39;::character varying
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>v</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT &#39;&#39;::character varying
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.current-nodes">current_nodes</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>current_nodes Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigserial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>latitude</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>longitude</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.changesets">changesets.id</a>
+                  
+                
+                </td>
+            	<td>changeset_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>visible</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>timestamp</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>tile</td>
+            	<td>bigint</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>version</td>
+            	<td>bigint</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.current-node-tags">current_node_tags</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.current-way-nodes">current_way_nodes</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+       current_nodes_tile_idx tile
+    
+       current_nodes_timestamp_idx "timestamp"
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.current-relation-members">current_relation_members</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>current_relation_members Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.current-relations">current_relations.id</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>member_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>member_role</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>member_type</td>
+            	<td>nwr_enum</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>sequence_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+       current_relation_members_member_idx member_type, member_id
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.current-relation-tags">current_relation_tags</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>current_relation_tags Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.current-relations">current_relations.id</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>k</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				DEFAULT &#39;&#39;::character varying
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>v</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT &#39;&#39;::character varying
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.current-relations">current_relations</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>current_relations Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigserial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.changesets">changesets.id</a>
+                  
+                
+                </td>
+            	<td>changeset_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>timestamp</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>visible</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>version</td>
+            	<td>bigint</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.current-relation-members">current_relation_members</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.current-relation-tags">current_relation_tags</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+       current_relations_timestamp_idx "timestamp"
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.current-way-nodes">current_way_nodes</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>current_way_nodes Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.current-ways">current_ways.id</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.current-nodes">current_nodes.id</a>
+                  
+                
+                </td>
+            	<td>node_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>sequence_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+       current_way_nodes_node_idx node_id
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.current-way-tags">current_way_tags</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>current_way_tags Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.current-ways">current_ways.id</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>k</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				DEFAULT &#39;&#39;::character varying
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>v</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT &#39;&#39;::character varying
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.current-ways">current_ways</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>current_ways Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigserial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.changesets">changesets.id</a>
+                  
+                
+                </td>
+            	<td>changeset_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>timestamp</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>visible</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>version</td>
+            	<td>bigint</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.current-way-nodes">current_way_nodes</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.current-way-tags">current_way_tags</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+       current_ways_timestamp_idx "timestamp"
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.diary-comments">diary_comments</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>diary_comments Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigserial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.diary-entries">diary_entries.id</a>
+                  
+                
+                </td>
+            	<td>diary_entry_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.users">users.id</a>
+                  
+                
+                </td>
+            	<td>user_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>body</td>
+            	<td>text</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>created_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>updated_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>visible</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT true
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+       diary_comment_user_id_created_at_index user_id, created_at
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.diary-entries">diary_entries</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>diary_entries Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigserial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.users">users.id</a>
+                  
+                
+                </td>
+            	<td>user_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>title</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>body</td>
+            	<td>text</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>created_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>updated_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>latitude</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>longitude</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.languages">languages.code</a>
+                  
+                
+                </td>
+            	<td>language_code</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>visible</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT true
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.diary-comments">diary_comments</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+       diary_entry_created_at_index created_at
+    
+       diary_entry_language_code_created_at_index language_code, created_at
+    
+       diary_entry_user_id_created_at_index user_id, created_at
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.friends">friends</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>friends Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigserial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.users">users.id</a>
+                  
+                
+                </td>
+            	<td>user_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.users">users.id</a>
+                  
+                
+                </td>
+            	<td>friend_user_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+       friends_user_id_idx user_id
+    
+       user_id_idx friend_user_id
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.gps-points">gps_points</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>gps_points Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>altitude</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>trackid</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>latitude</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>longitude</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.gpx-files">gpx_files.id</a>
+                  
+                
+                </td>
+            	<td>gpx_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>timestamp</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>tile</td>
+            	<td>bigint</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+       points_gpxid_idx gpx_id
+    
+       points_tile_idx tile
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.gpx-file-tags">gpx_file_tags</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>gpx_file_tags Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.gpx-files">gpx_files.id</a>
+                  
+                
+                </td>
+            	<td>gpx_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>tag</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigserial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+       gpx_file_tags_gpxid_idx gpx_id
+    
+       gpx_file_tags_tag_idx tag
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.gpx-files">gpx_files</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>gpx_files Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigserial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.users">users.id</a>
+                  
+                
+                </td>
+            	<td>user_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>visible</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT true
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>name</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT &#39;&#39;::character varying
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>size</td>
+            	<td>bigint</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>latitude</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>longitude</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>timestamp</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>description</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT &#39;&#39;::character varying
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>inserted</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>visibility</td>
+            	<td>gpx_visibility_enum</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT &#39;public&#39;::gpx_visibility_enum
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.gps-points">gps_points</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.gpx-file-tags">gpx_file_tags</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+       gpx_files_timestamp_idx "timestamp"
+    
+       gpx_files_user_id_idx user_id
+    
+       gpx_files_visible_visibility_idx visible, visibility
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.languages">languages</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>languages Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>code</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>english_name</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>native_name</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.diary-entries">diary_entries</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.messages">messages</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>messages Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigserial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.users">users.id</a>
+                  
+                
+                </td>
+            	<td>from_user_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>title</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>body</td>
+            	<td>text</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>sent_on</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>message_read</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT false
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.users">users.id</a>
+                  
+                
+                </td>
+            	<td>to_user_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>to_user_visible</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT true
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>from_user_visible</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT true
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+       messages_from_user_id_idx from_user_id
+    
+       messages_to_user_id_idx to_user_id
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.node-tags">node_tags</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>node_tags Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.nodes">nodes.id#1</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.nodes">nodes.version#1</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>version</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>k</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				DEFAULT &#39;&#39;::character varying
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>v</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT &#39;&#39;::character varying
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.nodes">nodes</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>nodes Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>latitude</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>longitude</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.changesets">changesets.id</a>
+                  
+                
+                </td>
+            	<td>changeset_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>visible</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>timestamp</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>tile</td>
+            	<td>bigint</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>version</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.node-tags">node_tags</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+       nodes_changeset_id_idx changeset_id
+    
+       nodes_tile_idx tile
+    
+       nodes_timestamp_idx "timestamp"
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.oauth-nonces">oauth_nonces</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>oauth_nonces Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>nonce</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>timestamp</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>created_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>updated_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.oauth-tokens">oauth_tokens</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>oauth_tokens Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.users">users.id</a>
+                  
+                
+                </td>
+            	<td>user_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>type</td>
+            	<td>character varying(20)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.client-applications">client_applications.id</a>
+                  
+                
+                </td>
+            	<td>client_application_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>token</td>
+            	<td>character varying(50)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>secret</td>
+            	<td>character varying(50)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>authorized_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>invalidated_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>created_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>updated_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>allow_read_prefs</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT false
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>allow_write_prefs</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT false
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>allow_write_diary</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT false
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>allow_write_api</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT false
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>allow_read_gpx</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT false
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>allow_write_gpx</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT false
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.relation-members">relation_members</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>relation_members Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.relations">relations.id#1</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>member_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>member_role</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.relations">relations.version#1</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>version</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>member_type</td>
+            	<td>nwr_enum</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>sequence_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+       relation_members_member_idx member_type, member_id
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.relation-tags">relation_tags</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>relation_tags Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.relations">relations.id#1</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>k</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				DEFAULT &#39;&#39;::character varying
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>v</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT &#39;&#39;::character varying
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.relations">relations.version#1</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>version</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.relations">relations</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>relations Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.changesets">changesets.id</a>
+                  
+                
+                </td>
+            	<td>changeset_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>timestamp</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>version</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>visible</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT true
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.relation-members">relation_members</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.relation-tags">relation_tags</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+       relations_changeset_id_idx changeset_id
+    
+       relations_timestamp_idx "timestamp"
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.schema-migrations">schema_migrations</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>schema_migrations Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>version</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.sessions">sessions</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>sessions Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>session_id</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>data</td>
+            	<td>text</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>created_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>updated_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.user-blocks">user_blocks</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>user_blocks Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.users">users.id</a>
+                  
+                
+                </td>
+            	<td>user_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.users">users.id</a>
+                  
+                
+                </td>
+            	<td>creator_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>reason</td>
+            	<td>text</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>ends_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>needs_view</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT false
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.users">users.id</a>
+                  
+                
+                </td>
+            	<td>revoker_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>created_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>updated_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+       index_user_blocks_on_user_id user_id
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.user-preferences">user_preferences</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>user_preferences Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                  
+                  <a href="#public.table.users">users.id</a>
+                  
+                
+                </td>
+            	<td>user_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>k</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>v</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.user-roles">user_roles</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>user_roles Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.users">users.id</a>
+                  
+                
+                </td>
+            	<td>user_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>created_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>updated_at</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>role</td>
+            	<td>user_role_enum</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.users">users.id</a>
+                  
+                
+                </td>
+            	<td>granter_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.user-tokens">user_tokens</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>user_tokens Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigserial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.users">users.id</a>
+                  
+                
+                </td>
+            	<td>user_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>token</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>expiry</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>referer</td>
+            	<td>text</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+       user_tokens_user_id_idx user_id
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.users">users</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>users Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>email</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigserial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>pass_crypt</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>creation_time</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>display_name</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT &#39;&#39;::character varying
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>data_public</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT false
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>description</td>
+            	<td>text</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT &#39;&#39;::text
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>home_lat</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>home_lon</td>
+            	<td>double precision</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>home_zoom</td>
+            	<td>smallint</td>
+                <td><i>
+				
+
+				
+				DEFAULT 3
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>nearby</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				
+				DEFAULT 50
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>pass_salt</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>image</td>
+            	<td>text</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>email_valid</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT false
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>new_email</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>creation_ip</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>languages</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>status</td>
+            	<td>user_status_enum</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT &#39;pending&#39;::user_status_enum
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>terms_agreed</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>consider_pd</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT false
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.changesets">changesets</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.client-applications">client_applications</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.diary-comments">diary_comments</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.diary-entries">diary_entries</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.friends">friends</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.gpx-files">gpx_files</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.messages">messages</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.oauth-tokens">oauth_tokens</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.user-blocks">user_blocks</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.user-preferences">user_preferences</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.user-roles">user_roles</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.user-tokens">user_tokens</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.way-nodes">way_nodes</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>way_nodes Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.ways">ways.id#1</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>node_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.ways">ways.version#1</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>version</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>sequence_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+       way_nodes_node_idx node_id
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.way-tags">way_tags</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>way_tags Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#public.table.ways">ways.id#1</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>k</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>v</td>
+            	<td>character varying(255)</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.ways">ways.version#1</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>version</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			<a name="public.table.ways">ways</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>ways Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#public.table.changesets">changesets.id</a>
+                  
+                
+                </td>
+            	<td>changeset_id</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>timestamp</td>
+            	<td>timestamp without time zone</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>version</td>
+            	<td>bigint</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>visible</td>
+            	<td>boolean</td>
+                <td><i>
+				
+
+				NOT NULL
+				DEFAULT true
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#public.table.way-nodes">way_nodes</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#public.table.way-tags">way_tags</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+       ways_changeset_id_idx changeset_id
+    
+       ways_timestamp_idx "timestamp"
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#public.schema">Schema public</a>
+    </p>
+	
+
+	<!-- We've gone through the table structure, now lets take a look at user functions -->
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-bit-compress-internal">gbt_bit_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_bit_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-bit-consistent-internal-bit-smallint">gbt_bit_consistent(internal, &quot;bit&quot;, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_bit_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-bit-penalty-internal-internal-internal">gbt_bit_penalty(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_bit_penalty</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-bit-picksplit-internal-internal">gbt_bit_picksplit(internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_bit_picksplit</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-bit-same-internal-internal-internal">gbt_bit_same(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_bit_same</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-bit-union-bytea-internal">gbt_bit_union(bytea, internal)</a>
+		</h2>
+<h3>Returns: gbtreekey_var</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_bit_union</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-bpchar-compress-internal">gbt_bpchar_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_bpchar_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-bpchar-consistent-internal-bpchar-smallint">gbt_bpchar_consistent(internal, bpchar, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_bpchar_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-bytea-compress-internal">gbt_bytea_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_bytea_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-bytea-consistent-internal-bytea-smallint">gbt_bytea_consistent(internal, bytea, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_bytea_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-bytea-penalty-internal-internal-internal">gbt_bytea_penalty(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_bytea_penalty</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-bytea-picksplit-internal-internal">gbt_bytea_picksplit(internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_bytea_picksplit</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-bytea-same-internal-internal-internal">gbt_bytea_same(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_bytea_same</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-bytea-union-bytea-internal">gbt_bytea_union(bytea, internal)</a>
+		</h2>
+<h3>Returns: gbtreekey_var</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_bytea_union</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-cash-compress-internal">gbt_cash_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_cash_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-cash-consistent-internal-money-smallint">gbt_cash_consistent(internal, money, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_cash_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-cash-penalty-internal-internal-internal">gbt_cash_penalty(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_cash_penalty</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-cash-picksplit-internal-internal">gbt_cash_picksplit(internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_cash_picksplit</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-cash-same-internal-internal-internal">gbt_cash_same(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_cash_same</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-cash-union-bytea-internal">gbt_cash_union(bytea, internal)</a>
+		</h2>
+<h3>Returns: gbtreekey8</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_cash_union</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-date-compress-internal">gbt_date_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_date_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-date-consistent-internal-date-smallint">gbt_date_consistent(internal, date, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_date_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-date-penalty-internal-internal-internal">gbt_date_penalty(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_date_penalty</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-date-picksplit-internal-internal">gbt_date_picksplit(internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_date_picksplit</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-date-same-internal-internal-internal">gbt_date_same(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_date_same</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-date-union-bytea-internal">gbt_date_union(bytea, internal)</a>
+		</h2>
+<h3>Returns: gbtreekey8</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_date_union</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-decompress-internal">gbt_decompress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_decompress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-float4-compress-internal">gbt_float4_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_float4_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-float4-consistent-internal-real-smallint">gbt_float4_consistent(internal, real, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_float4_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-float4-penalty-internal-internal-internal">gbt_float4_penalty(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_float4_penalty</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-float4-picksplit-internal-internal">gbt_float4_picksplit(internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_float4_picksplit</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-float4-same-internal-internal-internal">gbt_float4_same(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_float4_same</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-float4-union-bytea-internal">gbt_float4_union(bytea, internal)</a>
+		</h2>
+<h3>Returns: gbtreekey8</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_float4_union</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-float8-compress-internal">gbt_float8_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_float8_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-float8-consistent-internal-double-precision-smallint">gbt_float8_consistent(internal, double precision, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_float8_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-float8-penalty-internal-internal-internal">gbt_float8_penalty(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_float8_penalty</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-float8-picksplit-internal-internal">gbt_float8_picksplit(internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_float8_picksplit</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-float8-same-internal-internal-internal">gbt_float8_same(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_float8_same</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-float8-union-bytea-internal">gbt_float8_union(bytea, internal)</a>
+		</h2>
+<h3>Returns: gbtreekey16</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_float8_union</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-inet-compress-internal">gbt_inet_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_inet_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-inet-consistent-internal-inet-smallint">gbt_inet_consistent(internal, inet, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_inet_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-inet-penalty-internal-internal-internal">gbt_inet_penalty(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_inet_penalty</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-inet-picksplit-internal-internal">gbt_inet_picksplit(internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_inet_picksplit</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-inet-same-internal-internal-internal">gbt_inet_same(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_inet_same</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-inet-union-bytea-internal">gbt_inet_union(bytea, internal)</a>
+		</h2>
+<h3>Returns: gbtreekey16</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_inet_union</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-int2-compress-internal">gbt_int2_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_int2_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-int2-consistent-internal-smallint-smallint">gbt_int2_consistent(internal, smallint, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_int2_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-int2-penalty-internal-internal-internal">gbt_int2_penalty(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_int2_penalty</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-int2-picksplit-internal-internal">gbt_int2_picksplit(internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_int2_picksplit</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-int2-same-internal-internal-internal">gbt_int2_same(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_int2_same</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-int2-union-bytea-internal">gbt_int2_union(bytea, internal)</a>
+		</h2>
+<h3>Returns: gbtreekey4</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_int2_union</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-int4-compress-internal">gbt_int4_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_int4_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-int4-consistent-internal-integer-smallint">gbt_int4_consistent(internal, integer, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_int4_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-int4-penalty-internal-internal-internal">gbt_int4_penalty(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_int4_penalty</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-int4-picksplit-internal-internal">gbt_int4_picksplit(internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_int4_picksplit</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-int4-same-internal-internal-internal">gbt_int4_same(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_int4_same</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-int4-union-bytea-internal">gbt_int4_union(bytea, internal)</a>
+		</h2>
+<h3>Returns: gbtreekey8</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_int4_union</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-int8-compress-internal">gbt_int8_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_int8_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-int8-consistent-internal-bigint-smallint">gbt_int8_consistent(internal, bigint, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_int8_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-int8-penalty-internal-internal-internal">gbt_int8_penalty(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_int8_penalty</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-int8-picksplit-internal-internal">gbt_int8_picksplit(internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_int8_picksplit</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-int8-same-internal-internal-internal">gbt_int8_same(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_int8_same</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-int8-union-bytea-internal">gbt_int8_union(bytea, internal)</a>
+		</h2>
+<h3>Returns: gbtreekey16</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_int8_union</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-intv-compress-internal">gbt_intv_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_intv_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-intv-consistent-internal-interval-smallint">gbt_intv_consistent(internal, interval, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_intv_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-intv-decompress-internal">gbt_intv_decompress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_intv_decompress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-intv-penalty-internal-internal-internal">gbt_intv_penalty(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_intv_penalty</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-intv-picksplit-internal-internal">gbt_intv_picksplit(internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_intv_picksplit</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-intv-same-internal-internal-internal">gbt_intv_same(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_intv_same</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-intv-union-bytea-internal">gbt_intv_union(bytea, internal)</a>
+		</h2>
+<h3>Returns: gbtreekey32</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_intv_union</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-macad-compress-internal">gbt_macad_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_macad_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-macad-consistent-internal-macaddr-smallint">gbt_macad_consistent(internal, macaddr, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_macad_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-macad-penalty-internal-internal-internal">gbt_macad_penalty(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_macad_penalty</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-macad-picksplit-internal-internal">gbt_macad_picksplit(internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_macad_picksplit</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-macad-same-internal-internal-internal">gbt_macad_same(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_macad_same</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-macad-union-bytea-internal">gbt_macad_union(bytea, internal)</a>
+		</h2>
+<h3>Returns: gbtreekey16</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_macad_union</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-numeric-compress-internal">gbt_numeric_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_numeric_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-numeric-consistent-internal-numeric-smallint">gbt_numeric_consistent(internal, numeric, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_numeric_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-numeric-penalty-internal-internal-internal">gbt_numeric_penalty(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_numeric_penalty</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-numeric-picksplit-internal-internal">gbt_numeric_picksplit(internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_numeric_picksplit</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-numeric-same-internal-internal-internal">gbt_numeric_same(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_numeric_same</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-numeric-union-bytea-internal">gbt_numeric_union(bytea, internal)</a>
+		</h2>
+<h3>Returns: gbtreekey_var</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_numeric_union</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-oid-compress-internal">gbt_oid_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_oid_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-oid-consistent-internal-oid-smallint">gbt_oid_consistent(internal, oid, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_oid_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-oid-penalty-internal-internal-internal">gbt_oid_penalty(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_oid_penalty</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-oid-picksplit-internal-internal">gbt_oid_picksplit(internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_oid_picksplit</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-oid-same-internal-internal-internal">gbt_oid_same(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_oid_same</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-oid-union-bytea-internal">gbt_oid_union(bytea, internal)</a>
+		</h2>
+<h3>Returns: gbtreekey8</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_oid_union</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-text-compress-internal">gbt_text_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_text_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-text-consistent-internal-text-smallint">gbt_text_consistent(internal, text, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_text_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-text-penalty-internal-internal-internal">gbt_text_penalty(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_text_penalty</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-text-picksplit-internal-internal">gbt_text_picksplit(internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_text_picksplit</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-text-same-internal-internal-internal">gbt_text_same(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_text_same</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-text-union-bytea-internal">gbt_text_union(bytea, internal)</a>
+		</h2>
+<h3>Returns: gbtreekey_var</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_text_union</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-time-compress-internal">gbt_time_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_time_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-time-consistent-internal-time-without-time-zone-smallint">gbt_time_consistent(internal, time without time zone, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_time_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-time-penalty-internal-internal-internal">gbt_time_penalty(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_time_penalty</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-time-picksplit-internal-internal">gbt_time_picksplit(internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_time_picksplit</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-time-same-internal-internal-internal">gbt_time_same(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_time_same</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-time-union-bytea-internal">gbt_time_union(bytea, internal)</a>
+		</h2>
+<h3>Returns: gbtreekey16</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_time_union</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-timetz-compress-internal">gbt_timetz_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_timetz_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-timetz-consistent-internal-time-with-time-zone-smallint">gbt_timetz_consistent(internal, time with time zone, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_timetz_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-ts-compress-internal">gbt_ts_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_ts_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-ts-consistent-internal-timestamp-without-time-zone-smallint">gbt_ts_consistent(internal, timestamp without time zone, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_ts_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-ts-penalty-internal-internal-internal">gbt_ts_penalty(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_ts_penalty</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-ts-picksplit-internal-internal">gbt_ts_picksplit(internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_ts_picksplit</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-ts-same-internal-internal-internal">gbt_ts_same(internal, internal, internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_ts_same</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-ts-union-bytea-internal">gbt_ts_union(bytea, internal)</a>
+		</h2>
+<h3>Returns: gbtreekey16</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_ts_union</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-tstz-compress-internal">gbt_tstz_compress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_tstz_compress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-tstz-consistent-internal-timestamp-with-time-zone-smallint">gbt_tstz_consistent(internal, timestamp with time zone, smallint)</a>
+		</h2>
+<h3>Returns: boolean</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_tstz_consistent</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbt-var-decompress-internal">gbt_var_decompress(internal)</a>
+		</h2>
+<h3>Returns: internal</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbt_var_decompress</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbtreekey16-in-cstring">gbtreekey16_in(cstring)</a>
+		</h2>
+<h3>Returns: gbtreekey16</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbtreekey_in</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbtreekey16-out-public.gbtreekey16">gbtreekey16_out(public.gbtreekey16)</a>
+		</h2>
+<h3>Returns: cstring</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbtreekey_out</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbtreekey32-in-cstring">gbtreekey32_in(cstring)</a>
+		</h2>
+<h3>Returns: gbtreekey32</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbtreekey_in</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbtreekey32-out-public.gbtreekey32">gbtreekey32_out(public.gbtreekey32)</a>
+		</h2>
+<h3>Returns: cstring</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbtreekey_out</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbtreekey4-in-cstring">gbtreekey4_in(cstring)</a>
+		</h2>
+<h3>Returns: gbtreekey4</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbtreekey_in</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbtreekey4-out-public.gbtreekey4">gbtreekey4_out(public.gbtreekey4)</a>
+		</h2>
+<h3>Returns: cstring</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbtreekey_out</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbtreekey8-in-cstring">gbtreekey8_in(cstring)</a>
+		</h2>
+<h3>Returns: gbtreekey8</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbtreekey_in</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbtreekey8-out-public.gbtreekey8">gbtreekey8_out(public.gbtreekey8)</a>
+		</h2>
+<h3>Returns: cstring</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbtreekey_out</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbtreekey-var-in-cstring">gbtreekey_var_in(cstring)</a>
+		</h2>
+<h3>Returns: gbtreekey_var</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbtreekey_in</pre>
+	
+		<hr>
+		<h2>Function:
+			<a href="#public.schema"><a name="public.function.gbtreekey-var-out-public.gbtreekey-var">gbtreekey_var_out(public.gbtreekey_var)</a>
+		</h2>
+<h3>Returns: cstring</h3>
+<h3>Language: C</h3>
+        
+        <pre>gbtreekey_out</pre>
+	
+
+
+<p class="w3ref">Generated by <a href="http://www.rbt.ca/autodoc/">PostgreSQL Autodoc</a></p>
+<p class="w3ref"><a href="http://validator.w3.org/check/referer">W3C HTML 4.01 Strict</a></p>
+</body></html>
