@@ -1,0 +1,53 @@
+TOTUS New Zealand deployment
+
+1. Requirements:
+
+1.1. System:
+
+1. GNU bash
+2. PostgreSQL 9.1.x or newer (full development and server install)
+3. PostGIS 2.x or newer (full development and server install)
+4. gcc, gcc-c++
+5. cmake
+6. boost-devel, expat-devel, gdal
+7. perl, perl-Log-Log4perl, perl-Spreadsheet-ParseExcel
+8. wget
+9. ant
+10. pgRouting
+10.1 cd database/thirdparty/pgrouting 
+10.2 to install run cmake . 
+10.3 make
+10.4 sudo make install
+11. FeatureServer requires the following python modules (use package manager or pip-python to install)
+11.1 dxfwrite
+11.2 lxml
+11.3 Cheetah
+11.4 simplejson
+11.5 psycopg2
+11.6 shortuuid
+11.7 mod_python
+
+1.2. Datasets and configuration:
+
+1. Traffic model output, see database/data/test/traffic/2006 for test data set
+2. Statistics New Zealand census data sets (www.stats.govt.nz), see database/data/test/census for test data set
+3. INI file to configure TOTUS
+
+2. Steps:
+
+1. Copy and modify the INI file config/sample.ini 
+2. Prepare TOTUS build scripts, run ./prepare.sh -c <INI file>
+3. Build and deploy TOTUS, run ./build.sh -c <INI file>
+
+NOTES:
+
+If needed, Prepare the PostgreSQL template1 (default for all new databases) by enabling the postGIS and pgRouting extensions:
+
+psql -h localhost -U postgres -d template1 <<EOF
+    CREATE EXTENSION postgis;
+    CREATE EXTENSION pgrouting;
+EOF
+
+For further information read
+1. documents/totus-overview.pdf
+2. documents/totus-config.pdf
